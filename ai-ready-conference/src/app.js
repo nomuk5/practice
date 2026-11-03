@@ -33,8 +33,9 @@ function timeOf(id){
 
 /* ---------- speakers ---------- */
 (function(){
-  var html='';
-  SP.forEach(function(s){
+  var html='', soon='';
+  SP.forEach(function(s,idx){
+    if(idx===SP.length-1)html+='@@SOON@@';
     var ses=s.session&&sessions[s.session];
     var badge=s.status==='confirmed'?'<span class="badge mono">Confirmed</span>':'<span class="badge exp mono">Tentative</span>';
     html+='<article class="card">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
@@ -43,8 +44,8 @@ function timeOf(id){
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+
       '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div></div></article>';
   });
-  html+='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
-  $('#spGrid').innerHTML=html;
+  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
+  $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
 })();
 
 /* ---------- program ---------- */
