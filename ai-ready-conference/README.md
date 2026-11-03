@@ -11,3 +11,13 @@
 - 登壇者の肩書きのうち `verify: true` のものは検索で確認した情報のため、本人・所属先に最終確認してください。
 - 日清食品HDは告知協力「不可」、公表許諾は全員「未確認」。外部に見せる前に確認してください。
 - 「松尾先生」など未内諾の有識者は実名を出さず、Special Keynote の Coming Soon 枠にしています。
+
+## 写真の出典（Web公開素材。使用前に各権利者へ確認してください）
+| 登壇者 | 出典 |
+|---|---|
+| 鴨居 啓人 | Algomatic 公式サイト「私たちについて」(algomatic.jp/about) |
+| 橘 大地 | 日本の人事部 インタビュー記事 (jinjibu.jp/article/detl/topinterview/3625/) |
+| 小澤 健祐 | AIsmiley ウェビナーページ (aismiley.co.jp/webinar/aihakusummer20252a-5/) |
+| 小野 和俊 | type（エンジニアtype）記事 OG画像 (type.jp/et/feature/14193/)。2020年撮影 |
+| 成田 敏博 | Salesforce 日本ブログ インタビュー (salesforce.com/jp/blog/jp-cio-interview-nisshin/) |
+| 小田 健太郎・越川 滋代 | 本人と確認できる写真が見つからず、仮の肖像のまま |

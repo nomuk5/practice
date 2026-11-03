@@ -18,7 +18,7 @@ function portrait(id){
     '<ellipse cx="'+cx+'" cy="'+(hy+14)+'" rx="'+(hr*.9)+'" ry="'+hr+'" fill="#fff" fill-opacity=".34"/></svg>';
 }
 function photoHTML(s){
-  if(s.photo){return '<img src="'+s.photo+'" alt="'+s.name+'" loading="lazy" onerror="this.parentNode.classList.remove(\'real\');this.outerHTML=window.__portrait(\''+s.id+'\')">'}
+  if(s.photo){return '<img src="'+s.photo+'" alt="'+s.name+'" onerror="this.parentNode.classList.remove(\'real\');this.outerHTML=window.__portrait(\''+s.id+'\')">'}
   return portrait(s.id);
 }
 window.__portrait=portrait;

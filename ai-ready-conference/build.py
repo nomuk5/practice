@@ -31,4 +31,6 @@ tail = f'\n<script>\n{data}\n{app}\n</script>\n'
     '<!doctype html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n'
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
     + head + '</head>\n<body>\n' + body + tail + '</body>\n</html>\n', encoding="utf-8")
+import shutil
+shutil.copytree(root / "assets", dist / "assets", dirs_exist_ok=True)
 print("built", (dist / "index.html").stat().st_size, "bytes")

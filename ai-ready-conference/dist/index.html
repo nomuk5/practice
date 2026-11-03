@@ -157,7 +157,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 /* speakers */
 .paper{background:var(--paper)}
 .sp-lead{margin-top:clamp(36px,5vw,64px);display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
-.sp-lead p{max-width:36em;color:#2B2F40}
+.sp-lead p{max-width:42em;color:#2B2F40}
 .legend{display:flex;gap:18px;color:var(--muted)}
 .legend i{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px}
 .sp-grid{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,28px)}
@@ -166,7 +166,8 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cobalt)}
 .ph svg,.ph img{width:100%;height:100%;object-fit:cover}
 .ph.real{background:var(--cobalt)}
-.ph.real img{filter:grayscale(1) contrast(1.08) brightness(1.05);mix-blend-mode:multiply}
+.ph img{object-position:50% 12%}
+.ph.real img,.av img{filter:grayscale(1) contrast(1.1) brightness(1.12);mix-blend-mode:multiply;object-position:50% 12%}
 .badge{position:absolute;left:0;top:0;z-index:2;background:var(--ink);color:#fff;padding:5px 10px;font-size:10px}
 .badge.exp{background:var(--white);color:var(--ink)}
 .card .meta{padding:18px 18px 22px;display:flex;flex-direction:column;gap:2px;flex:1}
@@ -515,12 +516,12 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
 window.SPEAKERS = [
-  { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:null, verify:true },
+  { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true },
   { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:null, verify:true },
-  { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:null },
-  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', photo:null },
-  { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:null, verify:true },
-  { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:null, verify:true },
+  { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:'assets/speakers/tachibana.jpg' },
+  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', photo:'assets/speakers/ozawa.jpg' },
+  { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:'assets/speakers/ono.jpg', verify:true },
+  { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
   { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:null, verify:true }
 ];
 window.CANDIDATES = [
@@ -579,7 +580,7 @@ function portrait(id){
     '<ellipse cx="'+cx+'" cy="'+(hy+14)+'" rx="'+(hr*.9)+'" ry="'+hr+'" fill="#fff" fill-opacity=".34"/></svg>';
 }
 function photoHTML(s){
-  if(s.photo){return '<img src="'+s.photo+'" alt="'+s.name+'" loading="lazy" onerror="this.parentNode.classList.remove(\'real\');this.outerHTML=window.__portrait(\''+s.id+'\')">'}
+  if(s.photo){return '<img src="'+s.photo+'" alt="'+s.name+'" onerror="this.parentNode.classList.remove(\'real\');this.outerHTML=window.__portrait(\''+s.id+'\')">'}
   return portrait(s.id);
 }
 window.__portrait=portrait;
