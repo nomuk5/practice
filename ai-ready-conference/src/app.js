@@ -2,8 +2,8 @@
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-var SP=window.SPEAKERS, PG=window.PROGRAM;
-var byId={}; SP.forEach(function(s){byId[s.id]=s});
+var SP=window.SPEAKERS, PG=window.PROGRAM, BIOS=window.BIOS||{};
+var byId={}; SP.forEach(function(s){var b=BIOS[s.id]||{};if(b.role)s.role=b.role;s.hl=b.hl||'';s.bio=b.bio||[];byId[s.id]=s});
 
 /* ---------- deterministic generated portrait (used until real photos are supplied) ---------- */
 function hash(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
@@ -38,11 +38,11 @@ function timeOf(id){
     if(idx===SP.length-1)html+='@@SOON@@';
     var ses=s.session&&sessions[s.session];
     var badge=s.status==='confirmed'?'<span class="badge mono">Confirmed</span>':'<span class="badge exp mono">Tentative</span>';
-    html+='<article class="card">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
+    html+='<article class="card" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+' のプロフィールを開く">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
-      '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+
-      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div></div></article>';
+      '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
+      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div><span class="more mono">Profile +</span></div></article>';
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
@@ -83,6 +83,29 @@ function timeOf(id){
     e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'center'});
     el.classList.add('hl'); setTimeout(function(){el.classList.remove('hl')},2200);
   })});
+})();
+
+
+/* ---------- speaker profile dialog ---------- */
+(function(){
+  var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
+  function open(id){
+    var s=byId[id]; if(!s)return;
+    var ses=s.session&&sessions[s.session];
+    box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
+      '<span class="mono st">'+(s.status==='confirmed'?'Confirmed':'Tentative')+'</span>'+
+      '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
+      '<span class="en mono">'+s.en+'</span><p class="rl">'+(s.role||'')+'</p>'+
+      (s.bio.length?'<p class="mono lbl">Profile</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
+      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+'</div></div>';
+    if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
+  }
+  $$('#spGrid .card[data-sp]').forEach(function(c){
+    c.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(c.getAttribute('data-sp')); });
+    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c.getAttribute('data-sp'))} });
+  });
+  $('.dlg-x',dlg).addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg)dlg.close(); });
 })();
 
 /* ---------- header / nav ---------- */

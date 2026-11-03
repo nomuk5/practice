@@ -12,6 +12,26 @@ window.SPEAKERS = [
   { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
+
+/* 経歴・実績（公開情報を要約。掲載前に本人・所属先の確認が必要） */
+window.BIOS = {
+  kamoi:{ role:'代表取締役 CEO', hl:'元アクセンチュア AIグループ／IPAデジタル人材育成事業 専門委員',
+    bio:['株式会社Algomatic 代表取締役CEO。生成AIで「企業のOS」をつくり替える構想を率いる','慶應義塾大学大学院修了後、データサイエンティスト／AIエンジニアとしてアクセンチュアに入社','2024年5月にAlgomaticへ参画。2026年6月にCEOへ就任','IPA（情報処理推進機構）のデジタル人材育成事業に、専門委員として参加'] },
+  oda:{ role:'事業開発部長（アジア太平洋地域統括）', hl:'Google Cloud アジア太平洋地域の事業開発を統括',
+    bio:['グーグル・クラウド・ジャパン所属。アジア太平洋地域統括 事業開発部 事業開発部長','生成AIを軸にした企業向けセミナー・イベントに登壇','企業のAI導入における、選定・発注・意思決定の判断軸を語る'] },
+  tachibana:{ role:'代表取締役 CEO', hl:'元弁護士／「クラウドサイン」事業責任者を経て創業',
+    bio:['弁護士として企業法務に従事','弁護士ドットコムで、電子契約サービス「クラウドサイン」の事業責任者を務める','PeopleXを創業。AI面接・AI面談・AIロープレなど、採用から育成までを支援するAIプロダクトを展開'] },
+  ozawa:{ role:'代表理事', hl:'経産省 AX時代スキル検討WG委員／著書『AIエージェントの教科書』',
+    bio:['一般社団法人AICX協会 代表理事。AIエージェント実装人材の育成・認定に取り組む','経済産業省「AX時代におけるスキルのあり方検討ワーキンググループ」委員','著書に『生成AI導入の教科書』『AIエージェントの教科書』','年間300回以上の登壇、AI関連記事1,000本以上を執筆。元AINOW編集長','大分県「DAIB」フェロー。複数のAI企業の取締役も務める'] },
+  chaen:{ role:'代表取締役 CEO', hl:'Google Japan Official Geminiアドバイザー／SNS総フォロワー22万人超',
+    bio:['2023年に株式会社デジライズを設立。法人向けAI研修・AIソリューションを提供','Google Japan Official Geminiアドバイザー','GMO AI & Web3株式会社 顧問。GMOインターネットグループがデジライズに出資','一般社団法人生成AI活用普及協会 評議員。SNS総フォロワー数22万人以上'] },
+  ono:{ role:'取締役 専務執行役員 CDO/CTO', hl:'日本CTO協会 理事／東京都デジタルサービス会議 構成員',
+    bio:['Sun Microsystems、アプレッソ創業（データ連携ミドルウェア「DataSpider」）を経て、セゾン情報システムズ（現セゾンテクノロジー）のCTOに就任','2019年にクレディセゾンへ。内製開発組織を、ゼロから約200人規模へ育てる','一般社団法人日本CTO協会 理事','東京都 デジタルサービス会議 構成員'] },
+  narita:{ role:'執行役員 CIO（グループ情報責任者）', hl:'ChatGPTを早期導入し、社内利用率50%超へ',
+    bio:['日清食品ホールディングス 執行役員 CIO。グループのテクノロジー戦略をリード','アクセンチュア、DeNA、メルカリを経て日清食品ホールディングスへ','ChatGPTを早期に導入し、社内の利用率は早々に50%を超える','2024年3月、IR説明会で「生成AI活用の取り組み」を発表'] },
+  koshikawa:{ role:'AI推進ディビジョン', hl:'LINEヤフー全社の生成AI活用・人材育成を推進',
+    bio:['LINEヤフー株式会社で、全社の生成AI活用推進を担当','社内向け生成AI教育プログラム「Generative AI Boot Camp」の構築に関与','生成AI推進担当者向けカンファレンス「Generative AI Business Day」に登壇'] }
+};
 /* kind: common | track ; time は開始-終了 */
 window.PROGRAM = [
   { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:[] },

@@ -330,6 +330,37 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 @media (max-width:900px){.logos.l4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.lt{height:92px;padding:16px}.lt.big{height:120px}.logos.l2{grid-template-columns:1fr}.card.soon{grid-column:1 / -1}}
 
+/* speaker card extras + profile dialog */
+.card[data-sp]{cursor:pointer}
+.card .hl{margin-top:8px;font-size:12px;line-height:1.65;color:var(--ink);font-weight:500;padding-left:10px;border-left:2px solid var(--cobalt)}
+.card .more{display:block;margin-top:12px;color:var(--cobalt);font-size:11px}
+.card:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.dlg{width:min(940px,calc(100vw - 32px));max-height:calc(100vh - 48px);padding:0;border:0;background:var(--white);color:var(--ink);overflow:auto}
+.dlg::backdrop{background:rgba(11,13,20,.72)}
+.dlg-x{position:absolute;right:12px;top:12px;z-index:3;width:44px;height:44px;border:0;background:var(--ink);color:#fff}
+.dlg-x span{position:absolute;left:12px;right:12px;top:21px;height:2px;background:currentColor;transform:rotate(45deg)}
+.dlg-x span+span{transform:rotate(-45deg)}
+.dlg-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.dlg-ph{aspect-ratio:auto;min-height:100%;height:100%}
+.dlg-ph img,.dlg-ph svg{position:absolute;inset:0}
+.dlg-tx{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:4px;min-width:0}
+.dlg-tx .st{color:var(--muted)}
+.dlg-tx .org{color:var(--cobalt);font-weight:700;font-size:14px;margin-top:10px}
+.dlg-tx .nm{margin:0;font-size:clamp(28px,3.4vw,42px);font-weight:900;line-height:1.3;font-feature-settings:"palt"}
+.dlg-tx .nm small{font-size:.42em;font-weight:500;color:var(--muted);margin-left:.6em}
+.dlg-tx .en{color:var(--muted)}
+.dlg-tx .rl{margin:8px 0 0;font-weight:700;font-size:15px;line-height:1.6}
+.dlg-tx .lbl{margin:22px 0 0;color:var(--cobalt);padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.dlg-tx ul{list-style:none;margin:0;padding:0}
+.dlg-tx li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.75}
+.dsess{margin-top:22px;padding:14px 16px;background:var(--paper);font-size:13.5px;font-weight:700;line-height:1.6}
+.dsess .mono{display:block;color:var(--cobalt);font-weight:400;margin-bottom:2px}
+@media (max-width:700px){
+  .dlg-in{grid-template-columns:1fr}
+  .dlg-ph{aspect-ratio:4/3;min-height:0;height:auto}
+  .dlg-ph img{object-position:50% 18%}
+}
+
 </style>
 <div class="sample mono"><b>SAMPLE DESIGN</b>　掲載内容は予定・調整中の情報を含みます。申込フォームは送信されません。</div>
 
@@ -520,6 +551,8 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 </section>
 </main>
 
+<dialog class="dlg" id="spDlg" aria-label="登壇者プロフィール"><button class="dlg-x" aria-label="閉じる"><span></span><span></span></button><div class="dlg-in" id="spDlgIn"></div></dialog>
+
 <footer class="ft on-dark">
   <div class="wrap">
     <div class="ft-top">
@@ -545,6 +578,26 @@ window.SPEAKERS = [
   { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
+
+/* 経歴・実績（公開情報を要約。掲載前に本人・所属先の確認が必要） */
+window.BIOS = {
+  kamoi:{ role:'代表取締役 CEO', hl:'元アクセンチュア AIグループ／IPAデジタル人材育成事業 専門委員',
+    bio:['株式会社Algomatic 代表取締役CEO。生成AIで「企業のOS」をつくり替える構想を率いる','慶應義塾大学大学院修了後、データサイエンティスト／AIエンジニアとしてアクセンチュアに入社','2024年5月にAlgomaticへ参画。2026年6月にCEOへ就任','IPA（情報処理推進機構）のデジタル人材育成事業に、専門委員として参加'] },
+  oda:{ role:'事業開発部長（アジア太平洋地域統括）', hl:'Google Cloud アジア太平洋地域の事業開発を統括',
+    bio:['グーグル・クラウド・ジャパン所属。アジア太平洋地域統括 事業開発部 事業開発部長','生成AIを軸にした企業向けセミナー・イベントに登壇','企業のAI導入における、選定・発注・意思決定の判断軸を語る'] },
+  tachibana:{ role:'代表取締役 CEO', hl:'元弁護士／「クラウドサイン」事業責任者を経て創業',
+    bio:['弁護士として企業法務に従事','弁護士ドットコムで、電子契約サービス「クラウドサイン」の事業責任者を務める','PeopleXを創業。AI面接・AI面談・AIロープレなど、採用から育成までを支援するAIプロダクトを展開'] },
+  ozawa:{ role:'代表理事', hl:'経産省 AX時代スキル検討WG委員／著書『AIエージェントの教科書』',
+    bio:['一般社団法人AICX協会 代表理事。AIエージェント実装人材の育成・認定に取り組む','経済産業省「AX時代におけるスキルのあり方検討ワーキンググループ」委員','著書に『生成AI導入の教科書』『AIエージェントの教科書』','年間300回以上の登壇、AI関連記事1,000本以上を執筆。元AINOW編集長','大分県「DAIB」フェロー。複数のAI企業の取締役も務める'] },
+  chaen:{ role:'代表取締役 CEO', hl:'Google Japan Official Geminiアドバイザー／SNS総フォロワー22万人超',
+    bio:['2023年に株式会社デジライズを設立。法人向けAI研修・AIソリューションを提供','Google Japan Official Geminiアドバイザー','GMO AI & Web3株式会社 顧問。GMOインターネットグループがデジライズに出資','一般社団法人生成AI活用普及協会 評議員。SNS総フォロワー数22万人以上'] },
+  ono:{ role:'取締役 専務執行役員 CDO/CTO', hl:'日本CTO協会 理事／東京都デジタルサービス会議 構成員',
+    bio:['Sun Microsystems、アプレッソ創業（データ連携ミドルウェア「DataSpider」）を経て、セゾン情報システムズ（現セゾンテクノロジー）のCTOに就任','2019年にクレディセゾンへ。内製開発組織を、ゼロから約200人規模へ育てる','一般社団法人日本CTO協会 理事','東京都 デジタルサービス会議 構成員'] },
+  narita:{ role:'執行役員 CIO（グループ情報責任者）', hl:'ChatGPTを早期導入し、社内利用率50%超へ',
+    bio:['日清食品ホールディングス 執行役員 CIO。グループのテクノロジー戦略をリード','アクセンチュア、DeNA、メルカリを経て日清食品ホールディングスへ','ChatGPTを早期に導入し、社内の利用率は早々に50%を超える','2024年3月、IR説明会で「生成AI活用の取り組み」を発表'] },
+  koshikawa:{ role:'AI推進ディビジョン', hl:'LINEヤフー全社の生成AI活用・人材育成を推進',
+    bio:['LINEヤフー株式会社で、全社の生成AI活用推進を担当','社内向け生成AI教育プログラム「Generative AI Boot Camp」の構築に関与','生成AI推進担当者向けカンファレンス「Generative AI Business Day」に登壇'] }
+};
 /* kind: common | track ; time は開始-終了 */
 window.PROGRAM = [
   { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:[] },
@@ -575,8 +628,8 @@ window.PROGRAM = [
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-var SP=window.SPEAKERS, PG=window.PROGRAM;
-var byId={}; SP.forEach(function(s){byId[s.id]=s});
+var SP=window.SPEAKERS, PG=window.PROGRAM, BIOS=window.BIOS||{};
+var byId={}; SP.forEach(function(s){var b=BIOS[s.id]||{};if(b.role)s.role=b.role;s.hl=b.hl||'';s.bio=b.bio||[];byId[s.id]=s});
 
 /* ---------- deterministic generated portrait (used until real photos are supplied) ---------- */
 function hash(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
@@ -611,11 +664,11 @@ function timeOf(id){
     if(idx===SP.length-1)html+='@@SOON@@';
     var ses=s.session&&sessions[s.session];
     var badge=s.status==='confirmed'?'<span class="badge mono">Confirmed</span>':'<span class="badge exp mono">Tentative</span>';
-    html+='<article class="card">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
+    html+='<article class="card" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+' のプロフィールを開く">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
-      '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+
-      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div></div></article>';
+      '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
+      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div><span class="more mono">Profile +</span></div></article>';
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
@@ -656,6 +709,29 @@ function timeOf(id){
     e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'center'});
     el.classList.add('hl'); setTimeout(function(){el.classList.remove('hl')},2200);
   })});
+})();
+
+
+/* ---------- speaker profile dialog ---------- */
+(function(){
+  var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
+  function open(id){
+    var s=byId[id]; if(!s)return;
+    var ses=s.session&&sessions[s.session];
+    box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
+      '<span class="mono st">'+(s.status==='confirmed'?'Confirmed':'Tentative')+'</span>'+
+      '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
+      '<span class="en mono">'+s.en+'</span><p class="rl">'+(s.role||'')+'</p>'+
+      (s.bio.length?'<p class="mono lbl">Profile</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
+      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+'</div></div>';
+    if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
+  }
+  $$('#spGrid .card[data-sp]').forEach(function(c){
+    c.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(c.getAttribute('data-sp')); });
+    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c.getAttribute('data-sp'))} });
+  });
+  $('.dlg-x',dlg).addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg)dlg.close(); });
 })();
 
 /* ---------- header / nav ---------- */

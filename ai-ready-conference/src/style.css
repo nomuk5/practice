@@ -323,3 +323,34 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .note-s{font-size:12px;color:var(--muted);margin:-20px 0 0}
 @media (max-width:900px){.logos.l4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.lt{height:92px;padding:16px}.lt.big{height:120px}.logos.l2{grid-template-columns:1fr}.card.soon{grid-column:1 / -1}}
+
+/* speaker card extras + profile dialog */
+.card[data-sp]{cursor:pointer}
+.card .hl{margin-top:8px;font-size:12px;line-height:1.65;color:var(--ink);font-weight:500;padding-left:10px;border-left:2px solid var(--cobalt)}
+.card .more{display:block;margin-top:12px;color:var(--cobalt);font-size:11px}
+.card:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.dlg{width:min(940px,calc(100vw - 32px));max-height:calc(100vh - 48px);padding:0;border:0;background:var(--white);color:var(--ink);overflow:auto}
+.dlg::backdrop{background:rgba(11,13,20,.72)}
+.dlg-x{position:absolute;right:12px;top:12px;z-index:3;width:44px;height:44px;border:0;background:var(--ink);color:#fff}
+.dlg-x span{position:absolute;left:12px;right:12px;top:21px;height:2px;background:currentColor;transform:rotate(45deg)}
+.dlg-x span+span{transform:rotate(-45deg)}
+.dlg-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.dlg-ph{aspect-ratio:auto;min-height:100%;height:100%}
+.dlg-ph img,.dlg-ph svg{position:absolute;inset:0}
+.dlg-tx{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:4px;min-width:0}
+.dlg-tx .st{color:var(--muted)}
+.dlg-tx .org{color:var(--cobalt);font-weight:700;font-size:14px;margin-top:10px}
+.dlg-tx .nm{margin:0;font-size:clamp(28px,3.4vw,42px);font-weight:900;line-height:1.3;font-feature-settings:"palt"}
+.dlg-tx .nm small{font-size:.42em;font-weight:500;color:var(--muted);margin-left:.6em}
+.dlg-tx .en{color:var(--muted)}
+.dlg-tx .rl{margin:8px 0 0;font-weight:700;font-size:15px;line-height:1.6}
+.dlg-tx .lbl{margin:22px 0 0;color:var(--cobalt);padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.dlg-tx ul{list-style:none;margin:0;padding:0}
+.dlg-tx li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.75}
+.dsess{margin-top:22px;padding:14px 16px;background:var(--paper);font-size:13.5px;font-weight:700;line-height:1.6}
+.dsess .mono{display:block;color:var(--cobalt);font-weight:400;margin-bottom:2px}
+@media (max-width:700px){
+  .dlg-in{grid-template-columns:1fr}
+  .dlg-ph{aspect-ratio:4/3;min-height:0;height:auto}
+  .dlg-ph img{object-position:50% 18%}
+}
