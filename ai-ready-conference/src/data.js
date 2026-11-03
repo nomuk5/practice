@@ -1,9 +1,10 @@
 /* ===== AI READY CONFERENCE 2027 — content data =====
-   登壇者の掲載/非掲載は status と hidden で切り替え可能。
+   status: 'confirmed'=登壇決定（出演承諾を確認済み） / 'expected'=登壇調整中（承諾未確認）。
+   承諾の根拠は進行管理表の記録のみ。他イベントへの出演実績・過去の発表は根拠にしない。
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
 window.SPEAKERS = [
-  { id:'ogata',   status:'confirmed', name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
+  { id:'ogata',   status:'expected' , name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
   { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:'assets/speakers/oda.jpg', verify:true },
   { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
@@ -54,8 +55,8 @@ window.PROGRAM = [
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
   { t:'15:20', e:'15:30', type:'break', title:'Break' },
   { t:'15:30', e:'16:10', type:'tracks',
-    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト（調整中）'], pair:true },
-    smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:調整中'] } },
+    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
+    smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
   { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
   { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] }

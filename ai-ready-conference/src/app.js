@@ -31,37 +31,80 @@ function timeOf(id){
   return '';
 }
 
+/* ---------- status (登壇決定 / 登壇調整中) — one source of truth ---------- */
+var ST={confirmed:'登壇決定',expected:'登壇調整中'};
+function stLabel(s){return ST[s.status]||ST.expected}
+function badge(s){return '<span class="badge'+(s.status==='confirmed'?'':' exp')+' mono">'+stLabel(s)+'</span>'}
+function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var s=byId[k]; return !s||s.status!=='confirmed'; }
+
+/* ---------- hero featured speakers (登壇決定の方を優先) ---------- */
+(function(){
+  var ids=['oda','tachibana','ozawa','chaen'];
+  $('#heroSp').innerHTML=ids.map(function(id){var s=byId[id];
+    return '<article class="hsp" tabindex="0" role="button" data-open="'+id+'" aria-label="'+s.name+' のプロフィールを開く"><div class="hp ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="hx">'+badge(s)+'<span class="org">'+s.org+'</span><b class="nm jp">'+s.name+'</b><span class="rl">'+(s.role||'&nbsp;')+'</span></div></article>';
+  }).join('');
+})();
+
 /* ---------- speakers ---------- */
 (function(){
   var html='', soon='';
   SP.forEach(function(s,idx){
     if(idx===SP.length-1)html+='@@SOON@@';
     var ses=s.session&&sessions[s.session];
-    var badge=s.status==='confirmed'?'<span class="badge mono">Confirmed</span>':'<span class="badge exp mono">Tentative</span>';
-    html+='<article class="card" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+' のプロフィールを開く">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
+    var pend=s.status!=='confirmed';
+    html+='<article class="card'+(pend?' pend':'')+'" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+'（'+stLabel(s)+'）のプロフィールを開く"><div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+badge(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
-      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div><span class="more mono">Profile +</span></div></article>';
+      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
   });
-  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
+  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
+})();
+
+/* ---------- themes / tracks: session lists generated from the program (titles stay in one place) ---------- */
+(function(){
+  $$('[data-ses]').forEach(function(ul){
+    ul.innerHTML=ul.getAttribute('data-ses').split(',').map(function(id){
+      var x=sessions[id]; if(!x)return '';
+      var pend=(x.who||[]).some(isPending);
+      return '<li><a href="#'+id+'" data-go="'+id+'"><span class="mono">'+timeOf(id)+'</span>'+x.title+'</a>'+(pend?'<em class="pnd">登壇者調整中</em>':'')+'</li>';
+    }).join('');
+  });
+  $$('[data-track]').forEach(function(ul){
+    var key=ul.getAttribute('data-track'), out='';
+    PG.forEach(function(p){ if(p.type==='tracks'){var x=p[key]; var pend=(x.who||[]).some(isPending);
+      out+='<li><span class="mono">'+p.t+'</span><span>'+x.title+(pend?'<em class="pnd">登壇者調整中</em>':'')+'</span></li>';}});
+    ul.innerHTML=out;
+  });
+})();
+
+/* ---------- speaker organizations (登壇者所属 — 協賛ではない) ---------- */
+(function(){
+  var seen={}, groups={confirmed:[],expected:[]};
+  SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};groups[s.status==='confirmed'?'confirmed':'expected'].push(seen[s.org]);} seen[s.org].sp.push(s); });
+  function tile(o,st){return '<div class="ot"><span class="mono '+(st==='confirmed'?'ok':'wait')+'">'+ST[st]+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
+  var h='<div class="og"><p class="mono">登壇決定</p><div class="ogg">'+groups.confirmed.map(function(o){return tile(o,'confirmed')}).join('')+'</div></div>';
+  h+='<div class="og"><p class="mono">登壇調整中</p><div class="ogg">'+groups.expected.map(function(o){return tile(o,'expected')}).join('')+'</div></div>';
+  $('#orgGrid').innerHTML=h;
+  $('#orgNote').textContent='Algomaticは、企画・運営（予定）のDMMと同じグループの関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
 /* ---------- program ---------- */
 (function(){
   function whoHTML(list){
     var out=[];
-    list.forEach(function(k,i){
-      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>Special Keynote</b><span class="t">登壇者調整中</span></span></span>');return}
-      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>Speaker TBA</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
-      var s=byId[k];
-      out.push('<span class="w"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span></span></span>');
+    list.forEach(function(k){
+      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
+      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
+      var s=byId[k], pend=s.status!=='confirmed';
+      out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+(pend?' wait':'')+'">'+stLabel(s)+'</span></span></span>');
     });
     return out.join('<span class="x">×</span>');
   }
   function ses(x,cls){
-    return '<div class="ses '+(cls||'')+'" id="'+x.id+'"><span class="mono">'+x.tag+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
+    var pend=(x.who||[]).some(isPending);
+    return '<div class="ses '+(cls||'')+(pend?' pending':'')+'" id="'+x.id+'"><span class="mono">'+x.tag+(pend?'<em class="chip-p">登壇者調整中</em>':'')+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
   }
   var h='';
   PG.forEach(function(p){
@@ -85,26 +128,26 @@ function timeOf(id){
   })});
 })();
 
-
 /* ---------- speaker profile dialog ---------- */
 (function(){
   var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
   function open(id){
     var s=byId[id]; if(!s)return;
-    var ses=s.session&&sessions[s.session];
+    var ses=s.session&&sessions[s.session], pend=s.status!=='confirmed';
     box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
-      '<span class="mono st">'+(s.status==='confirmed'?'Confirmed':'Tentative')+'</span>'+
+      '<span class="st-l '+(pend?'wait':'ok')+'">'+stLabel(s)+'</span>'+
       '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="en mono">'+s.en+'</span><p class="rl">'+(s.role||'')+'</p>'+
-      (s.bio.length?'<p class="mono lbl">Profile</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
-      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+'</div></div>';
+      (s.bio.length?'<p class="mono lbl">Profile　経歴・実績</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
+      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div></div>';
     if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
   }
   $$('#spGrid .card[data-sp]').forEach(function(c){
     c.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(c.getAttribute('data-sp')); });
     c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c.getAttribute('data-sp'))} });
   });
-  $$('[data-open]').forEach(function(b){ b.addEventListener('click',function(){open(b.getAttribute('data-open'))}); });
+  $$('[data-open]').forEach(function(b){ b.addEventListener('click',function(){open(b.getAttribute('data-open'))});
+    b.addEventListener('keydown',function(e){ if(b.tagName!=='BUTTON'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();open(b.getAttribute('data-open'))} }); });
   $('.dlg-x',dlg).addEventListener('click',function(){dlg.close()});
   dlg.addEventListener('click',function(e){ if(e.target===dlg)dlg.close(); });
 })();

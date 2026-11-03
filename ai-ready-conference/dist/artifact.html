@@ -87,30 +87,15 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .h-title{margin-top:clamp(22px,3.4vw,44px);font-size:clamp(52px,12.4vw,208px);white-space:nowrap}
 .h-title small{display:block;font-size:.36em;letter-spacing:-.02em;margin-top:.14em;line-height:1;color:#fff}
 .h-title small em{font-style:normal;color:#9FB0FF}
-.h-row{margin-top:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
 .h-lead{font-size:clamp(26px,3.3vw,46px);font-weight:900;line-height:1.38;font-feature-settings:"palt";text-wrap:balance;word-break:auto-phrase}
 .h-sub{margin-top:18px;max-width:34em;color:#DCE1FF;font-size:15px;line-height:1.9}
 .h-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
-.h-date{border-top:1.5px solid rgba(255,255,255,.6);padding-top:16px}
-.h-date .d{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:clamp(32px,4.6vw,68px);letter-spacing:-.04em;line-height:.95;font-variant-numeric:tabular-nums}
-.h-date .d span{color:#9FB0FF}
-.h-date dl{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:14px}
-.h-date dt{color:#AEB9FF}
-.h-date dd{margin:0;font-weight:500}
 .kv{position:relative;z-index:1;height:clamp(170px,22vw,300px);margin-top:clamp(28px,4vw,56px)}
 .kv canvas{width:100%;height:100%}
 .kv .mono{position:absolute;left:var(--gutter);top:0;color:#C8D0FF;display:flex;align-items:center;gap:10px}
 .kv .mono::before{content:"";width:8px;height:8px;background:#fff;border-radius:50%}
 
 /* facts */
-.facts{border-bottom:1px solid var(--line)}
-.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.fact{padding:28px 24px 30px 0;border-right:1px solid var(--line)}
-.fact+.fact{padding-left:24px}
-.fact:last-child{border-right:0}
-.fact .mono{color:var(--muted)}
-.fact p{margin-top:8px;font-size:15px;font-weight:700;line-height:1.6}
-.fact p small{display:block;font-weight:400;color:var(--muted);font-size:13px}
 
 /* section frame */
 .sec{padding:clamp(72px,9vw,140px) 0}
@@ -126,20 +111,12 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .statement{font-size:clamp(26px,3.5vw,50px);font-weight:900;line-height:1.42;font-feature-settings:"palt";text-wrap:balance;word-break:auto-phrase}
 .statement em{font-style:normal;color:var(--cobalt)}
 .about-cols{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px clamp(24px,4vw,56px);color:#2B2F40}
-.aud{margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.aud div{padding:18px 16px 0 0;font-weight:700;font-size:15px;line-height:1.55}
-.aud .mono{display:block;color:var(--muted);font-weight:400;margin-bottom:6px}
 
 /* themes (ink) */
 .on-dark{background:var(--ink);color:#fff}
 .themes{margin-top:clamp(40px,6vw,88px);border-top:1px solid var(--line-on-ink)}
 .theme{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:16px clamp(20px,3vw,48px);align-items:center;padding:clamp(24px,3.4vw,44px) 0;border-bottom:1px solid var(--line-on-ink);transition:background .25s,padding .25s}
 .theme:hover{background:var(--ink-2);padding-left:20px;padding-right:20px}
-.theme .disp{font-size:clamp(34px,5.2vw,78px)}
-.theme h3{font-size:clamp(20px,2vw,28px);font-weight:900;line-height:1.5}
-.theme p{margin-top:6px;color:var(--muted-on-ink);font-size:14px;line-height:1.85}
-.theme .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
-.chip{display:inline-flex;align-items:center;height:24px;padding:0 10px;border:1px solid var(--line-on-ink);font-size:11px;color:#C6CBE0}
 .tracks{margin-top:clamp(48px,7vw,96px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line-on-ink)}
 .track{background:var(--ink);padding:clamp(24px,3vw,44px)}
 .track.e{background:var(--cobalt)}
@@ -269,17 +246,10 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 @media (max-width:900px){
   .nav,.hd .btn{display:none}
   .menu{display:block}
-  .h-row{grid-template-columns:1fr}
-  .facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .fact:nth-child(2){border-right:0}
-  .fact:nth-child(3){padding-left:0}
-  .fact:nth-child(n+3){border-top:1px solid var(--line)}
   .sec-h,.about-body{grid-template-columns:1fr}
   .about-body > div{grid-column:1}
   .about-cols{grid-template-columns:1fr}
-  .aud{grid-template-columns:repeat(2,minmax(0,1fr))}
   .theme{grid-template-columns:1fr}
-  .theme .chips{justify-content:flex-start}
   .tracks{grid-template-columns:1fr}
   .reg-grid{grid-template-columns:1fr}
   .ft-top{grid-template-columns:1fr}
@@ -297,15 +267,11 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 @media (max-width:560px){
   .sp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .fg{grid-template-columns:1fr}
-  .h-date dl{grid-template-columns:auto 1fr}
   .sp-grid{gap:12px}
   .card .meta{padding:14px 12px 16px}
   .card .nm{font-size:19px}
   .card .ss{font-size:12px}
   .btn{flex:1 1 100%}
-  .fact{padding-right:12px}
-  .fact+.fact{padding-left:14px}
-  .fact:nth-child(3){padding-left:0}
   .track li{flex-direction:column;gap:2px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -314,21 +280,6 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 }
 
 /* sponsors */
-.sp-block{margin-top:clamp(36px,5vw,64px)}
-.tier{color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:12px}
-.tier::after{content:"";flex:1;height:1px;background:var(--line)}
-.logos{display:grid;gap:2px;margin-bottom:clamp(32px,4vw,52px);background:var(--line);border:1px solid var(--line)}
-.logos.l2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.logos.l4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.lt{background:var(--white);display:flex;align-items:center;justify-content:center;height:112px;padding:20px 28px;min-width:0}
-.lt.big{height:164px}
-.lt img{height:var(--h,30px);width:auto;max-width:100%;object-fit:contain;filter:brightness(0);opacity:.8;transition:opacity .2s}
-.lt:hover img{opacity:1}
-.lt.open{flex-direction:column;gap:4px;background:var(--paper);text-align:center;font-size:12.5px;color:var(--muted);outline:1.5px dashed rgba(11,13,20,.3);outline-offset:-10px}
-.lt.open .mono{color:var(--cobalt)}
-.note-s{font-size:12px;color:var(--muted);margin:-20px 0 0}
-@media (max-width:900px){.logos.l4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.lt{height:92px;padding:16px}.lt.big{height:120px}.logos.l2{grid-template-columns:1fr}.card.soon{grid-column:1 / -1}}
 
 /* speaker card extras + profile dialog */
 .card[data-sp]{cursor:pointer}
@@ -386,76 +337,200 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .phy-guest .mono{display:block;color:#fff;margin-bottom:2px}
 @media (max-width:900px){.phy-grid{grid-template-columns:1fr}.phy-side{max-width:420px}}
 
+/* ===== v2: 商談向け改訂（登壇状況の統一表示・4テーマ・主催/所属の整理） ===== */
+.drawer a{font-size:26px}
+.drawer a small{display:block;font-family:var(--f-mono);font-size:11px;font-weight:400;letter-spacing:.08em;margin-top:2px;opacity:.75}
+.sec-h .mono b{font-family:var(--f-body);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:none;color:var(--ink);margin-left:2px}
+.on-dark .sec-h .mono b{color:#fff}
+.sec-lead{margin:clamp(22px,3vw,40px) 0 0;max-width:42em;color:var(--muted-on-ink);font-size:15px}
+.sec-lead.dk{color:#2B2F40}
+.pnd{display:inline-block;margin-left:8px;font-style:normal;font-size:11px;font-weight:700;line-height:1.5;padding:1px 7px;border:1px dashed currentColor;white-space:nowrap}
+.badge{font-family:var(--f-body);font-size:11px;letter-spacing:.04em;text-transform:none;font-weight:700}
+.badge.exp{background:#fff;color:var(--ink);outline:1.5px dashed var(--ink);outline-offset:-3px;padding:5px 12px}
+
+/* hero (compact title + key facts + featured speakers) */
+.hero-in{padding-top:clamp(20px,2.6vw,40px)}
+.h-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,72px);align-items:end}
+.h-title{margin-top:clamp(14px,1.8vw,24px);font-size:clamp(34px,7vw,116px)}
+.h-kicker{margin:clamp(18px,2.4vw,32px) 0 0;font-size:clamp(15px,1.4vw,19px);font-weight:700;color:#C8D0FF;letter-spacing:.06em}
+.h-lead{margin-top:4px;font-size:clamp(22px,2.6vw,38px)}
+.h-sub{margin-top:14px}
+.h-cta{margin-top:22px}
+.h-info{border-top:1.5px solid rgba(255,255,255,.6);padding-top:14px}
+.h-info .d{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:clamp(30px,3.7vw,56px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:0}
+.h-info .d span{color:#9FB0FF}
+.h-info .d small{margin-left:14px;color:#C8D0FF;letter-spacing:.1em;font-stretch:100%}
+.h-info dl{margin:16px 0 0;display:grid;grid-template-columns:auto 1fr;gap:9px 18px;font-size:13.5px;line-height:1.65}
+.h-info dt{color:#AEB9FF;font-size:12px;padding-top:1px;white-space:nowrap}
+.h-info dd{margin:0;font-weight:500}
+.h-sp{margin-top:clamp(22px,2.4vw,34px);padding-top:14px;border-top:1px solid rgba(255,255,255,.3)}
+.h-sp-h{display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;align-items:baseline}
+.h-sp-h .mono{margin:0;color:#C8D0FF}
+.h-leg i{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px}
+.h-leg .k1{background:#fff}.h-leg .k2{border:1.5px dashed #fff}
+.h-sp-g{margin-top:12px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hsp{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px;align-items:center;padding:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
+.hsp:hover{background:rgba(255,255,255,.2)}
+.hsp:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.hp{aspect-ratio:4/5;width:100%}
+.hx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.hx .badge{position:static;align-self:flex-start;margin-bottom:4px;background:#fff;color:var(--cobalt);font-size:10.5px;padding:2px 8px}
+.hx .badge.exp{background:transparent;color:#fff;outline:1px dashed rgba(255,255,255,.8);outline-offset:-1px}
+.hx .org{font-size:11.5px;color:#C8D0FF;font-weight:500;line-height:1.4}
+.hx .nm{font-size:clamp(16px,1.4vw,19px);font-weight:900;line-height:1.35;font-feature-settings:"palt"}
+.hx .rl{font-size:11px;color:#DCE1FF;line-height:1.5}
+.kv{height:clamp(64px,7.5vw,110px);margin-top:clamp(24px,3vw,40px)}
+
+/* overview */
+.about-p{margin:22px 0 0;max-width:46em;color:#2B2F40}
+.ov{margin:clamp(28px,4vw,48px) 0 0;border-top:1px solid var(--ink)}
+.ov>div{display:grid;grid-template-columns:minmax(110px,170px) minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ov dt{font-weight:700;font-size:14px}
+.ov dd{margin:0;font-size:15px;line-height:1.75}
+.ov dd small{display:block;margin-top:2px;color:var(--muted);font-size:12.5px;line-height:1.7}
+
+/* four themes */
+.theme{grid-template-columns:minmax(0,4fr) minmax(0,3.6fr) minmax(0,4.4fr);align-items:start;gap:16px clamp(20px,3vw,48px)}
+.th-h .mono{display:block;color:#9FB0FF}
+.th-h h3{margin-top:6px;font-size:clamp(26px,3vw,42px);font-weight:900;line-height:1.3;font-feature-settings:"palt"}
+.th-p{margin:0;color:var(--muted-on-ink);font-size:14.5px;line-height:1.9}
+.th-s>.mono{display:block;color:#9FB0FF;margin-bottom:6px}
+.th-s ul{list-style:none;margin:0;padding:0}
+.th-s li{margin-bottom:6px;font-size:13.5px;line-height:1.6}
+.th-s li a{display:inline-flex;gap:10px;color:#fff;border-bottom:1px solid transparent}
+.th-s li a:hover{border-bottom-color:#fff}
+.th-s li a .mono{flex:none;width:90px;color:#9FB0FF}
+.plan{margin:10px 0 0;padding:10px 12px;border:1px dashed rgba(255,255,255,.5);font-size:12.5px;line-height:1.7;color:#E6EAFF}
+.plan .mono{display:inline-block;margin:0 8px 0 0;padding:1px 7px;color:#fff;background:rgba(255,255,255,.18)}
+.plan-note{margin:20px 0 0;font-size:12.5px;color:var(--muted-on-ink)}
+.tk-jp{margin:4px 0 0;font-weight:700;font-size:14px;color:#C8D0FF}
+.track .for{margin-top:12px}
+.track li{align-items:baseline}
+.track .plan{margin-top:14px}
+
+/* physical ai */
+.phy-jp{margin:10px 0 0;font-weight:700;font-size:15px;color:#C8D0FF}
+.phy-ph{position:relative}
+.phy-ph .badge{left:0;top:0}
+
+/* speaker cards */
+.card .ss .pnd{white-space:normal;display:block;margin:6px 0 0;padding:0;border:0;font-weight:500;color:var(--muted);font-size:11.5px}
+.dsess .pnd{white-space:normal;display:block;margin:4px 0 0;padding:0;border:0;font-weight:500;color:var(--muted);font-size:12px}
+.dlg-tx .st-l{align-self:flex-start;font-size:12px;font-weight:700;padding:3px 12px;background:var(--ink);color:#fff}
+.dlg-tx .st-l.wait{background:#fff;color:var(--ink);outline:1.5px dashed var(--ink);outline-offset:-3px}
+
+/* program */
+.chip-p{margin-left:10px;font-style:normal;font-family:var(--f-body);font-size:10.5px;font-weight:700;letter-spacing:.02em;text-transform:none;padding:1px 7px;border:1px dashed currentColor}
+.ses.pending.ent,.ses.pending.key{outline:1px dashed rgba(255,255,255,.55);outline-offset:-7px}
+.ses.pending:not(.ent):not(.key){border-style:dashed}
+.w .t.st{font-weight:700;font-size:10.5px;margin-top:1px;color:inherit;opacity:.9}
+.w .t.st::before{content:"● "}
+.w .t.st.wait::before{content:"○ "}
+.w.pw .av{border-style:dashed}
+.w.tbd b{font-weight:700}
+
+/* organizers & speaker organizations */
+.org-own{margin-top:clamp(28px,4vw,48px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.org-own>div{background:#fff;border:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;gap:4px}
+.org-own .mono{color:var(--cobalt)}
+.org-own b{font-size:clamp(18px,1.8vw,24px);font-weight:900;line-height:1.45}
+.org-own p{grid-column:1 / -1;margin:0;font-size:12.5px;color:var(--muted)}
+.org-h{margin:clamp(40px,5vw,64px) 0 0;font-size:clamp(22px,2.4vw,32px);font-weight:900;border-bottom:1px solid var(--ink);padding-bottom:10px}
+.org-note{margin:12px 0 0;font-size:13.5px;color:#2B2F40;max-width:46em}
+.org-note.sm{font-size:12.5px;color:var(--muted);margin-top:18px}
+.og{margin-top:22px}
+.og>.mono{margin:0 0 8px;color:var(--muted)}
+.ogg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ot{background:#fff;border:1px solid var(--line);padding:16px 18px;display:flex;flex-direction:column;gap:2px;min-height:112px;min-width:0}
+.ot .mono{align-self:flex-start;margin-bottom:8px;font-size:10.5px;padding:2px 8px;font-family:var(--f-body);font-weight:700;text-transform:none;letter-spacing:.02em}
+.ot .mono.ok{background:var(--ink);color:#fff}
+.ot .mono.wait{border:1px dashed var(--ink)}
+.ot b{font-size:17px;line-height:1.45;font-weight:700}
+.ot b small{display:block;font-size:11.5px;font-weight:500;color:var(--muted)}
+.ot>span:last-child{font-size:13px;color:#2B2F40}
+
+@media (max-width:900px){
+  .h-grid{grid-template-columns:1fr}
+  .h-sp-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ov>div{grid-template-columns:1fr;gap:4px}
+  .theme{grid-template-columns:1fr}
+  .org-own{grid-template-columns:1fr}
+  .ogg{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .hsp{display:block;padding:8px}
+  .hp{margin-bottom:8px;aspect-ratio:1/1}
+  .hp img{object-position:50% 12%}
+  .h-info dl{grid-template-columns:auto 1fr}
+  .th-s li a{flex-direction:column;gap:0}
+  .ot{padding:14px}
+}
+
 </style>
-<div class="sample mono"><b>SAMPLE DESIGN</b>　掲載内容は予定・調整中の情報を含みます。申込フォームは送信されません。</div>
+<div class="sample mono"><b>SAMPLE DESIGN</b>　掲載内容は予定・調整中の情報を含みます。各登壇者の状況は、写真の近くの表示でご確認ください。申込フォームは送信されません。</div>
 
 <header class="hd" id="hd">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="AI READY CONFERENCE 2027 トップ">AI READY<i>CONFERENCE 2027</i></a>
     <nav class="nav" aria-label="メイン">
-      <a href="#about">概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#sponsors">協賛</a><a href="#faq">FAQ</a>
+      <a href="#about">開催概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#orgs">所属企業</a><a href="#faq">FAQ</a>
     </nav>
     <a class="btn w" href="#register">参加を申し込む</a>
     <button class="menu" id="menu" aria-label="メニュー" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
   </div>
 </header>
 <div class="drawer" id="drawer">
-  <a href="#about">About</a><a href="#themes">Themes</a><a href="#speakers">Speakers</a><a href="#program">Program</a><a href="#sponsors">Sponsors</a><a href="#faq">FAQ</a>
+  <a href="#about">開催概要<small>Overview</small></a><a href="#themes">テーマ<small>Themes</small></a><a href="#speakers">登壇者<small>Speakers</small></a><a href="#program">プログラム<small>Program</small></a><a href="#orgs">所属企業<small>Organizations</small></a><a href="#faq">FAQ</a>
   <a class="btn w" href="#register">参加を申し込む</a>
 </div>
 
 <main id="top">
 <section class="hero">
   <div class="wrap hero-in">
-    <p class="eyebrow mono"><span>Enterprise AI Conference</span><span>Online</span><span>2 Tracks</span><span>Feb 3, 2027</span></p>
-    <h1 class="h-title disp">AI READY<small>CONFERENCE <em>2027</em></small></h1>
-    <div class="h-row">
-      <div>
-        <p class="h-lead">導入の、その先へ。<br>AIが根づく組織の判断を、<br>実践者の言葉で。</p>
-        <p class="h-sub">AI導入・現場定着・人材育成。意思決定を担ってきた登壇者が、成果につながった選定、発注、運用の実際をそのまま語る1日です。</p>
+    <div class="h-grid">
+      <div class="h-main">
+        <p class="eyebrow mono"><span>Enterprise AI Conference</span><span>Online</span><span>2 Tracks</span></p>
+        <h1 class="h-title disp">AI READY<small>CONFERENCE <em>2027</em></small></h1>
+        <p class="h-kicker">導入の、その先へ。</p>
+        <p class="h-lead">AIを経営成果につなぐ、<br>組織と人材の意思決定。</p>
+        <p class="h-sub">全社AI活用、組織変革、人材育成、産業への実装。企業の変革を担う実践者が、取り組みと意思決定を語るオンラインカンファレンス。</p>
         <div class="h-cta">
           <a class="btn w" href="#register">参加を申し込む <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
           <a class="btn o" href="#program">プログラムを見る</a>
         </div>
       </div>
-      <div class="h-date">
-        <div class="d">2027<span>.</span>02<span>.</span>03</div>
+      <aside class="h-info" aria-label="開催情報">
+        <div class="d">2027<span>.</span>02<span>.</span>03<small class="mono">WED</small></div>
         <dl>
-          <dt class="mono">Day</dt><dd>2027年2月3日（水）</dd>
-          <dt class="mono">Time</dt><dd>10:00 – 17:10 JST</dd>
-          <dt class="mono">Format</dt><dd>オンライン配信（LIVE＋事前収録）</dd>
+          <dt>開催</dt><dd>2027年2月3日（水）10:00 – 17:10<br>オンライン開催（LIVE配信＋事前収録）</dd>
+          <dt>視聴対象</dt><dd>経営層／事業責任者／AI・DX推進／人事・人材開発</dd>
+          <dt>主催・運営</dt><dd>主催：AI READY CONFERENCE 実行委員会（仮称）<br>企画・運営：DMM（予定）</dd>
         </dl>
-      </div>
+      </aside>
+    </div>
+    <div class="h-sp">
+      <div class="h-sp-h"><p class="mono">Featured speakers　主な登壇者</p><p class="mono h-leg"><i class="k1"></i>登壇決定　<i class="k2"></i>登壇調整中</p></div>
+      <div class="h-sp-g" id="heroSp"></div>
     </div>
   </div>
-  <div class="kv" aria-hidden="true"><canvas id="kv"></canvas><span class="mono">Readiness &mdash; 100%</span></div>
-</section>
-
-<section class="facts" aria-label="開催概要">
-  <div class="wrap">
-    <div class="fact"><span class="mono">Date</span><p>2027年2月3日（水）<small>10:00 – 17:10</small></p></div>
-    <div class="fact"><span class="mono">Format</span><p>オンライン開催<small>LIVE配信＋事前収録、アーカイブ視聴予定</small></p></div>
-    <div class="fact"><span class="mono">For</span><p>経営層・事業責任者<small>AI・DX推進／人事・人材開発</small></p></div>
-    <div class="fact"><span class="mono">Program</span><p>2トラック・10セッション<small>講演／対談</small></p></div>
-  </div>
+  <div class="kv" aria-hidden="true"><canvas id="kv"></canvas></div>
 </section>
 
 <section class="sec" id="about">
   <div class="wrap">
-    <div class="sec-h"><span class="mono">About</span><h2 class="sec-title disp">THE DAY<br>AFTER<br>ADOPTION</h2></div>
+    <div class="sec-h"><span class="mono">Overview<b>開催概要</b></span><h2 class="sec-title disp">OVERVIEW</h2></div>
     <div class="about-body"><span></span>
       <div>
-        <p class="statement">生成AIは、もう「導入するかどうか」の段階にはありません。成果が出る組織と止まる組織を分けるのは、<em>何を選び、誰に任せ、どう現場に根づかせたか</em>です。</p>
-        <div class="about-cols">
-          <p>AI READY CONFERENCE 2027は、企業向け生成AIの実践事例に絞ったオンラインカンファレンスです。大手企業の全社推進から、成長企業の現場導入まで、規模の異なる組織の意思決定をトラック別に取り上げます。</p>
-          <p>登壇するのは、導入の判断と運用を自ら担ってきた方々です。製品紹介や一般論ではなく、選定の基準、社内の巻き込み方、人材育成の進め方など、明日の判断に使える内容をお届けします。</p>
-        </div>
-        <div class="aud">
-          <div><span class="mono">For</span>経営層</div>
-          <div><span class="mono">For</span>事業責任者</div>
-          <div><span class="mono">For</span>AI・DX推進部門</div>
-          <div><span class="mono">For</span>人事・人材開発部門</div>
-        </div>
+        <p class="statement">生成AIは、導入の段階を越えました。成果を分けるのは、経営がどう投資を判断し、全社へどう広げ、<em>人と組織をどう変えるか</em>です。</p>
+        <p class="about-p">AI READY CONFERENCE 2027は、企業の変革を担う実践者が、取り組みと意思決定を語るオンラインカンファレンスです。大企業の全社展開・組織変革から、成長企業の現場導入まで、規模の異なる組織の判断をトラック別に取り上げます。</p>
+        <dl class="ov">
+          <div><dt>日程・時間</dt><dd>2027年2月3日（水）10:00 – 17:10</dd></div>
+          <div><dt>形式</dt><dd>オンライン開催（LIVE配信＋事前収録）。アーカイブ視聴は予定</dd></div>
+          <div><dt>主な視聴対象</dt><dd>経営層、事業責任者、AI・DX推進、人事・人材開発の責任者・担当者</dd></div>
+          <div><dt>想定参加規模</dt><dd>申込1,000件を目標に集客を計画しています。<small>計画上の目標値です。申込・視聴の実績や、人数を保証するものではありません。</small></dd></div>
+          <div><dt>集客方法</dt><dd>検索・SNS広告、登壇企業・登壇者からの告知、関連事業の既存接点へのご案内、広報・SNS、申込者へのメール案内。<small>登壇企業ごとの告知協力は個別にご相談します。</small></dd></div>
+          <div><dt>主催・運営</dt><dd>主催：AI READY CONFERENCE 実行委員会（仮称）／企画・運営：DMM（予定）<small>主催名義・運営法人の正式表記は確認中です。確定次第、更新します。</small></dd></div>
+        </dl>
       </div>
     </div>
   </div>
@@ -463,22 +538,42 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 
 <section class="sec on-dark" id="themes">
   <div class="wrap">
-    <div class="sec-h"><span class="mono">Themes</span><h2 class="sec-title disp">THREE<br>QUESTIONS</h2></div>
+    <div class="sec-h"><span class="mono">Themes<b>全体テーマ</b></span><h2 class="sec-title disp">FOUR THEMES</h2></div>
+    <p class="sec-lead">経営の意思決定から、全社の展開、人と組織、産業の現場まで。大企業が直面する4つのテーマで構成します。</p>
     <div class="themes">
-      <article class="theme"><div class="disp">SELECT</div><div><h3 class="jp">選ぶ</h3><p>AIをどう選び、どこまで任せるか。選定・発注・投資判断の基準を、判断した当事者から聞きます。</p></div><div class="chips"><span class="chip">共通セッション</span><span class="chip">クロージング対談</span></div></article>
-      <article class="theme"><div class="disp">ADOPT</div><div><h3 class="jp">根づかせる</h3><p>全社展開と現場定着。組織を横断して進めるための体制、巻き込み方、つまずきの越え方。</p></div><div class="chips"><span class="chip">Enterprise</span><span class="chip">Growth</span></div></article>
-      <article class="theme"><div class="disp">GROW</div><div><h3 class="jp">育てる</h3><p>AIを使いこなす人材をどう育てるか。採用・人事・育成の現場で起きている変化を取り上げます。</p></div><div class="chips"><span class="chip">Growth</span><span class="chip">人材育成</span></div></article>
+      <article class="theme">
+        <div class="th-h"><span class="mono">Management &amp; Investment</span><h3 class="jp">経営・投資判断</h3></div>
+        <p class="th-p">AIへの投資をどう判断し、経営成果につなげるか。選定・発注の判断軸から、経営としての意思決定までを扱います。</p>
+        <div class="th-s"><span class="mono">関連セッション</span><ul data-ses="k2,common,closing"></ul><p class="plan"><span class="mono">企画案</span>AIを経営成果につなぐ戦略・体制・意思決定（登壇者未定）</p></div>
+      </article>
+      <article class="theme">
+        <div class="th-h"><span class="mono">Company-wide Adoption</span><h3 class="jp">全社展開・現場定着</h3></div>
+        <p class="th-p">全社と事業現場をどう動かすか。組織を横断して進める体制、巻き込み方、つまずきの越え方を共有します。</p>
+        <div class="th-s"><span class="mono">関連セッション</span><ul data-ses="e1,e2,s2"></ul></div>
+      </article>
+      <article class="theme">
+        <div class="th-h"><span class="mono">Talent &amp; Organization</span><h3 class="jp">AI人材育成・組織変革</h3></div>
+        <p class="th-p">全社でAI人材をどう育て、組織をどう変えるか。大企業の全社育成から、成長企業の現場育成までを取り上げます。</p>
+        <div class="th-s"><span class="mono">関連セッション</span><ul data-ses="e2,s1,s3"></ul><p class="plan"><span class="mono">企画案</span>全社AI人材育成と制度設計・運用。学習・スキル評価・現場実践の接続（Enterprise向け・登壇者未定）</p></div>
+      </article>
+      <article class="theme">
+        <div class="th-h"><span class="mono">Industry Implementation</span><h3 class="jp">産業・事業への実装</h3></div>
+        <p class="th-p">AIが画面の外へ広がる中で、産業の現場と事業は何が変わるか。Physical AIを軸に取り上げます。</p>
+        <div class="th-s"><span class="mono">関連セッション</span><ul data-ses="e3"></ul></div>
+      </article>
     </div>
+    <p class="plan-note">「企画案」は、現在検討中のテーマです。登壇者・内容・時間枠は決まっておらず、下記のプログラムには含まれていません。</p>
     <div class="tracks">
       <div class="track e">
-        <div class="disp">ENTERPRISE</div>
-        <p class="for">大企業・全社でのAI活用を担う方へ。意思決定、組織横断の推進、産業・現場の変革。</p>
-        <ul><li><span class="mono">13:50</span>AI導入の意思決定と、組織横断の推進</li><li><span class="mono">14:40</span>全社AI活用と組織変革</li><li><span class="mono">15:30</span>Physical AIと、産業・現場の変革</li></ul>
+        <div class="disp">ENTERPRISE</div><p class="tk-jp">大企業向けトラック</p>
+        <p class="for">全社でのAI活用を担う方へ。意思決定、全社AI人材育成・組織変革、産業・現場への実装。</p>
+        <ul data-track="ent"></ul>
+        <p class="plan"><span class="mono">企画案</span>全社AI人材育成・組織変革（日時・登壇者未定）</p>
       </div>
       <div class="track">
-        <div class="disp">GROWTH</div>
+        <div class="disp">GROWTH</div><p class="tk-jp">成長企業向けトラック</p>
         <p class="for">成長フェーズの企業で、限られた体制から成果を出したい方へ。人事、人材育成、現場定着。</p>
-        <ul><li><span class="mono">13:50</span>採用・人事領域のAI活用</li><li><span class="mono">14:40</span>成長企業がAI導入で成果を出す方法</li><li><span class="mono">15:30</span>AI人材育成と現場定着の実践</li></ul>
+        <ul data-track="smb"></ul>
       </div>
     </div>
   </div>
@@ -487,10 +582,11 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 <section class="phy" id="physical">
   <div class="wrap phy-grid">
     <div class="phy-tx">
-      <p class="mono">Featured session　Enterprise 3　15:30 – 16:10</p>
+      <p class="mono">Featured session　注目セッション　Enterprise 3　15:30 – 16:10</p>
       <h2 class="disp">PHYSICAL<br>AI</h2>
+      <p class="phy-jp">産業・事業への実装</p>
       <p class="phy-lead">AIは、画面の外へ。<br>産業の現場が変わる。</p>
-      <p class="phy-p">言語モデルや深層学習の進化が、ロボットと実世界の現場に届き始めています。ヒューマノイドと汎用ロボットの研究を率いる第一人者が、製造・物流・インフラといった産業の現場で何が変わり、事業としてどう向き合うべきかを語ります。</p>
+      <p class="phy-p">言語モデルや深層学習の進化が、ロボットと実世界の現場に届き始めています。ヒューマノイドと汎用ロボット研究の第一人者をお招きする方向で調整し、製造・物流・インフラといった産業の現場で何が変わり、事業としてどう向き合うべきかを取り上げます。</p>
       <ul class="phy-list">
         <li><span class="mono">Field</span>製造・物流・インフラなど、現場を持つ産業</li>
         <li><span class="mono">Shift</span>生成AIの基盤技術が、ロボットの認知と行動学習へ広がる</li>
@@ -499,20 +595,20 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
     </div>
     <div class="phy-side">
       <button class="phy-card" type="button" data-open="ogata" aria-label="尾形 哲也 のプロフィールを開く">
-        <span class="phy-ph"><img src="assets/speakers/ogata.jpg" alt="尾形 哲也"></span>
+        <span class="phy-ph"><img src="assets/speakers/ogata.jpg" alt="尾形 哲也"><span class="badge exp mono">登壇調整中</span></span>
         <span class="phy-cap"><span class="org">早稲田大学</span><span class="nm">尾形 哲也</span><span class="rl">基幹理工学部 教授／AIロボット研究所 所長</span><span class="more mono">Profile +</span></span>
       </button>
-      <div class="phy-guest"><span class="mono">× Industry guest</span>産業の現場・事業投資の視点から語る対談ゲストを調整中です。</div>
+      <div class="phy-guest"><span class="mono">× Industry guest　対談ゲスト</span>産業の現場・事業投資の視点から語るゲストを調整中です。</div>
     </div>
   </div>
 </section>
 
 <section class="sec paper" id="speakers">
   <div class="wrap">
-    <div class="sec-h"><span class="mono">Speakers</span><h2 class="sec-title disp">SPEAKERS</h2></div>
+    <div class="sec-h"><span class="mono">Speakers<b>登壇者</b></span><h2 class="sec-title disp">SPEAKERS</h2></div>
     <div class="sp-lead">
-      <p>企業のAI導入と組織づくりの最前線で、意思決定を担う方々にご登壇いただきます。</p>
-      <div class="legend mono"><span><i style="background:var(--ink)"></i>出演決定</span><span><i style="border:1.5px solid var(--ink)"></i>出演予定（調整中）</span></div>
+      <p>企業のAI導入と組織づくりの最前線で、意思決定を担う方々です。「登壇調整中」の方は、出演の承諾をいただく前の段階です。</p>
+      <div class="legend mono"><span><i style="background:var(--ink)"></i>登壇決定</span><span><i style="border:1.5px solid var(--ink)"></i>登壇調整中</span></div>
     </div>
     <div class="sp-grid" id="spGrid"></div>
   </div>
@@ -520,43 +616,36 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 
 <section class="sec" id="program">
   <div class="wrap">
-    <div class="sec-h"><span class="mono">Program</span><h2 class="sec-title disp">PROGRAM</h2></div>
-    <div class="pg-head mono"><div>JST</div><div>Common / <span class="e">Enterprise</span></div><div class="e">Growth</div></div>
+    <div class="sec-h"><span class="mono">Program<b>プログラム</b></span><h2 class="sec-title disp">PROGRAM</h2></div>
+    <p class="sec-lead dk">セッション内容は予定です。登壇者が調整中のセッションには「登壇者調整中」と表示しています。</p>
+    <div class="pg-head mono"><div>JST</div><div>Common / <span class="e">Enterprise　大企業向け</span></div><div class="e">Growth　成長企業向け</div></div>
     <div class="pg" id="pg"></div>
   </div>
 </section>
 
-<section class="sec paper" id="sponsors">
+<section class="sec paper" id="orgs">
   <div class="wrap">
-    <div class="sec-h"><span class="mono">Sponsors</span><h2 class="sec-title disp">PARTNERS</h2></div>
-    <div class="sp-block">
-      <p class="tier mono">Special Sponsor</p>
-      <div class="logos l2">
-        <div class="lt big"><img src="assets/logos/dmm.svg" alt="DMM.com" style="--h:44px"></div>
-        <div class="lt big"><img src="assets/logos/algomatic.svg" alt="Algomatic" style="--h:34px"></div>
-      </div>
-      <p class="tier mono">Sponsors</p>
-      <div class="logos l4">
-        <div class="lt"><img src="assets/logos/googlecloud.svg" alt="Google Cloud" style="--h:30px"></div>
-        <div class="lt"><img src="assets/logos/creditsaison.svg" alt="クレディセゾン" style="--h:24px"></div>
-        <div class="lt"><img src="assets/logos/lineyahoo.png" alt="LINEヤフー" style="--h:28px"></div>
-        <div class="lt"><img src="assets/logos/nissin.png" alt="日清食品グループ" style="--h:44px"></div>
-        <div class="lt"><img src="assets/logos/peoplex.webp" alt="PeopleX" style="--h:58px"></div>
-        <div class="lt"><img src="assets/logos/digirise.svg" alt="デジライズ" style="--h:30px"></div>
-        <div class="lt"><img src="assets/logos/aicx.png" alt="AICX協会" style="--h:34px"></div>
-        <div class="lt open"><span class="mono">Your logo</span><span>協賛企業を募集しています</span></div>
-      </div>
-      <p class="note-s">※掲載企業・協賛区分は仮の内容です。</p>
+    <div class="sec-h"><span class="mono">Organizations<b>主催・運営／登壇者所属企業</b></span><h2 class="sec-title disp">ORGANIZERS</h2></div>
+    <div class="org-own">
+      <div><span class="mono">Organizer　主催（仮称）</span><b>AI READY CONFERENCE 実行委員会</b></div>
+      <div><span class="mono">Planning &amp; Operation　企画・運営（予定）</span><b>DMM</b></div>
+      <p>主催名義・運営法人の正式表記は確認中です。確定次第、更新します。</p>
     </div>
+    <h3 class="org-h jp">登壇者所属企業</h3>
+    <p class="org-note">登壇者の所属を示す欄です。企業としての協賛を示すものではありません。登壇と協賛は、それぞれ別にご相談する事項です。</p>
+    <div class="orgs" id="orgGrid"></div>
+    <p class="org-note sm" id="orgNote"></p>
   </div>
 </section>
 
 <section class="sec" id="faq">
   <div class="wrap">
-    <div class="sec-h"><span class="mono">FAQ</span><h2 class="sec-title disp" style="font-size:clamp(40px,6vw,88px)">FAQ</h2></div>
+    <div class="sec-h"><span class="mono">FAQ<b>よくある質問</b></span><h2 class="sec-title disp" style="font-size:clamp(40px,6vw,88px)">FAQ</h2></div>
     <div class="faq">
-      <details class="q"><summary>どのような方が対象ですか？</summary><p>経営層、事業責任者、AI・DX推進部門、人事・人材開発部門の責任者・担当者の方を想定しています。企業規模に応じて、Enterpriseトラック、Growthトラックを選んでご視聴いただけます。</p></details>
+      <details class="q"><summary>どのような方が対象ですか？</summary><p>経営層、事業責任者、AI・DX推進部門、人事・人材開発部門の責任者・担当者の方を想定しています。企業規模に応じて、Enterprise（大企業向け）トラック、Growth（成長企業向け）トラックを選んでご視聴いただけます。</p></details>
       <details class="q"><summary>視聴方法を教えてください。</summary><p>オンライン配信です。お申し込みいただいた方に、視聴用のURLをメールでご案内します。事前収録の講演とLIVE配信を組み合わせて実施します。</p></details>
+      <details class="q"><summary>登壇者の「登壇決定」「登壇調整中」とは何ですか？</summary><p>「登壇決定」は、出演の承諾を確認できている方です。「登壇調整中」は、承諾をいただく前の段階の方で、変更になる場合があります。セッション内容も予定です。</p></details>
+      <details class="q"><summary>主催・運営はどこですか？</summary><p>主催は「AI READY CONFERENCE 実行委員会（仮称）」、企画・運営はDMMを予定しています。正式な名義と表記は確認中で、確定次第、掲載します。</p></details>
       <details class="q"><summary>当日、都合が合わない時間帯があります。</summary><p>アーカイブ視聴を予定しています。詳細は申込者向けのご案内でお知らせします。</p></details>
       <details class="q"><summary>トラックは途中で切り替えられますか？</summary><p>午後のEnterpriseとGrowthは同時刻に並行して配信します。セッションごとに自由にお選びいただけます。</p></details>
     </div>
@@ -566,7 +655,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 <section class="sec reg" id="register">
   <div class="wrap reg-grid">
     <div>
-      <span class="mono" style="color:#C8D0FF">Register</span>
+      <span class="mono" style="color:#C8D0FF">Register　参加申込</span>
       <h2 class="sec-title disp" style="margin-top:14px">JOIN<br>US</h2>
       <p class="reg-copy">参加のお申し込みはこちらから。お申し込みいただいた方に、視聴URLと当日のご案内をお送りします。</p>
       <ul class="reg-list">
@@ -584,8 +673,8 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
         <div class="f"><label for="f-ml">メールアドレス<i>必須</i></label><input type="email" id="f-ml" autocomplete="email" required></div>
         <div class="f full"><fieldset><legend>関心のあるトラック</legend>
           <div class="opts">
-            <label class="opt"><input type="radio" name="trk" value="ent" checked><span>Enterprise</span></label>
-            <label class="opt"><input type="radio" name="trk" value="growth"><span>Growth</span></label>
+            <label class="opt"><input type="radio" name="trk" value="ent" checked><span>Enterprise（大企業向け）</span></label>
+            <label class="opt"><input type="radio" name="trk" value="growth"><span>Growth（成長企業向け）</span></label>
             <label class="opt"><input type="radio" name="trk" value="both"><span>両方</span></label>
           </div></fieldset></div>
         <div class="f full"><label for="f-rl">ご担当領域</label>
@@ -605,19 +694,20 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
   <div class="wrap">
     <div class="ft-top">
       <div class="disp">AI READY<br>CONFERENCE<br>2027</div>
-      <div class="ft-info"><b>AI READY CONFERENCE 実行委員会</b>2027年2月3日（水）オンライン開催<br>お問い合わせ：事務局（連絡先が入ります）</div>
+      <div class="ft-info"><b>主催（仮称）AI READY CONFERENCE 実行委員会</b>企画・運営（予定）DMM<br>2027年2月3日（水）オンライン開催</div>
     </div>
-    <div class="ft-bot mono"><span>© 2027 AI READY CONFERENCE Executive Committee</span><span>Privacy Policy　/　Contact　/　Sample design</span></div>
+    <div class="ft-bot mono"><span>© 2027 AI READY CONFERENCE Executive Committee</span><span>Privacy Policy　/　Sample design</span></div>
   </div>
 </footer>
 
 <script>
 /* ===== AI READY CONFERENCE 2027 — content data =====
-   登壇者の掲載/非掲載は status と hidden で切り替え可能。
+   status: 'confirmed'=登壇決定（出演承諾を確認済み） / 'expected'=登壇調整中（承諾未確認）。
+   承諾の根拠は進行管理表の記録のみ。他イベントへの出演実績・過去の発表は根拠にしない。
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
 window.SPEAKERS = [
-  { id:'ogata',   status:'confirmed', name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
+  { id:'ogata',   status:'expected' , name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
   { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:'assets/speakers/oda.jpg', verify:true },
   { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
@@ -668,8 +758,8 @@ window.PROGRAM = [
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
   { t:'15:20', e:'15:30', type:'break', title:'Break' },
   { t:'15:30', e:'16:10', type:'tracks',
-    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト（調整中）'], pair:true },
-    smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:調整中'] } },
+    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
+    smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
   { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
   { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] }
@@ -708,37 +798,80 @@ function timeOf(id){
   return '';
 }
 
+/* ---------- status (登壇決定 / 登壇調整中) — one source of truth ---------- */
+var ST={confirmed:'登壇決定',expected:'登壇調整中'};
+function stLabel(s){return ST[s.status]||ST.expected}
+function badge(s){return '<span class="badge'+(s.status==='confirmed'?'':' exp')+' mono">'+stLabel(s)+'</span>'}
+function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var s=byId[k]; return !s||s.status!=='confirmed'; }
+
+/* ---------- hero featured speakers (登壇決定の方を優先) ---------- */
+(function(){
+  var ids=['oda','tachibana','ozawa','chaen'];
+  $('#heroSp').innerHTML=ids.map(function(id){var s=byId[id];
+    return '<article class="hsp" tabindex="0" role="button" data-open="'+id+'" aria-label="'+s.name+' のプロフィールを開く"><div class="hp ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="hx">'+badge(s)+'<span class="org">'+s.org+'</span><b class="nm jp">'+s.name+'</b><span class="rl">'+(s.role||'&nbsp;')+'</span></div></article>';
+  }).join('');
+})();
+
 /* ---------- speakers ---------- */
 (function(){
   var html='', soon='';
   SP.forEach(function(s,idx){
     if(idx===SP.length-1)html+='@@SOON@@';
     var ses=s.session&&sessions[s.session];
-    var badge=s.status==='confirmed'?'<span class="badge mono">Confirmed</span>':'<span class="badge exp mono">Tentative</span>';
-    html+='<article class="card" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+' のプロフィールを開く">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
+    var pend=s.status!=='confirmed';
+    html+='<article class="card'+(pend?' pend':'')+'" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+'（'+stLabel(s)+'）のプロフィールを開く"><div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+badge(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
-      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div><span class="more mono">Profile +</span></div></article>';
+      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
   });
-  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
+  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
+})();
+
+/* ---------- themes / tracks: session lists generated from the program (titles stay in one place) ---------- */
+(function(){
+  $$('[data-ses]').forEach(function(ul){
+    ul.innerHTML=ul.getAttribute('data-ses').split(',').map(function(id){
+      var x=sessions[id]; if(!x)return '';
+      var pend=(x.who||[]).some(isPending);
+      return '<li><a href="#'+id+'" data-go="'+id+'"><span class="mono">'+timeOf(id)+'</span>'+x.title+'</a>'+(pend?'<em class="pnd">登壇者調整中</em>':'')+'</li>';
+    }).join('');
+  });
+  $$('[data-track]').forEach(function(ul){
+    var key=ul.getAttribute('data-track'), out='';
+    PG.forEach(function(p){ if(p.type==='tracks'){var x=p[key]; var pend=(x.who||[]).some(isPending);
+      out+='<li><span class="mono">'+p.t+'</span><span>'+x.title+(pend?'<em class="pnd">登壇者調整中</em>':'')+'</span></li>';}});
+    ul.innerHTML=out;
+  });
+})();
+
+/* ---------- speaker organizations (登壇者所属 — 協賛ではない) ---------- */
+(function(){
+  var seen={}, groups={confirmed:[],expected:[]};
+  SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};groups[s.status==='confirmed'?'confirmed':'expected'].push(seen[s.org]);} seen[s.org].sp.push(s); });
+  function tile(o,st){return '<div class="ot"><span class="mono '+(st==='confirmed'?'ok':'wait')+'">'+ST[st]+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
+  var h='<div class="og"><p class="mono">登壇決定</p><div class="ogg">'+groups.confirmed.map(function(o){return tile(o,'confirmed')}).join('')+'</div></div>';
+  h+='<div class="og"><p class="mono">登壇調整中</p><div class="ogg">'+groups.expected.map(function(o){return tile(o,'expected')}).join('')+'</div></div>';
+  $('#orgGrid').innerHTML=h;
+  $('#orgNote').textContent='Algomaticは、企画・運営（予定）のDMMと同じグループの関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
 /* ---------- program ---------- */
 (function(){
   function whoHTML(list){
     var out=[];
-    list.forEach(function(k,i){
-      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>Special Keynote</b><span class="t">登壇者調整中</span></span></span>');return}
-      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>Speaker TBA</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
-      var s=byId[k];
-      out.push('<span class="w"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span></span></span>');
+    list.forEach(function(k){
+      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
+      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
+      var s=byId[k], pend=s.status!=='confirmed';
+      out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+(pend?' wait':'')+'">'+stLabel(s)+'</span></span></span>');
     });
     return out.join('<span class="x">×</span>');
   }
   function ses(x,cls){
-    return '<div class="ses '+(cls||'')+'" id="'+x.id+'"><span class="mono">'+x.tag+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
+    var pend=(x.who||[]).some(isPending);
+    return '<div class="ses '+(cls||'')+(pend?' pending':'')+'" id="'+x.id+'"><span class="mono">'+x.tag+(pend?'<em class="chip-p">登壇者調整中</em>':'')+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
   }
   var h='';
   PG.forEach(function(p){
@@ -762,26 +895,26 @@ function timeOf(id){
   })});
 })();
 
-
 /* ---------- speaker profile dialog ---------- */
 (function(){
   var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
   function open(id){
     var s=byId[id]; if(!s)return;
-    var ses=s.session&&sessions[s.session];
+    var ses=s.session&&sessions[s.session], pend=s.status!=='confirmed';
     box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
-      '<span class="mono st">'+(s.status==='confirmed'?'Confirmed':'Tentative')+'</span>'+
+      '<span class="st-l '+(pend?'wait':'ok')+'">'+stLabel(s)+'</span>'+
       '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="en mono">'+s.en+'</span><p class="rl">'+(s.role||'')+'</p>'+
-      (s.bio.length?'<p class="mono lbl">Profile</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
-      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+'</div></div>';
+      (s.bio.length?'<p class="mono lbl">Profile　経歴・実績</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
+      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div></div>';
     if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
   }
   $$('#spGrid .card[data-sp]').forEach(function(c){
     c.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(c.getAttribute('data-sp')); });
     c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c.getAttribute('data-sp'))} });
   });
-  $$('[data-open]').forEach(function(b){ b.addEventListener('click',function(){open(b.getAttribute('data-open'))}); });
+  $$('[data-open]').forEach(function(b){ b.addEventListener('click',function(){open(b.getAttribute('data-open'))});
+    b.addEventListener('keydown',function(e){ if(b.tagName!=='BUTTON'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();open(b.getAttribute('data-open'))} }); });
   $('.dlg-x',dlg).addEventListener('click',function(){dlg.close()});
   dlg.addEventListener('click',function(e){ if(e.target===dlg)dlg.close(); });
 })();
