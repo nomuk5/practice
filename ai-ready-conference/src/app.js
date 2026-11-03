@@ -104,6 +104,7 @@ function timeOf(id){
     c.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(c.getAttribute('data-sp')); });
     c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c.getAttribute('data-sp'))} });
   });
+  $$('[data-open]').forEach(function(b){ b.addEventListener('click',function(){open(b.getAttribute('data-open'))}); });
   $('.dlg-x',dlg).addEventListener('click',function(){dlg.close()});
   dlg.addEventListener('click',function(e){ if(e.target===dlg)dlg.close(); });
 })();

@@ -3,25 +3,28 @@
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
 window.SPEAKERS = [
+  { id:'ogata',   status:'confirmed', name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
   { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:'assets/speakers/oda.jpg', verify:true },
+  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
+  { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
+  { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:'assets/speakers/ono.jpg', verify:true },
   { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:'assets/speakers/tachibana.jpg' },
   { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', photo:'assets/speakers/ozawa.jpg' },
   { id:'chaen',   status:'confirmed', name:'茶圓 将裕', en:'Masahiro Chaen', org:'デジライズ', role:'代表取締役 CEO', session:'s2', photo:'assets/speakers/chaen.jpg' },
-  { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:'assets/speakers/ono.jpg', verify:true },
-  { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
-  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
 
 /* 経歴・実績（公開情報を要約。掲載前に本人・所属先の確認が必要） */
 window.BIOS = {
+  ogata:{ role:'基幹理工学部 教授／AIロボット研究所 所長', hl:'AIロボット協会 理事長／文部科学大臣表彰 科学技術賞',
+    bio:['早稲田大学 理工学術院 基幹理工学部 教授。次世代ロボット研究機構 AIロボット研究所 所長（2020年〜）','一般社団法人AIロボット協会 理事長（2025年〜）。産業技術総合研究所 人工知能研究センター 特定フェロー','深層学習・生成AIとロボットを組み合わせた「認知ロボティクス」の第一人者。内閣府ムーンショット型研究開発のAIロボット「AIREC」の開発に関わる','2021年 IEEE ICRA Best Paper Award（認知科学部門）、2023年 文部科学大臣表彰 科学技術賞（研究部門）','JST CREST「実環境知能システム」領域 研究総括（2025年〜）。国立情報学研究所 大規模言語モデル研究開発センター 客員教授'] },
   kamoi:{ role:'代表取締役 CEO', hl:'元アクセンチュア AIグループ／IPAデジタル人材育成事業 専門委員',
     bio:['株式会社Algomatic 代表取締役CEO。生成AIで「企業のOS」をつくり替える構想を率いる','慶應義塾大学大学院修了後、データサイエンティスト／AIエンジニアとしてアクセンチュアに入社','2024年5月にAlgomaticへ参画。2026年6月にCEOへ就任','IPA（情報処理推進機構）のデジタル人材育成事業に、専門委員として参加'] },
   oda:{ role:'事業開発部長（アジア太平洋地域統括）', hl:'Google Cloud アジア太平洋地域の事業開発を統括',
     bio:['グーグル・クラウド・ジャパン所属。アジア太平洋地域統括 事業開発部 事業開発部長','生成AIを軸にした企業向けセミナー・イベントに登壇','企業のAI導入における、選定・発注・意思決定の判断軸を語る'] },
   tachibana:{ role:'代表取締役 CEO', hl:'元弁護士／「クラウドサイン」事業責任者を経て創業',
     bio:['弁護士として企業法務に従事','弁護士ドットコムで、電子契約サービス「クラウドサイン」の事業責任者を務める','PeopleXを創業。AI面接・AI面談・AIロープレなど、採用から育成までを支援するAIプロダクトを展開'] },
-  ozawa:{ role:'代表理事', hl:'経産省 AX時代スキル検討WG委員／著書『AIエージェントの教科書』',
+  ozawa:{ role:'代表理事', hl:'経産省 AX時代スキル検討WG委員／著書多数',
     bio:['一般社団法人AICX協会 代表理事。AIエージェント実装人材の育成・認定に取り組む','経済産業省「AX時代におけるスキルのあり方検討ワーキンググループ」委員','著書に『生成AI導入の教科書』『AIエージェントの教科書』','年間300回以上の登壇、AI関連記事1,000本以上を執筆。元AINOW編集長','大分県「DAIB」フェロー。複数のAI企業の取締役も務める'] },
   chaen:{ role:'代表取締役 CEO', hl:'Google Japan Official Geminiアドバイザー／SNS総フォロワー22万人超',
     bio:['2023年に株式会社デジライズを設立。法人向けAI研修・AIソリューションを提供','Google Japan Official Geminiアドバイザー','GMO AI & Web3株式会社 顧問。GMOインターネットグループがデジライズに出資','一般社団法人生成AI活用普及協会 評議員。SNS総フォロワー数22万人以上'] },
@@ -51,7 +54,7 @@ window.PROGRAM = [
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
   { t:'15:20', e:'15:30', type:'break', title:'Break' },
   { t:'15:30', e:'16:10', type:'tracks',
-    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['tbd:調整中'] },
+    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト（調整中）'], pair:true },
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:調整中'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
   { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
