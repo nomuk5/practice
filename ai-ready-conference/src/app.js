@@ -2,7 +2,7 @@
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-var SP=window.SPEAKERS, CA=window.CANDIDATES, PG=window.PROGRAM;
+var SP=window.SPEAKERS, PG=window.PROGRAM;
 var byId={}; SP.forEach(function(s){byId[s.id]=s});
 
 /* ---------- deterministic generated portrait (used until real photos are supplied) ---------- */
@@ -45,7 +45,6 @@ function timeOf(id){
   });
   html+='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html;
-  $('#candGrid').innerHTML=CA.map(function(c){return '<div class="cand"><b>'+c.name+'</b><span class="o">'+c.org+'</span><span>'+c.note+'</span></div>'}).join('');
 })();
 
 /* ---------- program ---------- */

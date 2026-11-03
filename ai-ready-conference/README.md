@@ -21,3 +21,7 @@
 | 小野 和俊 | type（エンジニアtype）記事 OG画像 (type.jp/et/feature/14193/)。2020年撮影 |
 | 成田 敏博 | Salesforce 日本ブログ インタビュー (salesforce.com/jp/blog/jp-cio-interview-nisshin/) |
 | 小田 健太郎・越川 滋代 | 本人と確認できる写真が見つからず、仮の肖像のまま |
+
+## ロゴ・追加写真の出典
+- ロゴは各社の公式サイトで公開されている画像（DMM.com／Algomatic／Google Cloud／セゾンカード／LINEヤフー／日清食品グループ／PeopleX／デジライズ／AICX協会）。掲載には各社の許諾が必要です。
+- 茶圓 将裕: デジライズ公式サイトの役員紹介写真。小田 健太郎・越川 滋代: ご提供いただいた写真。
