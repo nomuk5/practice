@@ -1,0 +1,703 @@
+<title>AI READY CONFERENCE 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="企業向け生成AIカンファレンス AI READY CONFERENCE 2027。2027年2月3日（水）オンライン開催。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* Layout concept: Swiss-poster grid. Saturated cobalt hero with a rising "readiness" bar field,
+   then ink / paper / white bands. Big expanded Latin display over restrained Japanese text. */
+:root{
+  --cobalt:#1E35F2;
+  --cobalt-deep:#0B1AA8;
+  --cobalt-tint:#DCE1FF;
+  --ink:#0B0D14;
+  --ink-2:#161927;
+  --paper:#F1F2F6;
+  --white:#FFFFFF;
+  --muted:#5A5F74;
+  --muted-on-ink:#9CA2BC;
+  --line:rgba(11,13,20,.14);
+  --line-on-ink:rgba(255,255,255,.16);
+  --f-display:"Archivo","Noto Sans JP",sans-serif;
+  --f-body:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gutter:max(clamp(16px,4vw,56px),env(safe-area-inset-left,0px));
+  --gutter-r:max(clamp(16px,4vw,56px),env(safe-area-inset-right,0px));
+  --hdbg:transparent;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:90;background:var(--hdbg)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.on-dark :focus-visible,.hero :focus-visible,.reg :focus-visible{outline-color:#fff}
+
+.wrap{max-width:1360px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+.disp{font-family:var(--f-display);font-stretch:125%;font-weight:900;letter-spacing:-.035em;line-height:.88}
+h1,h2,h3,h4,p{margin:0}
+h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phrase;line-break:strict}
+
+/* sample bar */
+.sample{background:var(--ink);color:#fff;text-align:center;padding:7px 16px;font-size:11px}
+.sample b{color:#9fb0ff;font-weight:500}
+
+/* header */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;height:64px;color:#fff;transition:background .25s,color .25s,border-color .25s;border-bottom:1px solid transparent}
+.hd.solid{background:var(--white);color:var(--ink);border-bottom-color:var(--line)}
+.hd .wrap{height:100%;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:baseline;gap:8px;font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.logo i{font-style:normal;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.06em;opacity:.7}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:13px;font-weight:500}
+.nav a{padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a.on{border-bottom-color:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:52px;padding:0 26px;font-weight:700;font-size:15px;letter-spacing:.02em;border:1.5px solid transparent;transition:transform .2s,background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .2s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.w{background:#fff;color:var(--cobalt)}
+.btn.w:hover{background:var(--ink);color:#fff}
+.btn.o{border-color:rgba(255,255,255,.55);color:#fff}
+.btn.o:hover{background:#fff;color:var(--cobalt)}
+.btn.b{background:var(--cobalt);color:#fff}
+.btn.b:hover{background:var(--ink)}
+.hd .btn{height:40px;padding:0 18px;font-size:13px}
+.hd .btn.w{background:#fff;color:var(--cobalt)}
+.hd.solid .btn.w{background:var(--cobalt);color:#fff}
+.hd.solid .btn.w:hover{background:var(--ink)}
+.menu{display:none;margin-left:auto;width:44px;height:44px;border:0;background:none;position:relative}
+.menu span{position:absolute;left:11px;right:11px;height:2px;background:currentColor;transition:transform .25s,top .25s,opacity .2s}
+.menu span:nth-child(1){top:16px}.menu span:nth-child(2){top:27px}
+.menu[aria-expanded=true] span:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu[aria-expanded=true] span:nth-child(2){top:21px;transform:rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:95;background:var(--cobalt);color:#fff;padding:96px var(--gutter-r) 32px var(--gutter);display:none;flex-direction:column;gap:6px}
+.drawer.open{display:flex}
+.drawer a{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:34px;letter-spacing:-.03em;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+.drawer .btn{margin-top:22px;font-family:var(--f-body);font-stretch:100%;font-size:15px;letter-spacing:.02em;border:0;padding:0 26px}
+
+/* hero */
+.hero{position:relative;margin-top:-64px;padding-top:64px;background:var(--cobalt);color:#fff;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 85% 110%,rgba(255,255,255,.14),transparent 55%),radial-gradient(60% 60% at 0% 0%,rgba(8,16,120,.55),transparent 70%);pointer-events:none}
+.hero-in{position:relative;z-index:2;padding-top:clamp(36px,6vw,84px)}
+.eyebrow{display:flex;flex-wrap:wrap;gap:6px 22px;color:#C8D0FF}
+.eyebrow span+span::before{content:"/";margin-right:22px;opacity:.5}
+.h-title{margin-top:clamp(22px,3.4vw,44px);font-size:clamp(52px,12.4vw,208px);white-space:nowrap}
+.h-title small{display:block;font-size:.36em;letter-spacing:-.02em;margin-top:.14em;line-height:1;color:#fff}
+.h-title small em{font-style:normal;color:#9FB0FF}
+.h-row{margin-top:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
+.h-lead{font-size:clamp(26px,3.3vw,46px);font-weight:900;line-height:1.38;font-feature-settings:"palt";text-wrap:balance;word-break:auto-phrase}
+.h-sub{margin-top:18px;max-width:34em;color:#DCE1FF;font-size:15px;line-height:1.9}
+.h-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.h-date{border-top:1.5px solid rgba(255,255,255,.6);padding-top:16px}
+.h-date .d{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:clamp(32px,4.6vw,68px);letter-spacing:-.04em;line-height:.95;font-variant-numeric:tabular-nums}
+.h-date .d span{color:#9FB0FF}
+.h-date dl{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:14px}
+.h-date dt{color:#AEB9FF}
+.h-date dd{margin:0;font-weight:500}
+.kv{position:relative;z-index:1;height:clamp(170px,22vw,300px);margin-top:clamp(28px,4vw,56px)}
+.kv canvas{width:100%;height:100%}
+.kv .mono{position:absolute;left:var(--gutter);top:0;color:#C8D0FF;display:flex;align-items:center;gap:10px}
+.kv .mono::before{content:"";width:8px;height:8px;background:#fff;border-radius:50%}
+
+/* facts */
+.facts{border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fact{padding:28px 24px 30px 0;border-right:1px solid var(--line)}
+.fact+.fact{padding-left:24px}
+.fact:last-child{border-right:0}
+.fact .mono{color:var(--muted)}
+.fact p{margin-top:8px;font-size:15px;font-weight:700;line-height:1.6}
+.fact p small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+
+/* section frame */
+.sec{padding:clamp(72px,9vw,140px) 0}
+.sec-h{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px clamp(24px,4vw,64px);align-items:start}
+.sec-h .mono{color:var(--cobalt);padding-top:.7em;display:flex;align-items:center;gap:10px}
+.sec-h .mono::before{content:"";width:22px;height:2px;background:currentColor}
+.on-dark .sec-h .mono{color:#9FB0FF}
+.sec-title{font-size:clamp(38px,6.2vw,100px)}
+
+/* about */
+.about-body{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px clamp(24px,4vw,64px);margin-top:clamp(36px,5vw,72px)}
+.about-body > div{grid-column:2}
+.statement{font-size:clamp(26px,3.5vw,50px);font-weight:900;line-height:1.42;font-feature-settings:"palt";text-wrap:balance;word-break:auto-phrase}
+.statement em{font-style:normal;color:var(--cobalt)}
+.about-cols{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px clamp(24px,4vw,56px);color:#2B2F40}
+.aud{margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.aud div{padding:18px 16px 0 0;font-weight:700;font-size:15px;line-height:1.55}
+.aud .mono{display:block;color:var(--muted);font-weight:400;margin-bottom:6px}
+
+/* themes (ink) */
+.on-dark{background:var(--ink);color:#fff}
+.themes{margin-top:clamp(40px,6vw,88px);border-top:1px solid var(--line-on-ink)}
+.theme{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:16px clamp(20px,3vw,48px);align-items:center;padding:clamp(24px,3.4vw,44px) 0;border-bottom:1px solid var(--line-on-ink);transition:background .25s,padding .25s}
+.theme:hover{background:var(--ink-2);padding-left:20px;padding-right:20px}
+.theme .disp{font-size:clamp(34px,5.2vw,78px)}
+.theme h3{font-size:clamp(20px,2vw,28px);font-weight:900;line-height:1.5}
+.theme p{margin-top:6px;color:var(--muted-on-ink);font-size:14px;line-height:1.85}
+.theme .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.chip{display:inline-flex;align-items:center;height:24px;padding:0 10px;border:1px solid var(--line-on-ink);font-size:11px;color:#C6CBE0}
+.tracks{margin-top:clamp(48px,7vw,96px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line-on-ink)}
+.track{background:var(--ink);padding:clamp(24px,3vw,44px)}
+.track.e{background:var(--cobalt)}
+.track .disp{font-size:clamp(26px,4.6vw,68px)}
+.track .for{margin-top:14px;font-weight:700;font-size:15px;line-height:1.7}
+.track ul{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.28)}
+.track li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.28);font-size:14px;line-height:1.6}
+.track li .mono{flex:none;width:92px;opacity:.7;padding-top:2px}
+
+/* speakers */
+.paper{background:var(--paper)}
+.sp-lead{margin-top:clamp(36px,5vw,64px);display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+.sp-lead p{max-width:36em;color:#2B2F40}
+.legend{display:flex;gap:18px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px}
+.sp-grid{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,28px)}
+.card{position:relative;display:flex;flex-direction:column;min-width:0;background:var(--white);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(11,13,20,.5)}
+.ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cobalt)}
+.ph svg,.ph img{width:100%;height:100%;object-fit:cover}
+.ph.real{background:var(--cobalt)}
+.ph.real img{filter:grayscale(1) contrast(1.08) brightness(1.05);mix-blend-mode:multiply}
+.badge{position:absolute;left:0;top:0;z-index:2;background:var(--ink);color:#fff;padding:5px 10px;font-size:10px}
+.badge.exp{background:var(--white);color:var(--ink)}
+.card .meta{padding:18px 18px 22px;display:flex;flex-direction:column;gap:2px;flex:1}
+.card .org{color:var(--cobalt);font-weight:700;font-size:13px;line-height:1.5}
+.card .nm{font-size:clamp(22px,2vw,28px);font-weight:900;line-height:1.35;font-feature-settings:"palt"}
+.card .nm small{font-size:.5em;font-weight:500;color:var(--muted);margin-left:.5em}
+.card .rl{font-size:12.5px;color:var(--muted);line-height:1.6;min-height:1.6em}
+.card .ss{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);margin-top:14px;font-size:13px;line-height:1.6;font-weight:500}
+.card .ss .mono{display:block;color:var(--cobalt);margin-bottom:3px}
+.card.soon{background:transparent;border:1.5px dashed rgba(11,13,20,.35);justify-content:center;align-items:flex-start;padding:24px;gap:10px;min-height:260px}
+.card.soon:hover{transform:none;box-shadow:none}
+.card.soon .disp{font-size:clamp(22px,2.5vw,38px)}
+.card.soon p{font-size:13px;color:var(--muted);line-height:1.8}
+.cands{margin-top:clamp(56px,7vw,100px)}
+.cands-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:12px}
+.cands-h h3{font-size:clamp(22px,2.4vw,32px);font-weight:900}
+.cands-h .mono{color:var(--muted)}
+.cand-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cand{padding:18px 16px 18px 0;border-bottom:1px solid var(--line);line-height:1.55}
+.cand b{display:block;font-size:17px;font-weight:700}
+.cand span{display:block;font-size:12.5px;color:var(--muted)}
+.cand .o{color:var(--ink);font-size:13px;font-weight:500}
+
+/* program */
+.pg-head{margin-top:clamp(36px,5vw,64px);display:grid;grid-template-columns:96px minmax(0,1fr) minmax(0,1fr);gap:0 14px;padding-bottom:10px;border-bottom:1.5px solid var(--ink);align-items:end}
+.pg-head div{font-size:11px}
+.pg-head .e{color:var(--cobalt);font-weight:600}
+.pg{display:grid;grid-template-columns:96px minmax(0,1fr) minmax(0,1fr);gap:0 14px}
+.row{display:contents}
+.tm{padding:22px 0;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:13px;line-height:1.5;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.tm span{display:block;color:var(--muted)}
+.cell{padding:14px 0;border-bottom:1px solid var(--line);min-width:0}
+.cell.full{grid-column:2 / span 2}
+.brk{padding:11px 0;border-bottom:1px solid var(--line);grid-column:2 / span 2;color:var(--muted);font-size:12px;display:flex;align-items:center;gap:12px}
+.brk::before{content:"";width:18px;height:1px;background:currentColor;opacity:.6}
+.tm.b{padding:11px 0;color:var(--muted)}
+.ses{display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 20px 20px;border:1px solid var(--line);background:var(--white);transition:border-color .2s,transform .2s;scroll-margin-top:90px}
+.ses:hover{border-color:var(--ink)}
+.ses.hl{border-color:var(--cobalt);box-shadow:0 0 0 3px var(--cobalt-tint)}
+.ses .mono{color:var(--cobalt)}
+.ses h4{font-size:clamp(17px,1.5vw,21px);font-weight:900;line-height:1.5;font-feature-settings:"palt";text-wrap:balance}
+.ses.key{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ses.key .mono{color:#9FB0FF}
+.ses.key h4{font-size:clamp(20px,2vw,28px)}
+.ses.ent{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.ses.ent .mono{color:#C8D0FF}
+.ses.ent .who .t{color:#DCE1FF}
+.who{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:8px 18px}
+.w{display:flex;align-items:center;gap:10px;font-size:13px;line-height:1.4;min-width:0}
+.w .av{flex:none;width:34px;height:34px;border-radius:50%;overflow:hidden;background:var(--cobalt);border:1.5px solid rgba(255,255,255,.7)}
+.ses:not(.key):not(.ent) .w .av{border-color:var(--cobalt-tint)}
+.w .av svg,.w .av img{width:100%;height:100%;object-fit:cover}
+.w b{display:block;font-weight:700}
+.w .t{display:block;font-size:11.5px;color:var(--muted)}
+.ses.key .w .t{color:var(--muted-on-ink)}
+.w.tbd .av{background:transparent;border:1.5px dashed currentColor;opacity:.55}
+.x{opacity:.6;font-family:var(--f-mono);font-size:12px;align-self:center}
+
+/* register */
+.reg{background:var(--cobalt);color:#fff;position:relative;overflow:hidden}
+.reg-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:start}
+.reg .sec-title{font-size:clamp(44px,7vw,108px)}
+.reg-copy{margin-top:26px;max-width:30em;color:#DCE1FF}
+.reg-list{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.4)}
+.reg-list li{display:flex;gap:18px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.4);font-size:14px;line-height:1.65}
+.reg-list .mono{flex:none;width:78px;color:#C8D0FF;padding-top:2px}
+.form{background:#fff;color:var(--ink);padding:clamp(22px,3vw,44px)}
+.form h3{font-size:22px;font-weight:900;line-height:1.4}
+.form .note{margin-top:4px;font-size:12.5px;color:var(--muted)}
+.fg{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f.full{grid-column:1 / -1}
+.f label,.f legend{font-size:12.5px;font-weight:700;padding:0}
+.f label i,.f legend i{font-style:normal;color:var(--cobalt);margin-left:6px;font-size:11px}
+.f input[type=text],.f input[type=email],.f select{height:50px;padding:0 14px;border:1px solid #BFC3D4;background:#fff;font:inherit;font-size:15px;border-radius:0;color:var(--ink);width:100%}
+.f input:focus,.f select:focus{outline:0;border-color:var(--cobalt);box-shadow:0 0 0 3px var(--cobalt-tint)}
+.f fieldset{border:0;padding:0;margin:0;min-width:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;height:42px;padding:0 16px;border:1px solid #BFC3D4;font-size:14px;font-weight:500;transition:all .15s}
+.opt input:checked + span{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.opt input:focus-visible + span{outline:2px solid var(--cobalt);outline-offset:2px}
+.agree{display:flex;gap:10px;font-size:12.5px;line-height:1.7;align-items:flex-start}
+.agree input{margin-top:6px;accent-color:var(--cobalt);width:16px;height:16px;flex:none}
+.form .btn{width:100%;margin-top:22px;height:58px}
+.done{display:none;margin-top:18px;padding:16px 18px;background:var(--cobalt-tint);font-size:13.5px;line-height:1.8}
+.done.show{display:block}
+
+/* faq */
+.faq{margin-top:clamp(36px,5vw,72px);border-top:1px solid var(--ink)}
+.q{border-bottom:1px solid var(--line)}
+.q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-weight:700;font-size:17px;line-height:1.6}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";font-family:var(--f-mono);font-weight:400;font-size:22px;line-height:1;transition:transform .2s;flex:none}
+.q[open] summary::after{transform:rotate(45deg)}
+.q p{padding:0 0 24px;max-width:46em;color:#2B2F40;font-size:15px}
+
+/* footer */
+.ft{background:var(--ink);color:#fff;padding:clamp(48px,6vw,88px) 0 36px}
+.ft-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end}
+.ft .disp{font-size:clamp(34px,10vw,168px)}
+.ft-top>*,.track,.theme>*,.reg-grid>*,.sp-lead>*{min-width:0}
+.ft-info{font-size:13px;color:var(--muted-on-ink);line-height:1.9}
+.ft-info b{display:block;color:#fff;font-size:14px}
+.ft-bot{margin-top:clamp(40px,5vw,72px);padding-top:20px;border-top:1px solid var(--line-on-ink);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;color:var(--muted-on-ink)}
+
+/* responsive */
+@media (max-width:1100px){
+  .sp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cand-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nav{gap:18px}
+}
+@media (max-width:900px){
+  .nav,.hd .btn{display:none}
+  .menu{display:block}
+  .h-row{grid-template-columns:1fr}
+  .facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(3){padding-left:0}
+  .fact:nth-child(n+3){border-top:1px solid var(--line)}
+  .sec-h,.about-body{grid-template-columns:1fr}
+  .about-body > div{grid-column:1}
+  .about-cols{grid-template-columns:1fr}
+  .aud{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .theme{grid-template-columns:1fr}
+  .theme .chips{justify-content:flex-start}
+  .tracks{grid-template-columns:1fr}
+  .reg-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr}
+  .sp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pg-head{display:none}
+  .pg{grid-template-columns:minmax(0,1fr);gap:0}
+  .tm{padding:20px 0 6px;border-bottom:0;display:flex;gap:10px}
+  .tm span{display:inline}
+  .tm span::before{content:"–";margin-right:10px}
+  .cell,.cell.full,.brk{grid-column:1}
+  .cell{border-bottom:0;padding:6px 0}
+  .row .cell:last-child{border-bottom:1px solid var(--line);padding-bottom:18px}
+  .tm.b{padding:12px 0 0}
+  .brk{padding:2px 0 12px}
+}
+@media (max-width:560px){
+  .fg{grid-template-columns:1fr}
+  .h-date dl{grid-template-columns:auto 1fr}
+  .cand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sp-grid{gap:12px}
+  .card .meta{padding:14px 12px 16px}
+  .card .nm{font-size:19px}
+  .card .ss{font-size:12px}
+  .btn{flex:1 1 100%}
+  .fact{padding-right:12px}
+  .fact+.fact{padding-left:14px}
+  .fact:nth-child(3){padding-left:0}
+  .track li{flex-direction:column;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+
+</style>
+<div class="sample mono"><b>SAMPLE DESIGN</b>　掲載内容は予定・調整中の情報を含みます。申込フォームは送信されません。</div>
+
+<header class="hd" id="hd">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="AI READY CONFERENCE 2027 トップ">AI READY<i>CONFERENCE 2027</i></a>
+    <nav class="nav" aria-label="メイン">
+      <a href="#about">概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn w" href="#register">参加を申し込む</a>
+    <button class="menu" id="menu" aria-label="メニュー" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a href="#about">About</a><a href="#themes">Themes</a><a href="#speakers">Speakers</a><a href="#program">Program</a><a href="#faq">FAQ</a>
+  <a class="btn w" href="#register">参加を申し込む</a>
+</div>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-in">
+    <p class="eyebrow mono"><span>Enterprise AI Conference</span><span>Online</span><span>2 Tracks</span><span>Feb 3, 2027</span></p>
+    <h1 class="h-title disp">AI READY<small>CONFERENCE <em>2027</em></small></h1>
+    <div class="h-row">
+      <div>
+        <p class="h-lead">導入の、その先へ。<br>AIが根づく組織の判断を、<br>実践者の言葉で。</p>
+        <p class="h-sub">AI導入・現場定着・人材育成。意思決定を担ってきた登壇者が、成果につながった選定、発注、運用の実際をそのまま語る1日です。</p>
+        <div class="h-cta">
+          <a class="btn w" href="#register">参加を申し込む <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <a class="btn o" href="#program">プログラムを見る</a>
+        </div>
+      </div>
+      <div class="h-date">
+        <div class="d">2027<span>.</span>02<span>.</span>03</div>
+        <dl>
+          <dt class="mono">Day</dt><dd>2027年2月3日（水）</dd>
+          <dt class="mono">Time</dt><dd>10:00 – 17:10 JST</dd>
+          <dt class="mono">Format</dt><dd>オンライン配信（LIVE＋事前収録）</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="kv" aria-hidden="true"><canvas id="kv"></canvas><span class="mono">Readiness &mdash; 100%</span></div>
+</section>
+
+<section class="facts" aria-label="開催概要">
+  <div class="wrap">
+    <div class="fact"><span class="mono">Date</span><p>2027年2月3日（水）<small>10:00 – 17:10</small></p></div>
+    <div class="fact"><span class="mono">Format</span><p>オンライン開催<small>LIVE配信＋事前収録、アーカイブ視聴予定</small></p></div>
+    <div class="fact"><span class="mono">For</span><p>経営層・事業責任者<small>AI・DX推進／人事・人材開発</small></p></div>
+    <div class="fact"><span class="mono">Program</span><p>2トラック・10セッション<small>講演／対談</small></p></div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-h"><span class="mono">About</span><h2 class="sec-title disp">THE DAY<br>AFTER<br>ADOPTION</h2></div>
+    <div class="about-body"><span></span>
+      <div>
+        <p class="statement">生成AIは、もう「導入するかどうか」の段階にはありません。成果が出る組織と止まる組織を分けるのは、<em>何を選び、誰に任せ、どう現場に根づかせたか</em>です。</p>
+        <div class="about-cols">
+          <p>AI READY CONFERENCE 2027は、企業向け生成AIの実践事例に絞ったオンラインカンファレンスです。大手企業の全社推進から、中小企業の現場導入まで、規模の異なる組織の意思決定をトラック別に取り上げます。</p>
+          <p>登壇するのは、導入の判断と運用を自ら担ってきた方々です。製品紹介や一般論ではなく、選定の基準、社内の巻き込み方、人材育成の進め方など、明日の判断に使える内容をお届けします。</p>
+        </div>
+        <div class="aud">
+          <div><span class="mono">For</span>経営層</div>
+          <div><span class="mono">For</span>事業責任者</div>
+          <div><span class="mono">For</span>AI・DX推進部門</div>
+          <div><span class="mono">For</span>人事・人材開発部門</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-dark" id="themes">
+  <div class="wrap">
+    <div class="sec-h"><span class="mono">Themes</span><h2 class="sec-title disp">THREE<br>QUESTIONS</h2></div>
+    <div class="themes">
+      <article class="theme"><div class="disp">SELECT</div><div><h3 class="jp">選ぶ</h3><p>AIをどう選び、どこまで任せるか。選定・発注・投資判断の基準を、判断した当事者から聞きます。</p></div><div class="chips"><span class="chip">共通セッション</span><span class="chip">クロージング対談</span></div></article>
+      <article class="theme"><div class="disp">ADOPT</div><div><h3 class="jp">根づかせる</h3><p>全社展開と現場定着。組織を横断して進めるための体制、巻き込み方、つまずきの越え方。</p></div><div class="chips"><span class="chip">Enterprise</span><span class="chip">SMB</span></div></article>
+      <article class="theme"><div class="disp">GROW</div><div><h3 class="jp">育てる</h3><p>AIを使いこなす人材をどう育てるか。採用・人事・育成の現場で起きている変化を取り上げます。</p></div><div class="chips"><span class="chip">SMB</span><span class="chip">人材育成</span></div></article>
+    </div>
+    <div class="tracks">
+      <div class="track e">
+        <div class="disp">ENTERPRISE</div>
+        <p class="for">大企業・全社でのAI活用を担う方へ。意思決定、組織横断の推進、産業・現場の変革。</p>
+        <ul><li><span class="mono">13:50</span>AI導入の意思決定と、組織横断の推進</li><li><span class="mono">14:40</span>全社AI活用と組織変革</li><li><span class="mono">15:30</span>Physical AIと、産業・現場の変革</li></ul>
+      </div>
+      <div class="track">
+        <div class="disp">SMB</div>
+        <p class="for">中堅・中小企業で、限られた体制から成果を出したい方へ。人事、人材育成、現場定着。</p>
+        <ul><li><span class="mono">13:50</span>採用・人事領域のAI活用</li><li><span class="mono">14:40</span>中小企業がAI導入で成果を出す方法</li><li><span class="mono">15:30</span>AI人材育成と現場定着の実践</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper" id="speakers">
+  <div class="wrap">
+    <div class="sec-h"><span class="mono">Speakers</span><h2 class="sec-title disp">SPEAKERS</h2></div>
+    <div class="sp-lead">
+      <p>企業のAI導入と組織づくりの最前線で、意思決定を担う方々にご登壇いただきます。</p>
+      <div class="legend mono"><span><i style="background:var(--ink)"></i>出演決定</span><span><i style="border:1.5px solid var(--ink)"></i>出演予定（調整中）</span></div>
+    </div>
+    <div class="sp-grid" id="spGrid"></div>
+    <div class="cands">
+      <div class="cands-h"><h3 class="jp">登壇交渉中の方々</h3><span class="mono">Speaker candidates — 順次発表</span></div>
+      <div class="cand-grid" id="candGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="program">
+  <div class="wrap">
+    <div class="sec-h"><span class="mono">Program</span><h2 class="sec-title disp">PROGRAM</h2></div>
+    <div class="pg-head mono"><div>JST</div><div>Common / <span class="e">Enterprise</span></div><div class="e">SMB</div></div>
+    <div class="pg" id="pg"></div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h"><span class="mono">FAQ</span><h2 class="sec-title disp" style="font-size:clamp(40px,6vw,88px)">FAQ</h2></div>
+    <div class="faq">
+      <details class="q"><summary>どのような方が対象ですか？</summary><p>経営層、事業責任者、AI・DX推進部門、人事・人材開発部門の責任者・担当者の方を想定しています。企業規模に応じて、Enterpriseトラック、SMBトラックを選んでご視聴いただけます。</p></details>
+      <details class="q"><summary>視聴方法を教えてください。</summary><p>オンライン配信です。お申し込みいただいた方に、視聴用のURLをメールでご案内します。事前収録の講演とLIVE配信を組み合わせて実施します。</p></details>
+      <details class="q"><summary>当日、都合が合わない時間帯があります。</summary><p>アーカイブ視聴を予定しています。詳細は申込者向けのご案内でお知らせします。</p></details>
+      <details class="q"><summary>トラックは途中で切り替えられますか？</summary><p>午後のEnterpriseとSMBは同時刻に並行して配信します。セッションごとに自由にお選びいただけます。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec reg" id="register">
+  <div class="wrap reg-grid">
+    <div>
+      <span class="mono" style="color:#C8D0FF">Register</span>
+      <h2 class="sec-title disp" style="margin-top:14px">JOIN<br>US</h2>
+      <p class="reg-copy">参加のお申し込みはこちらから。お申し込みいただいた方に、視聴URLと当日のご案内をお送りします。</p>
+      <ul class="reg-list">
+        <li><span class="mono">Date</span>2027年2月3日（水）10:00 – 17:10</li>
+        <li><span class="mono">Format</span>オンライン配信</li>
+        <li><span class="mono">Fee</span>参加費・お申し込み条件は確定後に掲載</li>
+      </ul>
+    </div>
+    <form class="form" id="form" novalidate>
+      <h3>参加申込</h3><p class="note">サンプルのため、入力内容は送信・保存されません。</p>
+      <div class="fg">
+        <div class="f"><label for="f-co">会社名<i>必須</i></label><input type="text" id="f-co" autocomplete="organization" required></div>
+        <div class="f"><label for="f-dp">部署・役職</label><input type="text" id="f-dp" autocomplete="organization-title"></div>
+        <div class="f"><label for="f-nm">お名前<i>必須</i></label><input type="text" id="f-nm" autocomplete="name" required></div>
+        <div class="f"><label for="f-ml">メールアドレス<i>必須</i></label><input type="email" id="f-ml" autocomplete="email" required></div>
+        <div class="f full"><fieldset><legend>関心のあるトラック</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="trk" value="ent" checked><span>Enterprise</span></label>
+            <label class="opt"><input type="radio" name="trk" value="smb"><span>SMB</span></label>
+            <label class="opt"><input type="radio" name="trk" value="both"><span>両方</span></label>
+          </div></fieldset></div>
+        <div class="f full"><label for="f-rl">ご担当領域</label>
+          <select id="f-rl"><option>経営・事業責任者</option><option>AI・DX推進</option><option>人事・人材開発</option><option>情報システム</option><option>その他</option></select></div>
+        <label class="agree full f" style="flex-direction:row"><input type="checkbox" id="f-ag" required><span>個人情報の取り扱いに同意します。（プライバシーポリシーへのリンクが入ります）</span></label>
+      </div>
+      <button class="btn b" type="submit">申し込む <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
+      <p class="done" id="done" role="status">サンプルサイトのため、送信は行われていません。実運用では、ここで申込完了ページへ遷移します。</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ft on-dark">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="disp">AI READY<br>CONFERENCE<br>2027</div>
+      <div class="ft-info"><b>AI READY CONFERENCE 実行委員会</b>2027年2月3日（水）オンライン開催<br>お問い合わせ：事務局（連絡先が入ります）</div>
+    </div>
+    <div class="ft-bot mono"><span>© 2027 AI READY CONFERENCE Executive Committee</span><span>Privacy Policy　/　Contact　/　Sample design</span></div>
+  </div>
+</footer>
+
+<script>
+/* ===== AI READY CONFERENCE 2027 — content data =====
+   登壇者の掲載/非掲載は status と hidden で切り替え可能。
+   photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
+   verify: true の項目は肩書き・表記の最終確認が必要。 */
+window.SPEAKERS = [
+  { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:null, verify:true },
+  { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:null, verify:true },
+  { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:null },
+  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', photo:null },
+  { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:null, verify:true },
+  { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:null, verify:true },
+  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:null, verify:true }
+];
+window.CANDIDATES = [
+  { name:'茶圓 将裕', org:'デジライズ', note:'SMB × 中小企業のAI導入' },
+  { name:'白井 陽祐', org:'キャディ', note:'上席執行役員 CPO' },
+  { name:'巽 達志',   org:'住友商事', note:'常務執行役員 CDO・CIO' },
+  { name:'加治 慶光', org:'シナモンAI', note:'会長兼CSDO' },
+  { name:'稲垣 裕介', org:'ユーザベース', note:'代表取締役 CEO' },
+  { name:'洛西 一周', org:'Helpfeel', note:'CEO' },
+  { name:'小笠原 羽恭', org:'Sales Marker', note:'CEO' },
+  { name:'黒﨑 賢一', org:'TOKIUM', note:'代表取締役社長' }
+];
+/* kind: common | track ; time は開始-終了 */
+window.PROGRAM = [
+  { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:[] },
+  { t:'10:10', e:'10:50', id:'k1', tag:'KEYNOTE 1', title:'AI時代の企業経営・意思決定', who:['special'] },
+  { t:'10:50', e:'11:00', type:'break', title:'Break' },
+  { t:'11:00', e:'11:40', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
+  { t:'11:40', e:'12:00', type:'break', title:'午前のまとめ' },
+  { t:'12:00', e:'13:00', type:'break', title:'Lunch Break' },
+  { t:'13:00', e:'13:40', id:'common', tag:'COMMON SESSION', title:'AIを選ぶ・任せるための判断軸', who:['oda'] },
+  { t:'13:40', e:'13:50', type:'break', title:'トラック切替' },
+  { t:'13:50', e:'14:30', type:'tracks',
+    ent:{ id:'e1', tag:'ENTERPRISE 1', title:'AI導入の意思決定と、組織横断の推進', who:['ono'] },
+    smb:{ id:'s1', tag:'SMB 1', title:'採用・人事領域のAI活用', who:['tachibana'] } },
+  { t:'14:30', e:'14:40', type:'break', title:'Break' },
+  { t:'14:40', e:'15:20', type:'tracks',
+    ent:{ id:'e2', tag:'ENTERPRISE 2', title:'全社AI活用と組織変革', who:['narita','ozawa'], pair:true },
+    smb:{ id:'s2', tag:'SMB 2', title:'中小企業がAI導入で成果を出す方法', who:['tbd:交渉中'] } },
+  { t:'15:20', e:'15:30', type:'break', title:'Break' },
+  { t:'15:30', e:'16:10', type:'tracks',
+    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['tbd:調整中'] },
+    smb:{ id:'s3', tag:'SMB 3', title:'AI人材育成と現場定着の実践', who:['tbd:調整中'] } },
+  { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
+  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
+  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] }
+];
+
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var SP=window.SPEAKERS, CA=window.CANDIDATES, PG=window.PROGRAM;
+var byId={}; SP.forEach(function(s){byId[s.id]=s});
+
+/* ---------- deterministic generated portrait (used until real photos are supplied) ---------- */
+function hash(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function portrait(id){
+  var h=hash(id), r=function(n){h=Math.imul(h^(h>>>15),2246822519)>>>0;return (h%1000)/1000*n};
+  var a=Math.round(r(60)+110), cx=48+r(10), hy=34+r(5), hr=15+r(3), sw=70+r(14);
+  var c1=['#2B43FF','#1E35F2','#2A3CF5','#1830E8'][Math.floor(r(4))], c2=['#0B1AA8','#0A1690','#101FB8'][Math.floor(r(3))];
+  var g='g'+id, lines='';
+  for(var i=0;i<9;i++){lines+='<line x1="'+(-10+i*14)+'" y1="130" x2="'+(40+i*14)+'" y2="-10" stroke="#fff" stroke-opacity=".05" stroke-width="3"/>'}
+  return '<svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" role="img" aria-label="写真準備中"><defs><linearGradient id="'+g+'" gradientTransform="rotate('+a+' .5 .5)"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></linearGradient></defs><rect width="100" height="125" fill="url(#'+g+')"/>'+lines+
+    '<path d="M'+(cx-sw/2)+' 125 C'+(cx-sw/2)+' 92 '+(cx-16)+' 80 '+cx+' 80 C'+(cx+16)+' 80 '+(cx+sw/2)+' 92 '+(cx+sw/2)+' 125Z" fill="#fff" fill-opacity=".22"/>'+
+    '<ellipse cx="'+cx+'" cy="'+(hy+14)+'" rx="'+(hr*.9)+'" ry="'+hr+'" fill="#fff" fill-opacity=".34"/></svg>';
+}
+function photoHTML(s){
+  if(s.photo){return '<img src="'+s.photo+'" alt="'+s.name+'" loading="lazy" onerror="this.parentNode.classList.remove(\'real\');this.outerHTML=window.__portrait(\''+s.id+'\')">'}
+  return portrait(s.id);
+}
+window.__portrait=portrait;
+
+/* ---------- session lookup ---------- */
+var sessions={};
+PG.forEach(function(p){ if(p.id)sessions[p.id]=p; if(p.ent)sessions[p.ent.id]=p.ent; if(p.smb)sessions[p.smb.id]=p.smb; });
+function timeOf(id){
+  for(var i=0;i<PG.length;i++){var p=PG[i]; if(p.id===id||(p.ent&&p.ent.id===id)||(p.smb&&p.smb.id===id))return p.t+'–'+p.e}
+  return '';
+}
+
+/* ---------- speakers ---------- */
+(function(){
+  var html='';
+  SP.forEach(function(s){
+    var ses=s.session&&sessions[s.session];
+    var badge=s.status==='confirmed'?'<span class="badge mono">Confirmed</span>':'<span class="badge exp mono">Tentative</span>';
+    html+='<article class="card">'+badge+'<div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="meta">'+
+      '<span class="org">'+s.org+'</span>'+
+      '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
+      '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+
+      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+'</div></div></article>';
+  });
+  html+='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者をお迎えする予定です。決定次第お知らせします。</p></article>';
+  $('#spGrid').innerHTML=html;
+  $('#candGrid').innerHTML=CA.map(function(c){return '<div class="cand"><b>'+c.name+'</b><span class="o">'+c.org+'</span><span>'+c.note+'</span></div>'}).join('');
+})();
+
+/* ---------- program ---------- */
+(function(){
+  function whoHTML(list){
+    var out=[];
+    list.forEach(function(k,i){
+      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>Special Keynote</b><span class="t">登壇者調整中</span></span></span>');return}
+      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>Speaker TBA</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
+      var s=byId[k];
+      out.push('<span class="w"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span></span></span>');
+    });
+    return out.join('<span class="x">×</span>');
+  }
+  function ses(x,cls){
+    return '<div class="ses '+(cls||'')+'" id="'+x.id+'"><span class="mono">'+x.tag+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
+  }
+  var h='';
+  PG.forEach(function(p){
+    if(p.type==='break'){
+      h+='<div class="row"><div class="tm b">'+p.t+'</div><div class="brk mono">'+p.title+'　'+p.t+'–'+p.e+'</div></div>';return;
+    }
+    h+='<div class="row"><div class="tm">'+p.t+'<span>'+p.e+'</span></div>';
+    if(p.type==='tracks'){
+      h+='<div class="cell">'+ses(p.ent,'ent')+'</div><div class="cell">'+ses(p.smb,'')+'</div>';
+    }else{
+      var key=/KEYNOTE|CLOSING SESSION|COMMON/.test(p.tag);
+      h+='<div class="cell full">'+ses(p,key?'key':'')+'</div>';
+    }
+    h+='</div>';
+  });
+  $('#pg').innerHTML=h;
+  $$('[data-go]').forEach(function(a){a.addEventListener('click',function(e){
+    var el=document.getElementById(a.getAttribute('data-go')); if(!el)return;
+    e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.classList.add('hl'); setTimeout(function(){el.classList.remove('hl')},2200);
+  })});
+})();
+
+/* ---------- header / nav ---------- */
+(function(){
+  var hd=$('#hd'), root=document.documentElement;
+  function on(){var s=window.scrollY>40; hd.classList.toggle('solid',s&&!$('#drawer').classList.contains('open')); root.style.setProperty('--hdbg',s?'#fff':'#1E35F2')}
+  window.addEventListener('scroll',on,{passive:true}); on();
+  var m=$('#menu'), d=$('#drawer');
+  function close(){d.classList.remove('open');m.setAttribute('aria-expanded','false');on()}
+  m.addEventListener('click',function(){var o=!d.classList.contains('open');d.classList.toggle('open',o);m.setAttribute('aria-expanded',String(o));hd.classList.toggle('solid',!o&&window.scrollY>40)});
+  $$('#drawer a').forEach(function(a){a.addEventListener('click',close)});
+  var links=$$('.nav a'), secs=links.map(function(a){return $(a.getAttribute('href'))});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){s&&io.observe(s)});
+  }
+})();
+
+/* ---------- form (sample only) ---------- */
+$('#form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true; $$('#form [required]').forEach(function(i){var v=i.type==='checkbox'?i.checked:i.value.trim(); if(!v){ok=false;i.style.borderColor='#d11'}else{i.style.borderColor=''}});
+  var d=$('#done'); d.classList.add('show'); d.textContent=ok?'サンプルサイトのため、送信は行われていません。実運用では、ここで申込完了ページへ遷移します。':'必須項目をご入力ください。';
+});
+
+/* ---------- key visual: readiness bars ---------- */
+(function(){
+  var cv=$('#kv'); if(!cv)return; var ctx=cv.getContext('2d');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W,H,dpr,N,mx=-1,t0=performance.now(),raf;
+  function size(){var r=cv.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);N=W<640?44:W<1100?84:128}
+  function ease(x){x=Math.max(0,Math.min(1,x));return 1-Math.pow(1-x,3)}
+  function draw(now){
+    var t=(now-t0), intro=reduce?1:null;
+    ctx.clearRect(0,0,W,H);
+    var step=W/N, bw=Math.max(1.5,step*.46);
+    for(var i=0;i<N;i++){
+      var x=(i+.5)/N, p=Math.pow(x,1.55);
+      var wave=.5+.5*Math.sin(x*11-(reduce?0:t*.00045)+Math.sin(x*3.1)*1.6);
+      var ripple=mx>=0?Math.exp(-Math.pow((x-mx)*9,2))*.14:0;
+      var lvl=.07+.86*p*(.62+.38*wave)+ripple*p;
+      var k=intro===null?ease((t-i*9)/1100):1;
+      var h=H*lvl*k;
+      var a=.16+.84*Math.pow(x,1.35);
+      var cx=i*step+(step-bw)/2;
+      var lit=i>=N-2;
+      ctx.fillStyle=lit?'#fff':'rgba(255,255,255,'+a.toFixed(3)+')';
+      ctx.fillRect(cx,H-h,bw,h);
+      ctx.fillStyle='rgba(255,255,255,'+Math.min(1,a+.2).toFixed(3)+')';
+      ctx.fillRect(cx,H-h,bw,Math.max(2,bw*.5));
+    }
+    if(!reduce)raf=requestAnimationFrame(draw);
+  }
+  size(); draw(performance.now());
+  window.addEventListener('resize',function(){size();if(reduce)draw(0)});
+  if(!reduce){
+    cv.parentNode.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mx=(e.clientX-r.left)/r.width});
+    cv.parentNode.addEventListener('pointerleave',function(){mx=-1});
+    document.addEventListener('visibilitychange',function(){if(document.hidden)cancelAnimationFrame(raf);else raf=requestAnimationFrame(draw)});
+  }
+})();
+})();
+
+</script>
