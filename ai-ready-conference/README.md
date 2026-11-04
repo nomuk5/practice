@@ -7,7 +7,7 @@
 - `src/body.html` / `src/style.css` / `src/app.js` … 一般向けサイト
 - `src/sumitomo.html` / `src/private.css` … 商談用ページ（一般公開しない）
 - `build.py` … ビルド
-- `assets/speakers/` … 登壇者写真　`assets/key-visual.png` … メインビジュアル
+- `assets/speakers/` … 登壇者写真　`assets/logos/` … DMMのAI関連サービスのロゴ（ビジネスAI／学び放題）　`assets/key-visual.png` … メインビジュアル
 - `CONFIRMATION.md` … **商談前に確認が必要な情報**
 
 ## ビルドと閲覧
@@ -34,3 +34,5 @@ python3 build.py
 | 小田 健太郎・越川 滋代 | ご提供いただいた写真 |
 
 経歴・実績（`BIOS`）は、各社公式サイト・PR TIMES・インタビュー記事・研究者データベース等の公開情報の要約です。
+
+ロゴ: DMMビジネスAI（dmm-businessai.com）、DMM 生成AI CAMP 学び放題（genai.dmm.com）の各公式サイトの画像。

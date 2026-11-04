@@ -27,7 +27,7 @@ window.__portrait=portrait;
 var sessions={};
 PG.forEach(function(p){ if(p.id)sessions[p.id]=p; if(p.ent)sessions[p.ent.id]=p.ent; if(p.smb)sessions[p.smb.id]=p.smb; });
 function timeOf(id){
-  for(var i=0;i<PG.length;i++){var p=PG[i]; if(p.id===id||(p.ent&&p.ent.id===id)||(p.smb&&p.smb.id===id))return p.t+'–'+p.e}
+  for(var i=0;i<PG.length;i++){var p=PG[i]; if(p.id===id||(p.ent&&p.ent.id===id)||(p.smb&&p.smb.id===id))return p.e?p.t+'–'+p.e:p.t}
   return '';
 }
 
@@ -50,13 +50,15 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
   var html='', soon='';
   SP.forEach(function(s,idx){
     if(idx===SP.length-1)html+='@@SOON@@';
-    var ses=s.session&&sessions[s.session];
+    var ids=s.sessions||(s.session?[s.session]:[]);
+    var ses=ids.length&&sessions[ids[0]];
     var pend=s.status!=='confirmed';
+    var ssHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span><a href="#'+id+'" data-go="'+id+'">'+x.title+'</a>'}).join(''):'<span class="mono">Session</span>登壇セッション調整中';
     html+='<article class="card'+(pend?' pend':'')+'" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+'（'+stLabel(s)+'）のプロフィールを開く"><div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+badge(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
-      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
+      '<div class="ss">'+ssHTML+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
@@ -92,19 +94,20 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
 
 /* ---------- program ---------- */
 (function(){
-  function whoHTML(list){
+  function whoHTML(list,slot){
     var out=[];
     list.forEach(function(k){
       if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
       if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
       var s=byId[k], pend=s.status!=='confirmed';
-      out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+(pend?' wait':'')+'">'+stLabel(s)+'</span></span></span>');
+      out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+((pend||slot)?' wait':'')+'">'+(slot||stLabel(s))+'</span></span></span>');
     });
     return out.join('<span class="x">×</span>');
   }
   function ses(x,cls){
-    var pend=(x.who||[]).some(isPending);
-    return '<div class="ses '+(cls||'')+(pend?' pending':'')+'" id="'+x.id+'"><span class="mono">'+x.tag+(pend?'<em class="chip-p">登壇者調整中</em>':'')+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
+    var pend=(x.who||[]).some(isPending)||!!x.slotStatus;
+    var chip=x.slotStatus?x.slotStatus:'登壇者調整中';
+    return '<div class="ses '+(cls||'')+(pend?' pending':'')+'" id="'+x.id+'"><span class="mono">'+x.tag+(pend?'<em class="chip-p">'+chip+'</em>':'')+'</span><h4 class="jp">'+x.title+'</h4>'+(x.note?'<p class="ses-note">'+x.note+'</p>':'')+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who,x.slotStatus)+'</div>':'')+'</div>';
   }
   var h='';
   PG.forEach(function(p){
@@ -115,7 +118,7 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
     if(p.type==='tracks'){
       h+='<div class="cell">'+ses(p.ent,'ent')+'</div><div class="cell">'+ses(p.smb,'')+'</div>';
     }else{
-      var key=/KEYNOTE|CLOSING SESSION|COMMON/.test(p.tag);
+      var key=/KEYNOTE|CLOSING SESSION|COMMON|SPECIAL SESSION/.test(p.tag);
       h+='<div class="cell full">'+ses(p,key?'key':'')+'</div>';
     }
     h+='</div>';
@@ -133,13 +136,14 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
   var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
   function open(id){
     var s=byId[id]; if(!s)return;
-    var ses=s.session&&sessions[s.session], pend=s.status!=='confirmed';
+    var ids=s.sessions||(s.session?[s.session]:[]), pend=s.status!=='confirmed';
+    var sesHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<div class="dsess"><span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span>'+x.title+(x.note?'<em class="pnd">'+x.note+'</em>':'')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div>'}).join(''):'<div class="dsess"><span class="mono">Session</span>登壇セッション調整中</div>';
     box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
       '<span class="st-l '+(pend?'wait':'ok')+'">'+stLabel(s)+'</span>'+
       '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="en mono">'+s.en+'</span><p class="rl">'+(s.role||'')+'</p>'+
       (s.bio.length?'<p class="mono lbl">Profile　経歴・実績</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
-      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div></div>';
+      sesHTML+'</div>';
     if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
   }
   $$('#spGrid .card[data-sp]').forEach(function(c){

@@ -466,6 +466,17 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
   .ot{padding:14px}
 }
 
+/* related services logos / added slot */
+.org-own>.org-rel{display:grid;grid-column:1 / -1;background:#fff;border:1px solid var(--line);padding:22px 24px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:16px 32px;align-items:center}
+.org-rel .mono{color:var(--cobalt)}
+.org-rel p{margin:4px 0 0;font-size:12.5px;color:var(--muted)}
+.rel-logos{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center}
+.rel-logos img{height:var(--h,30px);width:auto;max-width:100%}
+.ses-note{margin:2px 0 0;font-size:12.5px;opacity:.8}
+.card .ss .mono+a{display:block}
+.card .ss a+.mono{margin-top:10px}
+@media (max-width:900px){.org-own>.org-rel{grid-template-columns:1fr}}
+
 </style>
 <div class="sample mono"><b>SAMPLE DESIGN</b>　掲載内容は予定・調整中の情報を含みます。各登壇者の状況は、写真の近くの表示でご確認ください。申込フォームは送信されません。</div>
 
@@ -617,7 +628,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 <section class="sec" id="program">
   <div class="wrap">
     <div class="sec-h"><span class="mono">Program<b>プログラム</b></span><h2 class="sec-title disp">PROGRAM</h2></div>
-    <p class="sec-lead dk">セッション内容は予定です。登壇者が調整中のセッションには「登壇者調整中」と表示しています。</p>
+    <p class="sec-lead dk">セッション内容は予定です。登壇者が調整中のセッションには「登壇者調整中」、登壇者は決まっていてテーマ・時間枠を調整中の枠には「登壇予定」と表示しています。</p>
     <div class="pg-head mono"><div>JST</div><div>Common / <span class="e">Enterprise　大企業向け</span></div><div class="e">Growth　成長企業向け</div></div>
     <div class="pg" id="pg"></div>
   </div>
@@ -629,6 +640,10 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
     <div class="org-own">
       <div><span class="mono">Organizer　主催（仮称）</span><b>AI READY CONFERENCE 実行委員会</b></div>
       <div><span class="mono">Planning &amp; Operation　企画・運営（予定）</span><b>DMM</b></div>
+      <div class="org-rel">
+        <div><span class="mono">Related services　DMMのAI関連サービス</span><p>企画・運営（予定）のDMMが手がけるAI関連サービスです。協力内容は調整中です。</p></div>
+        <div class="rel-logos"><img src="assets/logos/dmm-businessai.svg" alt="DMMビジネスAI" style="--h:30px"><img src="assets/logos/dmm-genai-camp-manabihoudai.svg" alt="DMM 生成AI CAMP 学び放題" style="--h:26px"></div>
+      </div>
       <p>主催名義・運営法人の正式表記は確認中です。確定次第、更新します。</p>
     </div>
     <h3 class="org-h jp">登壇者所属企業</h3>
@@ -644,7 +659,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
     <div class="faq">
       <details class="q"><summary>どのような方が対象ですか？</summary><p>経営層、事業責任者、AI・DX推進部門、人事・人材開発部門の責任者・担当者の方を想定しています。企業規模に応じて、Enterprise（大企業向け）トラック、Growth（成長企業向け）トラックを選んでご視聴いただけます。</p></details>
       <details class="q"><summary>視聴方法を教えてください。</summary><p>オンライン配信です。お申し込みいただいた方に、視聴用のURLをメールでご案内します。事前収録の講演とLIVE配信を組み合わせて実施します。</p></details>
-      <details class="q"><summary>登壇者の「登壇決定」「登壇調整中」とは何ですか？</summary><p>「登壇決定」は、出演の承諾を確認できている方です。「登壇調整中」は、承諾をいただく前の段階の方で、変更になる場合があります。セッション内容も予定です。</p></details>
+      <details class="q"><summary>登壇者の「登壇決定」「登壇調整中」とは何ですか？</summary><p>「登壇決定」は、出演の承諾を確認できている方です。「登壇調整中」は、承諾をいただく前の段階の方で、変更になる場合があります。「登壇予定」は、登壇は決まっていて、テーマや時間枠を調整中の枠です。セッション内容はいずれも予定です。</p></details>
       <details class="q"><summary>主催・運営はどこですか？</summary><p>主催は「AI READY CONFERENCE 実行委員会（仮称）」、企画・運営はDMMを予定しています。正式な名義と表記は確認中で、確定次第、掲載します。</p></details>
       <details class="q"><summary>当日、都合が合わない時間帯があります。</summary><p>アーカイブ視聴を予定しています。詳細は申込者向けのご案内でお知らせします。</p></details>
       <details class="q"><summary>トラックは途中で切り替えられますか？</summary><p>午後のEnterpriseとGrowthは同時刻に並行して配信します。セッションごとに自由にお選びいただけます。</p></details>
@@ -713,7 +728,7 @@ window.SPEAKERS = [
   { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
   { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:'assets/speakers/ono.jpg', verify:true },
   { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:'assets/speakers/tachibana.jpg' },
-  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', photo:'assets/speakers/ozawa.jpg' },
+  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', sessions:['closing','solo'], photo:'assets/speakers/ozawa.jpg' },
   { id:'chaen',   status:'confirmed', name:'茶圓 将裕', en:'Masahiro Chaen', org:'デジライズ', role:'代表取締役 CEO', session:'s2', photo:'assets/speakers/chaen.jpg' },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
@@ -762,7 +777,9 @@ window.PROGRAM = [
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
   { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
-  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] }
+  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] },
+  /* 追加枠: おざけん単身セッション。登壇は決定済みだが、テーマ・時間枠は調整中のため slotStatus で「登壇予定」と表示 */
+  { t:'時間枠調整中', e:'', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマ・時間枠は調整中' }
 ];
 
 (function(){
@@ -794,7 +811,7 @@ window.__portrait=portrait;
 var sessions={};
 PG.forEach(function(p){ if(p.id)sessions[p.id]=p; if(p.ent)sessions[p.ent.id]=p.ent; if(p.smb)sessions[p.smb.id]=p.smb; });
 function timeOf(id){
-  for(var i=0;i<PG.length;i++){var p=PG[i]; if(p.id===id||(p.ent&&p.ent.id===id)||(p.smb&&p.smb.id===id))return p.t+'–'+p.e}
+  for(var i=0;i<PG.length;i++){var p=PG[i]; if(p.id===id||(p.ent&&p.ent.id===id)||(p.smb&&p.smb.id===id))return p.e?p.t+'–'+p.e:p.t}
   return '';
 }
 
@@ -817,13 +834,15 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
   var html='', soon='';
   SP.forEach(function(s,idx){
     if(idx===SP.length-1)html+='@@SOON@@';
-    var ses=s.session&&sessions[s.session];
+    var ids=s.sessions||(s.session?[s.session]:[]);
+    var ses=ids.length&&sessions[ids[0]];
     var pend=s.status!=='confirmed';
+    var ssHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span><a href="#'+id+'" data-go="'+id+'">'+x.title+'</a>'}).join(''):'<span class="mono">Session</span>登壇セッション調整中';
     html+='<article class="card'+(pend?' pend':'')+'" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+'（'+stLabel(s)+'）のプロフィールを開く"><div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+badge(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
-      '<div class="ss">'+(ses?'<span class="mono">'+timeOf(s.session)+'</span><a href="#'+s.session+'" data-go="'+s.session+'">'+ses.title+'</a>':'<span class="mono">Session</span>登壇セッション調整中')+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
+      '<div class="ss">'+ssHTML+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
@@ -859,19 +878,20 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
 
 /* ---------- program ---------- */
 (function(){
-  function whoHTML(list){
+  function whoHTML(list,slot){
     var out=[];
     list.forEach(function(k){
       if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
       if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
       var s=byId[k], pend=s.status!=='confirmed';
-      out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+(pend?' wait':'')+'">'+stLabel(s)+'</span></span></span>');
+      out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+((pend||slot)?' wait':'')+'">'+(slot||stLabel(s))+'</span></span></span>');
     });
     return out.join('<span class="x">×</span>');
   }
   function ses(x,cls){
-    var pend=(x.who||[]).some(isPending);
-    return '<div class="ses '+(cls||'')+(pend?' pending':'')+'" id="'+x.id+'"><span class="mono">'+x.tag+(pend?'<em class="chip-p">登壇者調整中</em>':'')+'</span><h4 class="jp">'+x.title+'</h4>'+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who)+'</div>':'')+'</div>';
+    var pend=(x.who||[]).some(isPending)||!!x.slotStatus;
+    var chip=x.slotStatus?x.slotStatus:'登壇者調整中';
+    return '<div class="ses '+(cls||'')+(pend?' pending':'')+'" id="'+x.id+'"><span class="mono">'+x.tag+(pend?'<em class="chip-p">'+chip+'</em>':'')+'</span><h4 class="jp">'+x.title+'</h4>'+(x.note?'<p class="ses-note">'+x.note+'</p>':'')+(x.who&&x.who.length?'<div class="who">'+whoHTML(x.who,x.slotStatus)+'</div>':'')+'</div>';
   }
   var h='';
   PG.forEach(function(p){
@@ -882,7 +902,7 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
     if(p.type==='tracks'){
       h+='<div class="cell">'+ses(p.ent,'ent')+'</div><div class="cell">'+ses(p.smb,'')+'</div>';
     }else{
-      var key=/KEYNOTE|CLOSING SESSION|COMMON/.test(p.tag);
+      var key=/KEYNOTE|CLOSING SESSION|COMMON|SPECIAL SESSION/.test(p.tag);
       h+='<div class="cell full">'+ses(p,key?'key':'')+'</div>';
     }
     h+='</div>';
@@ -900,13 +920,14 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
   var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
   function open(id){
     var s=byId[id]; if(!s)return;
-    var ses=s.session&&sessions[s.session], pend=s.status!=='confirmed';
+    var ids=s.sessions||(s.session?[s.session]:[]), pend=s.status!=='confirmed';
+    var sesHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<div class="dsess"><span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span>'+x.title+(x.note?'<em class="pnd">'+x.note+'</em>':'')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div>'}).join(''):'<div class="dsess"><span class="mono">Session</span>登壇セッション調整中</div>';
     box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
       '<span class="st-l '+(pend?'wait':'ok')+'">'+stLabel(s)+'</span>'+
       '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="en mono">'+s.en+'</span><p class="rl">'+(s.role||'')+'</p>'+
       (s.bio.length?'<p class="mono lbl">Profile　経歴・実績</p><ul>'+s.bio.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul>':'')+
-      '<div class="dsess"><span class="mono">'+(ses?timeOf(s.session):'Session')+'</span>'+(ses?ses.title:'登壇セッション調整中')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div></div>';
+      sesHTML+'</div>';
     if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
   }
   $$('#spGrid .card[data-sp]').forEach(function(c){
