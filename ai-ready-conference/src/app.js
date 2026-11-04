@@ -31,13 +31,14 @@ function timeOf(id){
   return '';
 }
 
-/* ---------- status (登壇決定 / 登壇調整中) — one source of truth ---------- */
-var ST={confirmed:'登壇決定',expected:'登壇調整中'};
+/* ---------- status label — one source of truth. 表示は全員「登壇予定」に統一（内部の status 値は進行管理用に保持） ---------- */
+var ST={confirmed:'登壇予定',expected:'登壇予定'};
 function stLabel(s){return ST[s.status]||ST.expected}
-function badge(s){return '<span class="badge'+(s.status==='confirmed'?'':' exp')+' mono">'+stLabel(s)+'</span>'}
-function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var s=byId[k]; return !s||s.status!=='confirmed'; }
+function badge(s){return '<span class="badge mono">'+stLabel(s)+'</span>'}
+/* 人物が決まっていない枠のみ「登壇者調整中」とする（人物には使わない） */
+function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
 
-/* ---------- hero featured speakers (登壇決定の方を優先) ---------- */
+/* ---------- hero featured speakers ---------- */
 (function(){
   /* 並びは SPEAKERS の順（社格・知名度順）。先頭4名を表示し、状況は各カードのバッジで明示する */
   $('#heroSp').innerHTML=SP.slice(0,4).map(function(s){var id=s.id;
@@ -52,13 +53,13 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
     if(idx===SP.length-1)html+='@@SOON@@';
     var ids=s.sessions||(s.session?[s.session]:[]);
     var ses=ids.length&&sessions[ids[0]];
-    var pend=s.status!=='confirmed';
+    var pend=false;
     var ssHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span><a href="#'+id+'" data-go="'+id+'">'+x.title+'</a>'}).join(''):'<span class="mono">Session</span>登壇セッション調整中';
     html+='<article class="card'+(pend?' pend':'')+'" tabindex="0" role="button" data-sp="'+s.id+'" aria-label="'+s.name+'（'+stLabel(s)+'）のプロフィールを開く"><div class="ph'+(s.photo?' real':'')+'">'+photoHTML(s)+badge(s)+'</div><div class="meta">'+
       '<span class="org">'+s.org+'</span>'+
       '<h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
-      '<div class="ss">'+ssHTML+(pend&&ses?'<em class="pnd">登壇調整中のため、内容は予定です</em>':'')+'</div><span class="more mono">Profile +</span></div></article>';
+      '<div class="ss">'+ssHTML+'</div><span class="more mono">Profile +</span></div></article>';
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
@@ -83,12 +84,10 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
 
 /* ---------- speaker organizations (登壇者所属 — 協賛ではない) ---------- */
 (function(){
-  var seen={}, groups={confirmed:[],expected:[]};
-  SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};groups[s.status==='confirmed'?'confirmed':'expected'].push(seen[s.org]);} seen[s.org].sp.push(s); });
-  function tile(o,st){return '<div class="ot"><span class="mono '+(st==='confirmed'?'ok':'wait')+'">'+ST[st]+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
-  var h='<div class="og"><p class="mono">登壇決定</p><div class="ogg">'+groups.confirmed.map(function(o){return tile(o,'confirmed')}).join('')+'</div></div>';
-  h+='<div class="og"><p class="mono">登壇調整中</p><div class="ogg">'+groups.expected.map(function(o){return tile(o,'expected')}).join('')+'</div></div>';
-  $('#orgGrid').innerHTML=h;
+  var seen={}, list=[];
+  SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};list.push(seen[s.org]);} seen[s.org].sp.push(s); });
+  function tile(o){return '<div class="ot"><span class="mono ok">'+ST.confirmed+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
+  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+'</div>';
   $('#orgNote').textContent='Algomaticは、企画・運営（予定）のDMMと同じグループの関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
@@ -99,7 +98,7 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
     list.forEach(function(k){
       if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
       if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
-      var s=byId[k], pend=s.status!=='confirmed';
+      var s=byId[k], pend=false;
       out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+((pend||slot)?' wait':'')+'">'+(slot||stLabel(s))+'</span></span></span>');
     });
     return out.join('<span class="x">×</span>');
@@ -136,8 +135,8 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
   var dlg=$('#spDlg'), box=$('#spDlgIn'); if(!dlg)return;
   function open(id){
     var s=byId[id]; if(!s)return;
-    var ids=s.sessions||(s.session?[s.session]:[]), pend=s.status!=='confirmed';
-    var sesHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<div class="dsess"><span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span>'+x.title+(x.note?'<em class="pnd">'+x.note+'</em>':'')+(pend?'<em class="pnd">登壇調整中のため、セッション内容は予定です</em>':'')+'</div>'}).join(''):'<div class="dsess"><span class="mono">Session</span>登壇セッション調整中</div>';
+    var ids=s.sessions||(s.session?[s.session]:[]), pend=false;
+    var sesHTML=ids.length?ids.map(function(id){var x=sessions[id];return '<div class="dsess"><span class="mono">'+timeOf(id)+(x.slotStatus?'　'+x.slotStatus:'')+'</span>'+x.title+(x.note?'<em class="pnd">'+x.note+'</em>':'')+'</div>'}).join(''):'<div class="dsess"><span class="mono">Session</span>登壇セッション調整中</div>';
     box.innerHTML='<div class="dlg-ph ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="dlg-tx">'+
       '<span class="st-l '+(pend?'wait':'ok')+'">'+stLabel(s)+'</span>'+
       '<span class="org">'+s.org+'</span><h3 class="nm jp">'+s.name+(s.alias?'<small>'+s.alias+'</small>':'')+'</h3>'+

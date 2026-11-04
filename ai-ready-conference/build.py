@@ -48,11 +48,9 @@ pv_js = r"""
 (function(){
   var SP=window.SPEAKERS, esc=function(s){return s};
   function card(s){
-    var ok=s.status==='confirmed';
-    return '<div class="pv-s'+(ok?'':' wait')+'"><div class="ph real"><img src="../'+s.photo+'" alt="'+s.name+'"></div><div><span class="badge'+(ok?'':' exp')+' mono">'+(ok?'登壇決定':'登壇調整中')+'</span><b>'+s.name+'</b><span>'+s.org+'</span></div></div>';
+    return '<div class="pv-s"><div class="ph real"><img src="../'+s.photo+'" alt="'+s.name+'"></div><div><span class="badge mono">登壇予定</span><b>'+s.name+'</b><span>'+s.org+'</span></div></div>';
   }
-  var order=SP.filter(function(s){return s.status==='confirmed'}).concat(SP.filter(function(s){return s.status!=='confirmed'}));
-  document.getElementById('pvSp').innerHTML=order.map(card).join('');
+  document.getElementById('pvSp').innerHTML=SP.map(card).join('');
 })();
 """
 (private / "sumitomo.html").write_text(

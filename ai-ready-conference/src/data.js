@@ -1,5 +1,5 @@
 /* ===== AI READY CONFERENCE 2027 — content data =====
-   status: 'confirmed'=登壇決定（出演承諾を確認済み） / 'expected'=登壇調整中（承諾未確認）。
+   status: 'confirmed'=出演承諾を確認済み / 'expected'=承諾未確認。※画面上の表示は全員「登壇予定」に統一（ご指示）。内部管理用に値は保持。
    承諾の根拠は進行管理表の記録のみ。他イベントへの出演実績・過去の発表は根拠にしない。
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
