@@ -806,8 +806,8 @@ function isPending(k){ if(k==='special'||k.indexOf('tbd:')===0)return true; var 
 
 /* ---------- hero featured speakers (登壇決定の方を優先) ---------- */
 (function(){
-  var ids=['oda','tachibana','ozawa','chaen'];
-  $('#heroSp').innerHTML=ids.map(function(id){var s=byId[id];
+  /* 並びは SPEAKERS の順（社格・知名度順）。先頭4名を表示し、状況は各カードのバッジで明示する */
+  $('#heroSp').innerHTML=SP.slice(0,4).map(function(s){var id=s.id;
     return '<article class="hsp" tabindex="0" role="button" data-open="'+id+'" aria-label="'+s.name+' のプロフィールを開く"><div class="hp ph'+(s.photo?' real':'')+'">'+photoHTML(s)+'</div><div class="hx">'+badge(s)+'<span class="org">'+s.org+'</span><b class="nm jp">'+s.name+'</b><span class="rl">'+(s.role||'&nbsp;')+'</span></div></article>';
   }).join('');
 })();
