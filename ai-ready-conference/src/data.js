@@ -4,13 +4,13 @@
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
 window.SPEAKERS = [
-  { id:'ogata',   status:'expected' , name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
+  { id:'ogata',   status:'expected' , name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'closing', photo:'assets/speakers/ogata.jpg', verify:true },
   { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:'assets/speakers/oda.jpg', verify:true },
-  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
+  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:'e3', photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
   { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:'assets/speakers/ono.jpg', verify:true },
   { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:'assets/speakers/tachibana.jpg' },
-  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', sessions:['closing','solo'], photo:'assets/speakers/ozawa.jpg' },
+  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'e2', sessions:['e2','solo'], photo:'assets/speakers/ozawa.jpg' },
   { id:'chaen',   status:'confirmed', name:'茶圓 将裕', en:'Masahiro Chaen', org:'デジライズ', role:'代表取締役 CEO', session:'s2', photo:'assets/speakers/chaen.jpg' },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
@@ -55,10 +55,10 @@ window.PROGRAM = [
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
   { t:'15:20', e:'15:30', type:'break', title:'Break' },
   { t:'15:30', e:'16:10', type:'tracks',
-    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
+    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['koshikawa','tbd:産業界ゲスト'], pair:true },
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
-  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
+  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ogata','tbd:Enterprise登壇者'], pair:true },
   { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] },
   /* 追加枠: おざけん単身セッション。登壇は決定済みだが、テーマ・時間枠は調整中のため slotStatus で「登壇予定」と表示 */
   { t:'時間枠調整中', e:'', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマ・時間枠は調整中' }

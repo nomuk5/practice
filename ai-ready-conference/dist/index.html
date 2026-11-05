@@ -482,6 +482,9 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .card .ss a+.mono{margin-top:10px}
 @media (max-width:900px){.org-own>.org-rel{grid-template-columns:1fr}}
 
+.phy-ses{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;font-weight:500;line-height:1.6;color:var(--ink)}
+.phy-ses .mono{display:block;color:var(--cobalt);font-size:11px}
+
 </style>
 </head>
 <body>
@@ -600,11 +603,11 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 <section class="phy" id="physical">
   <div class="wrap phy-grid">
     <div class="phy-tx">
-      <p class="mono">Featured session　注目セッション　Enterprise 3　15:30 – 16:10</p>
+      <p class="mono">Featured theme　注目テーマ　Enterprise 3　15:30 – 16:10</p>
       <h2 class="disp">PHYSICAL<br>AI</h2>
       <p class="phy-jp">産業・事業への実装</p>
       <p class="phy-lead">AIは、画面の外へ。<br>産業の現場が変わる。</p>
-      <p class="phy-p">言語モデルや深層学習の進化が、ロボットと実世界の現場に届き始めています。ヒューマノイドと汎用ロボット研究の第一人者をお招きする方向で調整し、製造・物流・インフラといった産業の現場で何が変わり、事業としてどう向き合うべきかを取り上げます。</p>
+      <p class="phy-p">言語モデルや深層学習の進化が、ロボットと実世界の現場に届き始めています。Enterprise③では、製造・物流・インフラといった産業の現場で何が変わり、事業としてどう向き合うべきかを取り上げます。ヒューマノイドと汎用ロボット研究の第一人者である尾形氏も、登壇を予定しています。</p>
       <ul class="phy-list">
         <li><span class="mono">Field</span>製造・物流・インフラなど、現場を持つ産業</li>
         <li><span class="mono">Shift</span>生成AIの基盤技術が、ロボットの認知と行動学習へ広がる</li>
@@ -614,7 +617,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
     <div class="phy-side">
       <button class="phy-card" type="button" data-open="ogata" aria-label="尾形 哲也 のプロフィールを開く">
         <span class="phy-ph"><img src="assets/speakers/ogata.jpg" alt="尾形 哲也"><span class="badge mono">登壇予定</span></span>
-        <span class="phy-cap"><span class="org">早稲田大学</span><span class="nm">尾形 哲也</span><span class="rl">基幹理工学部 教授／AIロボット研究所 所長</span><span class="more mono">Profile +</span></span>
+        <span class="phy-cap"><span class="org">早稲田大学</span><span class="nm">尾形 哲也</span><span class="rl">基幹理工学部 教授／AIロボット研究所 所長</span><span class="phy-ses" id="phySes"></span><span class="more mono">Profile +</span></span>
       </button>
       <div class="phy-guest"><span class="mono">× Industry guest　対談ゲスト</span>産業の現場・事業投資の視点から語るゲストを調整中です。</div>
     </div>
@@ -728,13 +731,13 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
    photo: 'assets/speakers/xxx.jpg' を指定すると実写真に差し替わります（未指定は生成ポートレート）。
    verify: true の項目は肩書き・表記の最終確認が必要。 */
 window.SPEAKERS = [
-  { id:'ogata',   status:'expected' , name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'e3', photo:'assets/speakers/ogata.jpg', verify:true },
+  { id:'ogata',   status:'expected' , name:'尾形 哲也', en:'Tetsuya Ogata', org:'早稲田大学', role:'', session:'closing', photo:'assets/speakers/ogata.jpg', verify:true },
   { id:'oda',     status:'confirmed', name:'小田 健太郎', en:'Kentaro Oda', org:'Google Cloud', role:'', session:'common', photo:'assets/speakers/oda.jpg', verify:true },
-  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:null, photo:'assets/speakers/koshikawa.jpg', verify:true },
+  { id:'koshikawa',status:'expected', name:'越川 滋代', en:'Shigeyo Koshikawa', org:'LINEヤフー', role:'', session:'e3', photo:'assets/speakers/koshikawa.jpg', verify:true },
   { id:'narita',  status:'expected',  name:'成田 敏博', en:'Toshihiro Narita', org:'日清食品ホールディングス', role:'執行役員 CIO', session:'e2', photo:'assets/speakers/narita.jpg', verify:true },
   { id:'ono',     status:'expected',  name:'小野 和俊', en:'Kazutoshi Ono', org:'クレディセゾン', role:'取締役 専務執行役員 CDO/CTO', session:'e1', photo:'assets/speakers/ono.jpg', verify:true },
   { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:'assets/speakers/tachibana.jpg' },
-  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'closing', sessions:['closing','solo'], photo:'assets/speakers/ozawa.jpg' },
+  { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'e2', sessions:['e2','solo'], photo:'assets/speakers/ozawa.jpg' },
   { id:'chaen',   status:'confirmed', name:'茶圓 将裕', en:'Masahiro Chaen', org:'デジライズ', role:'代表取締役 CEO', session:'s2', photo:'assets/speakers/chaen.jpg' },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
@@ -779,10 +782,10 @@ window.PROGRAM = [
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
   { t:'15:20', e:'15:30', type:'break', title:'Break' },
   { t:'15:30', e:'16:10', type:'tracks',
-    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
+    ent:{ id:'e3', tag:'ENTERPRISE 3', title:'Physical AIと、産業・現場の変革', who:['koshikawa','tbd:産業界ゲスト'], pair:true },
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
-  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ozawa','tbd:Enterprise登壇者'], pair:true },
+  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'AI投資・発注判断のリアル', who:['ogata','tbd:Enterprise登壇者'], pair:true },
   { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] },
   /* 追加枠: おざけん単身セッション。登壇は決定済みだが、テーマ・時間枠は調整中のため slotStatus で「登壇予定」と表示 */
   { t:'時間枠調整中', e:'', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマ・時間枠は調整中' }
@@ -853,6 +856,12 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
+})();
+
+/* ---------- Physical AI feature: show the featured speaker's own session (from the program data) ---------- */
+(function(){
+  var el=$('#phySes'), s=byId.ogata, id=s&&s.session; if(!el||!id||!sessions[id])return;
+  el.innerHTML='<span class="mono">'+timeOf(id)+'</span>'+sessions[id].title;
 })();
 
 /* ---------- themes / tracks: session lists generated from the program (titles stay in one place) ---------- */

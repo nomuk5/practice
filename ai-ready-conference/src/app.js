@@ -65,6 +65,12 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
 })();
 
+/* ---------- Physical AI feature: show the featured speaker's own session (from the program data) ---------- */
+(function(){
+  var el=$('#phySes'), s=byId.ogata, id=s&&s.session; if(!el||!id||!sessions[id])return;
+  el.innerHTML='<span class="mono">'+timeOf(id)+'</span>'+sessions[id].title;
+})();
+
 /* ---------- themes / tracks: session lists generated from the program (titles stay in one place) ---------- */
 (function(){
   $$('[data-ses]').forEach(function(ul){
