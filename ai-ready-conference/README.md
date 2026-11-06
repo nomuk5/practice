@@ -1,4 +1,4 @@
-# AI READY CONFERENCE 2027 — サンプルサイト
+# 生成AI Ready Conference 2027 — サンプルサイト
 
 登壇打診用のサンプルLP（静的サイト）と、住友商事様向けの商談用ページ。
 

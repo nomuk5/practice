@@ -94,7 +94,7 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};list.push(seen[s.org]);} seen[s.org].sp.push(s); });
   function tile(o){return '<div class="ot"><span class="mono ok">'+ST.confirmed+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
   $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+'</div>';
-  $('#orgNote').textContent='Algomaticは、企画・運営（予定）のDMMと同じグループの関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
+  $('#orgNote').textContent='AlgomaticはDMM関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
 /* ---------- program ---------- */

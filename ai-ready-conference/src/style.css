@@ -114,7 +114,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .tracks{margin-top:clamp(48px,7vw,96px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line-on-ink)}
 .track{background:var(--ink);padding:clamp(24px,3vw,44px)}
 .track.e{background:var(--cobalt)}
-.track .disp{font-size:clamp(26px,4.6vw,68px)}
+.track .disp{font-size:clamp(26px,4vw,60px)}
 .track .for{margin-top:14px;font-weight:700;font-size:15px;line-height:1.7}
 .track ul{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.28)}
 .track li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.28);font-size:14px;line-height:1.6}
@@ -226,7 +226,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 /* footer */
 .ft{background:var(--ink);color:#fff;padding:clamp(48px,6vw,88px) 0 36px}
 .ft-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end}
-.ft .disp{font-size:clamp(34px,10vw,168px)}
+.ft .disp{font-size:clamp(34px,7.6vw,124px)}
 .ft-top>*,.track,.theme>*,.reg-grid>*,.sp-lead>*{min-width:0}
 .ft-info{font-size:13px;color:var(--muted-on-ink);line-height:1.9}
 .ft-info b{display:block;color:#fff;font-size:14px}
@@ -473,3 +473,8 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 
 .phy-ses{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;font-weight:500;line-height:1.6;color:var(--ink)}
 .phy-ses .mono{display:block;color:var(--cobalt);font-size:11px}
+
+/* rename: 生成AI READY — title tuned for the wider CJK prefix */
+.h-title{font-size:clamp(26px,6vw,100px)}
+.org-own>.own-main{grid-column:1 / -1}
+@media (max-width:560px){.h-title{font-size:46px;white-space:normal;line-height:.96}}

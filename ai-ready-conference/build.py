@@ -19,7 +19,7 @@ body = (src / "body.html").read_text(encoding="utf-8")
 data = (src / "data.js").read_text(encoding="utf-8")
 app = (src / "app.js").read_text(encoding="utf-8")
 
-TITLE = "AI READY CONFERENCE 2027"
+TITLE = "生成AI Ready Conference 2027"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -29,7 +29,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 head = (f'<title>{TITLE}</title>\n'
         '<meta name="claude:viewport-fit-sides" content="cover">\n'
         '<meta name="robots" content="noindex,nofollow">\n'
-        '<meta name="description" content="企業向け生成AIカンファレンス AI READY CONFERENCE 2027。2027年2月3日（水）オンライン開催。">\n'
+        '<meta name="description" content="企業向け生成AIカンファレンス 生成AI Ready Conference 2027。運営主体：生成AI活用能力認定協会。2027年2月3日（水）オンライン開催。">\n'
         f'{FONTS}\n<style>\n{css}\n</style>\n')
 tail = f'\n<script>\n{data}\n{app}\n</script>\n'
 
@@ -57,7 +57,7 @@ pv_js = r"""
     '<!doctype html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n'
     '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
     '<meta name="robots" content="noindex,nofollow">\n'
-    '<title>住友商事様へのご登壇のご相談｜AI READY CONFERENCE 2027</title>\n'
+    '<title>住友商事様へのご登壇のご相談｜生成AI Ready Conference 2027</title>\n'
     f'{FONTS}\n<style>\n{pv_css}\n</style>\n</head>\n<body>\n{pv_body}\n'
     f'<script>\n{data}\n{pv_js}\n</script>\n</body>\n</html>\n', encoding="utf-8")
 print("built", (dist / "index.html").stat().st_size, "bytes; private page:", (private / "sumitomo.html").stat().st_size, "bytes")
