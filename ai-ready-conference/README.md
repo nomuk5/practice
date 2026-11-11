@@ -35,4 +35,4 @@ python3 build.py
 
 経歴・実績（`BIOS`）は、各社公式サイト・PR TIMES・インタビュー記事・研究者データベース等の公開情報の要約です。
 
-ロゴ: DMMビジネスAI（dmm-businessai.com）、DMM 生成AI CAMP 学び放題（genai.dmm.com）の各公式サイトの画像。
+ロゴ: DMM.com（p-smith.com の公式ロゴ）、DMMビジネスAI（dmm-businessai.com）、DMM 生成AI CAMP 学び放題（genai.dmm.com）の各公式サイトの画像。

@@ -93,7 +93,9 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   var seen={}, list=[];
   SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};list.push(seen[s.org]);} seen[s.org].sp.push(s); });
   function tile(o){return '<div class="ot"><span class="mono ok">'+ST.confirmed+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
-  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+'</div>';
+  var soonN=(4-list.length%4)%4||4, soonT='';
+  for(var q=0;q<soonN;q++)soonT+='<div class="ot soon"><span class="mono">Coming soon</span><b class="jp">登壇者を順次発表</b></div>';
+  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+soonT+'</div>';
   $('#orgNote').textContent='AlgomaticはDMM関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
@@ -102,8 +104,8 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   function whoHTML(list,slot){
     var out=[];
     list.forEach(function(k){
-      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
-      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
+      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>Coming soon</b><span class="t">登壇者調整中（特別基調講演・有識者を選定中）</span></span></span>');return}
+      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>Coming soon</b><span class="t">登壇者調整中（'+k.slice(4)+'）</span></span></span>');return}
       var s=byId[k], pend=false;
       out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+((pend||slot)?' wait':'')+'">'+(slot||stLabel(s))+'</span></span></span>');
     });

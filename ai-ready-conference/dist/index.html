@@ -490,6 +490,27 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .org-own>.own-main{grid-column:1 / -1}
 @media (max-width:560px){.h-title{font-size:46px;white-space:normal;line-height:.96}}
 
+/* sponsors & open slots ("Coming soon") */
+.sp-tier{margin:clamp(28px,4vw,44px) 0 12px;color:#9FB0FF;display:flex;align-items:center;gap:12px}
+.sp-tier::after{content:"";flex:1;height:1px;background:var(--line-on-ink)}
+.slots{display:grid;gap:12px}
+.slots.s2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.slots.s4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stile{position:relative;background:#fff;color:var(--ink);min-height:132px;display:flex;align-items:center;justify-content:center;padding:24px;min-width:0}
+.stile.big{min-height:188px}
+.stile img{height:var(--h,40px);width:auto;max-width:100%}
+.stile .chip-s{position:absolute;left:0;top:0;background:var(--ink);color:#fff;font-family:var(--f-body);font-size:11px;font-weight:700;padding:4px 10px}
+.stile.soon{background:transparent;border:1.5px dashed rgba(255,255,255,.45);color:#fff;flex-direction:column;gap:4px;text-align:center}
+.stile.soon .mono{color:#9FB0FF}
+.stile.soon b{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:clamp(18px,2vw,28px);letter-spacing:-.02em;line-height:1.15}
+.stile.soon small{font-size:12px;color:var(--muted-on-ink)}
+.on-dark .plan-note{margin-top:22px}
+.ot.soon{background:transparent;border:1.5px dashed rgba(11,13,20,.35);justify-content:center}
+.ot.soon .mono{border:0;padding:0;color:var(--cobalt);font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:400}
+.ot.soon b{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:17px;line-height:1.35;color:var(--muted)}
+@media (max-width:900px){.slots.s4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.slots.s2{grid-template-columns:1fr}.stile.big{min-height:140px}.stile{padding:18px}}
+
 </style>
 </head>
 <body>
@@ -499,14 +520,14 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
   <div class="wrap">
     <a class="logo" href="#top" aria-label="生成AI Ready Conference 2027 トップ">生成AI READY<i>CONFERENCE 2027</i></a>
     <nav class="nav" aria-label="メイン">
-      <a href="#about">開催概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#orgs">所属企業</a><a href="#faq">FAQ</a>
+      <a href="#about">開催概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#sponsors">協賛</a><a href="#orgs">所属企業</a><a href="#faq">FAQ</a>
     </nav>
     <a class="btn w" href="#register">参加を申し込む</a>
     <button class="menu" id="menu" aria-label="メニュー" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
   </div>
 </header>
 <div class="drawer" id="drawer">
-  <a href="#about">開催概要<small>Overview</small></a><a href="#themes">テーマ<small>Themes</small></a><a href="#speakers">登壇者<small>Speakers</small></a><a href="#program">プログラム<small>Program</small></a><a href="#orgs">所属企業<small>Organizations</small></a><a href="#faq">FAQ</a>
+  <a href="#about">開催概要<small>Overview</small></a><a href="#themes">テーマ<small>Themes</small></a><a href="#speakers">登壇者<small>Speakers</small></a><a href="#program">プログラム<small>Program</small></a><a href="#sponsors">協賛<small>Sponsors</small></a><a href="#orgs">所属企業<small>Organizations</small></a><a href="#faq">FAQ</a>
   <a class="btn w" href="#register">参加を申し込む</a>
 </div>
 
@@ -663,6 +684,26 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
     <p class="org-note">登壇者の所属を示す欄です。企業としての協賛を示すものではありません。登壇と協賛は、それぞれ別にご相談する事項です。</p>
     <div class="orgs" id="orgGrid"></div>
     <p class="org-note sm" id="orgNote"></p>
+  </div>
+</section>
+
+<section class="sec on-dark" id="sponsors">
+  <div class="wrap">
+    <div class="sec-h"><span class="mono">Sponsors<b>協賛</b></span><h2 class="sec-title disp">SPONSORS</h2></div>
+    <p class="sec-lead">本カンファレンスの協賛企業です。協賛枠は順次追加します。</p>
+    <p class="sp-tier mono">Special Sponsor　特別協賛</p>
+    <div class="slots s2">
+      <div class="stile big"><span class="chip-s">協賛予定</span><img src="assets/logos/dmm-com.svg" alt="DMM.com" style="--h:52px"></div>
+      <div class="stile big soon"><span class="mono">Special Sponsor</span><b>Coming soon</b><small>特別協賛の枠があります</small></div>
+    </div>
+    <p class="sp-tier mono">Sponsors　協賛</p>
+    <div class="slots s4">
+      <div class="stile soon"><span class="mono">Sponsor</span><b>Coming soon</b></div>
+      <div class="stile soon"><span class="mono">Sponsor</span><b>Coming soon</b></div>
+      <div class="stile soon"><span class="mono">Sponsor</span><b>Coming soon</b></div>
+      <div class="stile soon"><span class="mono">Sponsor</span><b>Coming soon</b></div>
+    </div>
+    <p class="plan-note">掲載の企業・協賛区分は予定です。協賛は、登壇者所属企業の欄とは別に扱います。</p>
   </div>
 </section>
 
@@ -890,7 +931,9 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   var seen={}, list=[];
   SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};list.push(seen[s.org]);} seen[s.org].sp.push(s); });
   function tile(o){return '<div class="ot"><span class="mono ok">'+ST.confirmed+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
-  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+'</div>';
+  var soonN=(4-list.length%4)%4||4, soonT='';
+  for(var q=0;q<soonN;q++)soonT+='<div class="ot soon"><span class="mono">Coming soon</span><b class="jp">登壇者を順次発表</b></div>';
+  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+soonT+'</div>';
   $('#orgNote').textContent='AlgomaticはDMM関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
@@ -899,8 +942,8 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   function whoHTML(list,slot){
     var out=[];
     list.forEach(function(k){
-      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">特別基調講演（有識者を選定中）</span></span></span>');return}
-      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>登壇者調整中</b><span class="t">'+k.slice(4)+'</span></span></span>');return}
+      if(k==='special'){out.push('<span class="w tbd"><span class="av"></span><span><b>Coming soon</b><span class="t">登壇者調整中（特別基調講演・有識者を選定中）</span></span></span>');return}
+      if(k.indexOf('tbd:')===0){out.push('<span class="w tbd"><span class="av"></span><span><b>Coming soon</b><span class="t">登壇者調整中（'+k.slice(4)+'）</span></span></span>');return}
       var s=byId[k], pend=false;
       out.push('<span class="w'+(pend?' pw':'')+'"><span class="av">'+photoHTML(s)+'</span><span><b>'+s.name+'</b><span class="t">'+s.org+'</span><span class="t st'+((pend||slot)?' wait':'')+'">'+(slot||stLabel(s))+'</span></span></span>');
     });
