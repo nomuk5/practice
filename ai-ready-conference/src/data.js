@@ -12,11 +12,14 @@ window.SPEAKERS = [
   { id:'tachibana',status:'confirmed',name:'橘 大地', en:'Daichi Tachibana', org:'PeopleX', role:'代表取締役 CEO', session:'s1', photo:'assets/speakers/tachibana.jpg' },
   { id:'ozawa',   status:'confirmed', name:'小澤 健祐', en:'Kensuke Ozawa', alias:'おざけん', org:'AICX協会', role:'代表理事', session:'e2', sessions:['e2','e3','solo'], photo:'assets/speakers/ozawa.jpg' },
   { id:'chaen',   status:'confirmed', name:'茶圓 将裕', en:'Masahiro Chaen', org:'デジライズ', role:'代表取締役 CEO', session:'s2', photo:'assets/speakers/chaen.jpg' },
+  { id:'irube',   status:'confirmed', name:'入部', en:'Irube', org:'DMMビジネスAI', role:'', session:'s3', photo:null, verify:true },
   { id:'kamoi',   status:'confirmed', name:'鴨居 啓人', en:'Hiroto Kamoi', org:'Algomatic', role:'代表取締役 CEO', session:'k2', photo:'assets/speakers/kamoi.jpg', verify:true }
 ];
 
 /* 経歴・実績（公開情報を要約。掲載前に本人・所属先の確認が必要） */
 window.BIOS = {
+  irube:{ role:'DMMビジネスAI 事業部長', hl:'DMMビジネスAI 事業部長',
+    bio:['DMMビジネスAI 事業部長','DMMビジネスAIは、企業の生成AI導入を、研修・コンサルティング・BPOなどで支援する事業','Growth③「AI人材育成と現場定着の実践」を担当'] },
   ogata:{ role:'基幹理工学部 教授／AIロボット研究所 所長', hl:'AIロボット協会 理事長／文部科学大臣表彰 科学技術賞',
     bio:['早稲田大学 理工学術院 基幹理工学部 教授。次世代ロボット研究機構 AIロボット研究所 所長（2020年〜）','一般社団法人AIロボット協会 理事長（2025年〜）。産業技術総合研究所 人工知能研究センター 特定フェロー','深層学習・生成AIとロボットを組み合わせた「認知ロボティクス」の第一人者。内閣府ムーンショット型研究開発のAIロボット「AIREC」の開発に関わる','2021年 IEEE ICRA Best Paper Award（認知科学部門）、2023年 文部科学大臣表彰 科学技術賞（研究部門）','JST CREST「実環境知能システム」領域 研究総括（2025年〜）。国立情報学研究所 大規模言語モデル研究開発センター 客員教授'] },
   kamoi:{ role:'代表取締役 CEO', hl:'元アクセンチュア AIグループ／IPAデジタル人材育成事業 専門委員',
@@ -56,7 +59,7 @@ window.PROGRAM = [
   { t:'15:20', e:'15:30', type:'break', title:'Break' },
   { t:'15:30', e:'16:10', type:'tracks',
     ent:{ id:'e3', tag:'ENTERPRISE 3', title:'AIを全社に根づかせる——現場展開と人材育成のリアル', who:['koshikawa','ozawa'], pair:true },
-    smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
+    smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['irube'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
   { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
   { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:['tbd:AI検定（仮称）に関する登壇'] },

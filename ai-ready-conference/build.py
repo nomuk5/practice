@@ -48,7 +48,7 @@ pv_js = r"""
 (function(){
   var SP=window.SPEAKERS, esc=function(s){return s};
   function card(s){
-    return '<div class="pv-s"><div class="ph real"><img src="../'+s.photo+'" alt="'+s.name+'"></div><div><span class="badge mono">登壇予定</span><b>'+s.name+'</b><span>'+s.org+'</span></div></div>';
+    return '<div class="pv-s"><div class="ph'+(s.photo?' real':'')+'">'+(s.photo?'<img src="../'+s.photo+'" alt="'+s.name+'">':'')+'</div><div><span class="badge mono">登壇予定</span><b>'+s.name+'</b><span>'+s.org+'</span></div></div>';
   }
   document.getElementById('pvSp').innerHTML=SP.map(card).join('');
 })();

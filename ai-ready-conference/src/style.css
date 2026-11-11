@@ -487,7 +487,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .slots.s4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .stile{position:relative;background:#fff;color:var(--ink);min-height:132px;display:flex;align-items:center;justify-content:center;padding:24px;min-width:0}
 .stile.big{min-height:188px}
-.stile img{height:var(--h,40px);width:auto;max-width:100%}
+.stile img{height:auto;width:auto;max-width:100%;max-height:var(--h,40px)}
 .stile .chip-s{position:absolute;left:0;top:0;background:var(--ink);color:#fff;font-family:var(--f-body);font-size:11px;font-weight:700;padding:4px 10px}
 .stile.soon{background:transparent;border:1.5px dashed rgba(255,255,255,.45);color:#fff;flex-direction:column;gap:4px;text-align:center}
 .stile.soon .mono{color:#9FB0FF}
@@ -499,3 +499,9 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .ot.soon b{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:17px;line-height:1.35;color:var(--muted)}
 @media (max-width:900px){.slots.s4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.slots.s2{grid-template-columns:1fr}.stile.big{min-height:140px}.stile{padding:18px}}
+
+/* speaker grid: wide "Coming soon" card fills the last row */
+.card.soon.wide{grid-column:span 4;align-items:center;text-align:center;justify-content:center}
+.card.soon.wide .disp{font-size:clamp(28px,4vw,56px)}
+@media (max-width:1100px){.card.soon.wide{grid-column:span 1}}
+@media (max-width:560px){.card.soon.wide{grid-column:1 / -1}}

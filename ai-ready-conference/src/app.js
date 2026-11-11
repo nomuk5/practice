@@ -62,7 +62,9 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
       '<div class="ss">'+ssHTML+'</div><span class="more mono">Profile +</span></div></article>';
   });
   soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
-  $('#spGrid').innerHTML=html.replace('@@SOON@@',soon);
+  /* 最終行を「Coming soon」の枠で埋め、登壇者が順次追加されることを示す */
+  var wide='<article class="card soon wide"><span class="mono" style="color:var(--cobalt)">More speakers</span><div class="disp">COMING SOON</div><p>登壇者を順次発表します。</p></article>';
+  $('#spGrid').innerHTML=html.replace('@@SOON@@',soon)+wide;
 })();
 
 /* ---------- Physical AI feature: show the featured speaker's own session (from the program data) ---------- */
