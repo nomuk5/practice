@@ -88,17 +88,6 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   });
 })();
 
-/* ---------- speaker organizations (登壇者所属 — 協賛ではない) ---------- */
-(function(){
-  var seen={}, list=[];
-  SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};list.push(seen[s.org]);} seen[s.org].sp.push(s); });
-  function tile(o){return '<div class="ot"><span class="mono ok">'+ST.confirmed+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
-  var soonN=(4-list.length%4)%4||4, soonT='';
-  for(var q=0;q<soonN;q++)soonT+='<div class="ot soon"><span class="mono">Coming soon</span><b class="jp">登壇者を順次発表</b></div>';
-  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+soonT+'</div>';
-  $('#orgNote').textContent='AlgomaticはDMM関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
-})();
-
 /* ---------- program ---------- */
 (function(){
   function whoHTML(list,slot){

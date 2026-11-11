@@ -520,14 +520,14 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
   <div class="wrap">
     <a class="logo" href="#top" aria-label="生成AI Ready Conference 2027 トップ">生成AI READY<i>CONFERENCE 2027</i></a>
     <nav class="nav" aria-label="メイン">
-      <a href="#about">開催概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#sponsors">協賛</a><a href="#orgs">所属企業</a><a href="#faq">FAQ</a>
+      <a href="#about">開催概要</a><a href="#themes">テーマ</a><a href="#speakers">登壇者</a><a href="#program">プログラム</a><a href="#sponsors">協賛</a><a href="#faq">FAQ</a>
     </nav>
     <a class="btn w" href="#register">参加を申し込む</a>
     <button class="menu" id="menu" aria-label="メニュー" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
   </div>
 </header>
 <div class="drawer" id="drawer">
-  <a href="#about">開催概要<small>Overview</small></a><a href="#themes">テーマ<small>Themes</small></a><a href="#speakers">登壇者<small>Speakers</small></a><a href="#program">プログラム<small>Program</small></a><a href="#sponsors">協賛<small>Sponsors</small></a><a href="#orgs">所属企業<small>Organizations</small></a><a href="#faq">FAQ</a>
+  <a href="#about">開催概要<small>Overview</small></a><a href="#themes">テーマ<small>Themes</small></a><a href="#speakers">登壇者<small>Speakers</small></a><a href="#program">プログラム<small>Program</small></a><a href="#sponsors">協賛<small>Sponsors</small></a><a href="#faq">FAQ</a>
   <a class="btn w" href="#register">参加を申し込む</a>
 </div>
 
@@ -669,24 +669,6 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
   </div>
 </section>
 
-<section class="sec paper" id="orgs">
-  <div class="wrap">
-    <div class="sec-h"><span class="mono">Organizations<b>運営主体／登壇者所属企業</b></span><h2 class="sec-title disp">ORGANIZERS</h2></div>
-    <div class="org-own">
-      <div class="own-main"><span class="mono">Operated by　運営主体</span><b>生成AI活用能力認定協会</b></div>
-      <div class="org-rel">
-        <div><span class="mono">Related services　DMMのAI関連サービス</span><p>DMMが手がけるAI関連サービスです。協力内容は調整中です。</p></div>
-        <div class="rel-logos"><img src="assets/logos/dmm-businessai.svg" alt="DMMビジネスAI" style="--h:30px"><img src="assets/logos/dmm-genai-camp-manabihoudai.svg" alt="DMM 生成AI CAMP 学び放題" style="--h:26px"></div>
-      </div>
-      <p>運営主体の正式な名称（法人格を含む）は確認中です。確定次第、更新します。</p>
-    </div>
-    <h3 class="org-h jp">登壇者所属企業</h3>
-    <p class="org-note">登壇者の所属を示す欄です。企業としての協賛を示すものではありません。登壇と協賛は、それぞれ別にご相談する事項です。</p>
-    <div class="orgs" id="orgGrid"></div>
-    <p class="org-note sm" id="orgNote"></p>
-  </div>
-</section>
-
 <section class="sec on-dark" id="sponsors">
   <div class="wrap">
     <div class="sec-h"><span class="mono">Sponsors<b>協賛</b></span><h2 class="sec-title disp">SPONSORS</h2></div>
@@ -703,7 +685,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
       <div class="stile soon"><span class="mono">Sponsor</span><b>Coming soon</b></div>
       <div class="stile soon"><span class="mono">Sponsor</span><b>Coming soon</b></div>
     </div>
-    <p class="plan-note">掲載の企業・協賛区分は予定です。協賛は、登壇者所属企業の欄とは別に扱います。</p>
+    <p class="plan-note">掲載の企業・協賛区分は予定です。</p>
   </div>
 </section>
 
@@ -810,7 +792,7 @@ window.BIOS = {
 };
 /* kind: common | track ; time は開始-終了 */
 window.PROGRAM = [
-  { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:[] },
+  { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:['tbd:社団法人 理事による冒頭挨拶'] },
   { t:'10:10', e:'10:50', id:'k1', tag:'KEYNOTE 1', title:'AI時代の企業経営・意思決定', who:['special'] },
   { t:'10:50', e:'11:00', type:'break', title:'Break' },
   { t:'11:00', e:'11:40', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
@@ -831,7 +813,7 @@ window.PROGRAM = [
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['tbd:登壇者未定'] } },
   { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
   { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
-  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:[] },
+  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:['tbd:AI検定（仮称）に関する登壇'] },
   /* 追加枠: おざけん単身セッション。登壇は決定済みだが、テーマ・時間枠は調整中のため slotStatus で「登壇予定」と表示 */
   { t:'時間枠調整中', e:'', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマ・時間枠は調整中' }
 ];
@@ -924,17 +906,6 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
       out+='<li><span class="mono">'+p.t+'</span><span>'+x.title+(pend?'<em class="pnd">登壇者調整中</em>':'')+'</span></li>';}});
     ul.innerHTML=out;
   });
-})();
-
-/* ---------- speaker organizations (登壇者所属 — 協賛ではない) ---------- */
-(function(){
-  var seen={}, list=[];
-  SP.forEach(function(s){ if(!seen[s.org]){seen[s.org]={org:s.org,sp:[]};list.push(seen[s.org]);} seen[s.org].sp.push(s); });
-  function tile(o){return '<div class="ot"><span class="mono ok">'+ST.confirmed+'</span><b class="jp">'+o.org+(o.org==='Algomatic'?'<small>DMM関連会社</small>':'')+'</b><span>'+o.sp.map(function(s){return s.name}).join('、')+'</span></div>';}
-  var soonN=(4-list.length%4)%4||4, soonT='';
-  for(var q=0;q<soonN;q++)soonT+='<div class="ot soon"><span class="mono">Coming soon</span><b class="jp">登壇者を順次発表</b></div>';
-  $('#orgGrid').innerHTML='<div class="ogg">'+list.map(tile).join('')+soonT+'</div>';
-  $('#orgNote').textContent='AlgomaticはDMM関連会社です。ロゴは、掲載の確認が取れ次第、追加します。';
 })();
 
 /* ---------- program ---------- */
