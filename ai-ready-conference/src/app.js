@@ -109,6 +109,9 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
   }
   var h='';
   PG.forEach(function(p){
+    if(p.type==='note'){
+      h+='<div class="row"><div class="tm b">'+p.t+'</div><div class="brk note">'+p.title+'</div></div>';return;
+    }
     if(p.type==='break'){
       h+='<div class="row"><div class="tm b">'+p.t+'</div><div class="brk mono">'+p.title+'　'+p.t+'–'+p.e+'</div></div>';return;
     }

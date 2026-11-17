@@ -47,6 +47,8 @@ window.PROGRAM = [
   { t:'11:00', e:'11:40', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
   { t:'11:40', e:'12:00', type:'break', title:'午前のまとめ' },
   { t:'12:00', e:'13:00', type:'break', title:'Lunch Break' },
+  /* 午後のみ: 観客あり（招待制）・交流会あり。24Fの2か所で実施 */
+  { t:'午後', e:'', type:'note', title:'ここから午後　観客あり（招待制）・交流会あり／24Fの2か所で実施' },
   { t:'13:00', e:'13:40', id:'common', tag:'COMMON SESSION', title:'AIを選ぶ・任せるための判断軸', who:['oda'] },
   { t:'13:40', e:'13:50', type:'break', title:'トラック切替' },
   { t:'13:50', e:'14:30', type:'tracks',
