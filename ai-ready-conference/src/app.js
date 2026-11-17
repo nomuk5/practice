@@ -61,7 +61,7 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
       '<span class="rl">'+(s.role||'&nbsp;')+'</span>'+(s.hl?'<span class="hl">'+s.hl+'</span>':'')+
       '<div class="ss">'+ssHTML+'</div><span class="more mono">Profile +</span></div></article>';
   });
-  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>午前の基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
+  soon='<article class="card soon"><span class="mono" style="color:var(--cobalt)">Special Keynote　特別基調講演</span><div class="disp">COMING<br>SOON</div><p>基調講演に、AIの未来と経営を語る有識者を選定中です。決定次第お知らせします。</p></article>';
   /* 最終行を「Coming soon」の枠で埋め、登壇者が順次追加されることを示す */
   var wide='<article class="card soon wide"><span class="mono" style="color:var(--cobalt)">More speakers</span><div class="disp">COMING SOON</div><p>登壇者を順次発表します。</p></article>';
   $('#spGrid').innerHTML=html.replace('@@SOON@@',soon)+wide;
@@ -120,7 +120,7 @@ function isPending(k){ return k==='special'||k.indexOf('tbd:')===0; }
       h+='<div class="cell">'+ses(p.ent,'ent')+'</div><div class="cell">'+ses(p.smb,'')+'</div>';
     }else{
       var key=/KEYNOTE|CLOSING SESSION|COMMON|SPECIAL SESSION/.test(p.tag);
-      h+='<div class="cell full">'+ses(p,key?'key':'')+'</div>';
+      h+='<div class="cell full">'+ses(p,p.type==='party'?'party':(key?'key':''))+'</div>';
     }
     h+='</div>';
   });

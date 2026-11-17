@@ -510,3 +510,9 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .brk.note{color:var(--cobalt);background:var(--cobalt-tint);padding:12px 16px;font-size:13.5px;font-weight:700;line-height:1.6;letter-spacing:.02em}
 .brk.note::before{background:var(--cobalt);opacity:1;width:22px;height:2px}
 @media (max-width:900px){.brk.note{margin:6px 0 10px}}
+
+/* 交流会の行 */
+.ses.party{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.ses.party .mono{color:#C8D0FF}
+.ses.party h4{font-size:clamp(22px,2.2vw,30px)}
+.ses.party .ses-note{opacity:.95;font-size:13.5px}

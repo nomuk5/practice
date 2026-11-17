@@ -29,7 +29,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 head = (f'<title>{TITLE}</title>\n'
         '<meta name="claude:viewport-fit-sides" content="cover">\n'
         '<meta name="robots" content="noindex,nofollow">\n'
-        '<meta name="description" content="企業向け生成AIカンファレンス 生成AI Ready Conference 2027。運営主体：生成AI活用能力認定協会。2027年2月3日（水）オンライン開催（午後は招待制の会場・交流会あり）。">\n'
+        '<meta name="description" content="企業向け生成AIカンファレンス 生成AI Ready Conference 2027。運営主体：一般社団法人生成AI活用能力認定協会（AIRA）。2027年2月3日（水）オンライン開催（招待制の会場・交流会あり）。">\n'
         f'{FONTS}\n<style>\n{css}\n</style>\n')
 tail = f'\n<script>\n{data}\n{app}\n</script>\n'
 

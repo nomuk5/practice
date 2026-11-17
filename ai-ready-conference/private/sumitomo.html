@@ -520,6 +520,12 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
 .brk.note::before{background:var(--cobalt);opacity:1;width:22px;height:2px}
 @media (max-width:900px){.brk.note{margin:6px 0 10px}}
 
+/* 交流会の行 */
+.ses.party{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.ses.party .mono{color:#C8D0FF}
+.ses.party h4{font-size:clamp(22px,2.2vw,30px)}
+.ses.party .ses-note{opacity:.95;font-size:13.5px}
+
 /* 商談用ページ（住友商事様向け）。一般公開サイトのナビ・ビルド成果物には含めない */
 .pv-hero{background:var(--cobalt);color:#fff;padding:clamp(40px,6vw,88px) 0 clamp(36px,5vw,72px);position:relative;overflow:hidden}
 .pv-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 90% at 100% 0%,rgba(255,255,255,.14),transparent 60%);pointer-events:none}
@@ -594,11 +600,11 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
       <div class="pv-r">
         <p class="pv-big">導入の、その先へ。<br>AIを経営成果につなぐ、組織と人材の意思決定。</p>
         <dl class="ov">
-          <div><dt>日程・形式</dt><dd>2027年2月3日（水）10:00 – 17:10／オンライン配信（LIVE配信＋事前収録）</dd></div>
-          <div><dt>会場・交流会</dt><dd>午後のみ、観客あり（招待制）・交流会あり／24Fの2か所で実施<small>午前はオンライン配信のみです。</small></dd></div>
+          <div><dt>日程・形式</dt><dd>2027年2月3日（水）12:00 – 17:55／オンライン配信（LIVE配信＋事前収録）</dd></div>
+          <div><dt>会場・交流会</dt><dd>観客あり（招待制）／24Fの2か所で実施。交流会は 18:00 – 20:00、24F セミナー5-Bエリア</dd></div>
           <div><dt>主な視聴対象</dt><dd>経営層、事業責任者、AI・DX推進、人事・人材開発の責任者・担当者</dd></div>
-          <div><dt>構成</dt><dd>午前の共通セッション、午後のEnterprise（大企業向け）／Growth（成長企業向け）の2トラック、共通クロージング</dd></div>
-          <div><dt>運営主体</dt><dd>生成AI活用能力認定協会<small>正式な名称（法人格を含む）は確認中です。</small></dd></div>
+          <div><dt>構成</dt><dd>基調・共通セッション、Enterprise（大企業向け）／Growth（成長企業向け）の2トラック、共通クロージング、交流会</dd></div>
+          <div><dt>運営主体</dt><dd>一般社団法人生成AI活用能力認定協会（AIRA）</dd></div>
         </dl>
       </div>
     </div>
@@ -647,7 +653,7 @@ h2.jp,h3.jp{font-feature-settings:"palt";text-wrap:balance;word-break:auto-phras
         <dl class="ov">
           <div><dt>届けたい相手</dt><dd>大企業の経営・AI／DX推進・人材開発責任者</dd></div>
           <div><dt>発信価値</dt><dd>住友商事様の取り組みと知見を、同じ課題を持つ企業へ届けます。</dd></div>
-          <div><dt>形式案</dt><dd>講演または対談、30〜40分程度</dd></div>
+          <div><dt>形式案</dt><dd>講演または対談、35分程度</dd></div>
           <div><dt>ライブ／事前収録</dt><dd>ご希望と制作条件を踏まえて、ご相談します。</dd></div>
           <div><dt>個別にご相談する事項</dt><dd>テーマ、登壇者、日時、資料確認、アーカイブ・二次利用条件</dd></div>
         </dl>
@@ -720,32 +726,33 @@ window.BIOS = {
 };
 /* kind: common | track ; time は開始-終了 */
 window.PROGRAM = [
-  { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:['tbd:社団法人 理事による冒頭挨拶'] },
-  { t:'10:10', e:'10:50', id:'k1', tag:'KEYNOTE 1', title:'AI時代の企業経営・意思決定', who:['special'] },
-  { t:'10:50', e:'11:00', type:'break', title:'Break' },
-  { t:'11:00', e:'11:40', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
-  { t:'11:40', e:'12:00', type:'break', title:'午前のまとめ' },
-  { t:'12:00', e:'13:00', type:'break', title:'Lunch Break' },
-  /* 午後のみ: 観客あり（招待制）・交流会あり。24Fの2か所で実施 */
-  { t:'午後', e:'', type:'note', title:'ここから午後　観客あり（招待制）・交流会あり／24Fの2か所で実施' },
-  { t:'13:00', e:'13:40', id:'common', tag:'COMMON SESSION', title:'AIを選ぶ・任せるための判断軸', who:['oda'] },
-  { t:'13:40', e:'13:50', type:'break', title:'トラック切替' },
-  { t:'13:50', e:'14:30', type:'tracks',
+  { t:'12:00', e:'12:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:['tbd:AIRA 理事による冒頭挨拶'] },
+  { t:'12:10', e:'12:45', id:'k1', tag:'KEYNOTE 1', title:'AI時代の企業経営・意思決定', who:['special'] },
+  { t:'12:45', e:'12:55', type:'break', title:'Break' },
+  { t:'12:55', e:'13:30', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
+  { t:'13:30', e:'13:40', type:'break', title:'Break' },
+  { t:'13:40', e:'14:15', id:'common', tag:'COMMON SESSION', title:'AIを選ぶ・任せるための判断軸', who:['oda'] },
+  { t:'14:15', e:'14:25', type:'break', title:'トラック切替' },
+  { t:'14:25', e:'15:00', type:'tracks',
     ent:{ id:'e1', tag:'ENTERPRISE 1', title:'AI導入の意思決定と、組織横断の推進', who:['ono'] },
     smb:{ id:'s1', tag:'GROWTH 1', title:'採用・人事領域のAI活用', who:['tachibana'] } },
-  { t:'14:30', e:'14:40', type:'break', title:'Break' },
-  { t:'14:40', e:'15:20', type:'tracks',
+  { t:'15:00', e:'15:10', type:'break', title:'Break' },
+  { t:'15:10', e:'15:45', type:'tracks',
     ent:{ id:'e2', tag:'ENTERPRISE 2', title:'全社AI活用と組織変革', who:['narita','ozawa'], pair:true },
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
-  { t:'15:20', e:'15:30', type:'break', title:'Break' },
-  { t:'15:30', e:'16:10', type:'tracks',
+  { t:'15:45', e:'15:55', type:'break', title:'Break' },
+  { t:'15:55', e:'16:30', type:'tracks',
     ent:{ id:'e3', tag:'ENTERPRISE 3', title:'AIを全社に根づかせる——現場展開と人材育成のリアル', who:['koshikawa','ozawa'], pair:true },
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['irube'] } },
-  { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
-  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
-  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:['tbd:AI検定（仮称）に関する登壇'] },
-  /* 追加枠: おざけん単身セッション。登壇は決定済みだが、テーマ・時間枠は調整中のため slotStatus で「登壇予定」と表示 */
-  { t:'時間枠調整中', e:'', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマ・時間枠は調整中' }
+  { t:'16:30', e:'16:40', type:'break', title:'全体へ再集合' },
+  { t:'16:40', e:'17:15', id:'closing', tag:'CLOSING SESSION', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
+  { t:'17:15', e:'17:25', type:'break', title:'Break' },
+  /* 追加枠: おざけん単身セッション（20分）。登壇は決定済み。テーマは調整中のため slotStatus で「登壇予定」と表示 */
+  { t:'17:25', e:'17:45', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマは調整中' },
+  { t:'17:45', e:'17:55', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:['tbd:AI検定（仮称）に関する登壇'] },
+  { t:'17:55', e:'18:00', type:'break', title:'交流会会場へ移動' },
+  /* 交流会: 18:00–20:00、24F セミナー5-Bエリア */
+  { t:'18:00', e:'20:00', type:'party', id:'party', tag:'NETWORKING PARTY', title:'交流会', who:[], note:'会場：24F セミナー5-Bエリア' }
 ];
 
 

@@ -41,30 +41,31 @@ window.BIOS = {
 };
 /* kind: common | track ; time は開始-終了 */
 window.PROGRAM = [
-  { t:'10:00', e:'10:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:['tbd:社団法人 理事による冒頭挨拶'] },
-  { t:'10:10', e:'10:50', id:'k1', tag:'KEYNOTE 1', title:'AI時代の企業経営・意思決定', who:['special'] },
-  { t:'10:50', e:'11:00', type:'break', title:'Break' },
-  { t:'11:00', e:'11:40', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
-  { t:'11:40', e:'12:00', type:'break', title:'午前のまとめ' },
-  { t:'12:00', e:'13:00', type:'break', title:'Lunch Break' },
-  /* 午後のみ: 観客あり（招待制）・交流会あり。24Fの2か所で実施 */
-  { t:'午後', e:'', type:'note', title:'ここから午後　観客あり（招待制）・交流会あり／24Fの2か所で実施' },
-  { t:'13:00', e:'13:40', id:'common', tag:'COMMON SESSION', title:'AIを選ぶ・任せるための判断軸', who:['oda'] },
-  { t:'13:40', e:'13:50', type:'break', title:'トラック切替' },
-  { t:'13:50', e:'14:30', type:'tracks',
+  { t:'12:00', e:'12:10', type:'break-less', id:'open', tag:'OPENING', title:'趣旨説明・本日の見どころ', who:['tbd:AIRA 理事による冒頭挨拶'] },
+  { t:'12:10', e:'12:45', id:'k1', tag:'KEYNOTE 1', title:'AI時代の企業経営・意思決定', who:['special'] },
+  { t:'12:45', e:'12:55', type:'break', title:'Break' },
+  { t:'12:55', e:'13:30', id:'k2', tag:'KEYNOTE 2', title:'AIを事業変革につなぐ、実装と発注の判断', who:['kamoi'] },
+  { t:'13:30', e:'13:40', type:'break', title:'Break' },
+  { t:'13:40', e:'14:15', id:'common', tag:'COMMON SESSION', title:'AIを選ぶ・任せるための判断軸', who:['oda'] },
+  { t:'14:15', e:'14:25', type:'break', title:'トラック切替' },
+  { t:'14:25', e:'15:00', type:'tracks',
     ent:{ id:'e1', tag:'ENTERPRISE 1', title:'AI導入の意思決定と、組織横断の推進', who:['ono'] },
     smb:{ id:'s1', tag:'GROWTH 1', title:'採用・人事領域のAI活用', who:['tachibana'] } },
-  { t:'14:30', e:'14:40', type:'break', title:'Break' },
-  { t:'14:40', e:'15:20', type:'tracks',
+  { t:'15:00', e:'15:10', type:'break', title:'Break' },
+  { t:'15:10', e:'15:45', type:'tracks',
     ent:{ id:'e2', tag:'ENTERPRISE 2', title:'全社AI活用と組織変革', who:['narita','ozawa'], pair:true },
     smb:{ id:'s2', tag:'GROWTH 2', title:'成長企業がAI導入で成果を出す方法', who:['chaen'] } },
-  { t:'15:20', e:'15:30', type:'break', title:'Break' },
-  { t:'15:30', e:'16:10', type:'tracks',
+  { t:'15:45', e:'15:55', type:'break', title:'Break' },
+  { t:'15:55', e:'16:30', type:'tracks',
     ent:{ id:'e3', tag:'ENTERPRISE 3', title:'AIを全社に根づかせる——現場展開と人材育成のリアル', who:['koshikawa','ozawa'], pair:true },
     smb:{ id:'s3', tag:'GROWTH 3', title:'AI人材育成と現場定着の実践', who:['irube'] } },
-  { t:'16:10', e:'16:20', type:'break', title:'全体へ再集合' },
-  { t:'16:20', e:'17:00', id:'closing', tag:'CLOSING SESSION', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
-  { t:'17:00', e:'17:10', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:['tbd:AI検定（仮称）に関する登壇'] },
-  /* 追加枠: おざけん単身セッション。登壇は決定済みだが、テーマ・時間枠は調整中のため slotStatus で「登壇予定」と表示 */
-  { t:'時間枠調整中', e:'', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマ・時間枠は調整中' }
+  { t:'16:30', e:'16:40', type:'break', title:'全体へ再集合' },
+  { t:'16:40', e:'17:15', id:'closing', tag:'CLOSING SESSION', title:'Physical AIと、産業・現場の変革', who:['ogata','tbd:産業界ゲスト'], pair:true },
+  { t:'17:15', e:'17:25', type:'break', title:'Break' },
+  /* 追加枠: おざけん単身セッション（20分）。登壇は決定済み。テーマは調整中のため slotStatus で「登壇予定」と表示 */
+  { t:'17:25', e:'17:45', id:'solo', tag:'SPECIAL SESSION', title:'小澤 健祐（おざけん）単身セッション', who:['ozawa'], slotStatus:'登壇予定', note:'テーマは調整中' },
+  { t:'17:45', e:'17:55', id:'end', tag:'CLOSING', title:'総括・今後のご案内', who:['tbd:AI検定（仮称）に関する登壇'] },
+  { t:'17:55', e:'18:00', type:'break', title:'交流会会場へ移動' },
+  /* 交流会: 18:00–20:00、24F セミナー5-Bエリア */
+  { t:'18:00', e:'20:00', type:'party', id:'party', tag:'NETWORKING PARTY', title:'交流会', who:[], note:'会場：24F セミナー5-Bエリア' }
 ];
